@@ -1,0 +1,118 @@
+$breakpoints: (
+  'sm': 320px,
+  'med': 768px,
+  'lg': 1024px
+); 
+
+$color-bg: #f4e3cf; 
+$color-primary: #0b1c30;
+
+$color-secondary: #3772ff;
+$color-tertiary: #275dad;
+$color-mattered: #d68078;
+
+@font-face {
+  font-family: caslon;
+  src: url("/fonts/caslon-antique.bold.ttf");
+}
+
+body {
+
+  font-family: caslon;
+  overflow: hidden;
+  background-color: $color-bg;
+  
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+}
+
+
+button {
+  overflow: hidden;
+  position: relative;
+  width: 150px;
+  height: 75px;
+  border: none;
+  background-color: initial;
+  color: $color-primary;
+ 
+  background-image: url("/img/btn-1.png");
+
+  &::before {
+    position: absolute;
+    content: '';
+    width: 300px;
+    height: 150px;
+    top: -50%;
+    left: -50%;
+    z-index: -10;
+  }
+  &::after {
+    position: absolute;
+    content: '';
+    width: 300px;
+    height: 150px;
+    background-image: url("/img/stroke-cover.png");
+    top: -50%;
+    left: -50%;
+    z-index: -10;
+  }
+  &:hover {
+    font-size: 1.45em;
+    font-weight: bolder;
+    transition: font-size .2s ease-out;
+  }
+  &:hover::after {
+    transform: translateX(300px);
+    transition: transform .4s ease-out;   
+  }
+}
+
+.home-btn::before {
+  background-image: url("/img/btn-stroke-1.png");
+}
+
+.about-btn::before {
+  background-image: url("/img/btn-stroke-2.png");
+}
+
+.work-btn::before {
+  background-image: url("/img/btn-stroke-3.png");
+}
+
+.contact-btn::before {
+  background-image: url("/img/btn-stroke-4.png");
+}
+
+.btn-content {
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.4em;
+}
+
+.lines-left {
+  min-width: 130px;
+  height: 75px;
+  background-image: url("/img/btn-lines-1.png");
+  margin-right: -25px;
+}
+
+.lines-right {
+  transform: rotate(180deg);
+  min-width: 130px;
+  height: 75px;
+  background-image: url("/img/btn-lines-2.png");
+  margin-left: -25px;
+}
+
+
