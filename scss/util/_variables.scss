@@ -11,108 +11,208 @@ $color-secondary: #3772ff;
 $color-tertiary: #275dad;
 $color-mattered: #d68078;
 
-@font-face {
-  font-family: caslon;
-  src: url("/fonts/caslon-antique.bold.ttf");
-}
+// BORDER STYLE SNIPPETS ///////////////////////////////
 
 body {
+  position: relative;
+  overflow-x: hidden;
 
-  font-family: caslon;
-  overflow: hidden;
-  background-color: $color-bg;
-  
-  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 100px;
+  
+  height: 100vh;
+  width: 100%;
+  background-color: $color-bg;
 }
 
 img {
+  max-width: 100%;
+  height: auto;
+}
+
+.brdr-top {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 700px;
   width: 100%;
-  height: 100%;
+  height: 50px;
+  background-image: url('/img/brdr.png');
+  background-size: contain;
+  background-position: center;
 }
 
-
-button {
-  overflow: hidden;
-  position: relative;
-  width: 150px;
-  height: 75px;
-  border: none;
-  background-color: initial;
-  color: $color-primary;
- 
-  background-image: url("/img/btn-1.png");
-
-  &::before {
-    position: absolute;
-    content: '';
-    width: 300px;
-    height: 150px;
-    top: -50%;
-    left: -50%;
-    z-index: -10;
-  }
-  &::after {
-    position: absolute;
-    content: '';
-    width: 300px;
-    height: 150px;
-    background-image: url("/img/stroke-cover.png");
-    top: -50%;
-    left: -50%;
-    z-index: -10;
-  }
-  &:hover {
-    font-size: 1.45em;
-    font-weight: bolder;
-    transition: font-size .2s ease-out;
-  }
-  &:hover::after {
-    transform: translateX(300px);
-    transition: transform .4s ease-out;   
-  }
+.brdr-left {
+  position: absolute;
+  transform-origin: 0% 100%;
+  top: 0;
+  left: 0;
+  min-width: 700px;
+  width: 2000px;
+  height: 50px;
+  transform: rotate(90deg);
+  background-image: url('/img/brdr.png');
+  background-size: contain;
+  background-position: left;
 }
 
-.home-btn::before {
-  background-image: url("/img/btn-stroke-1.png");
+.brdr-right {
+  position: absolute;
+  transform-origin: 100% 100%;
+  top: 0;
+  right: 0;
+  min-width: 700px;
+  width: 2000px;
+  height: 50px;
+  transform: rotate(-90deg);
+  background-image: url('/img/brdr.png');
+  background-size: contain;
+  background-position: left;
 }
 
-.about-btn::before {
-  background-image: url("/img/btn-stroke-2.png");
+.brdr-tr {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 425px;
 }
 
-.work-btn::before {
-  background-image: url("/img/btn-stroke-3.png");
+.brdr-tl {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 425px;
+  transform: scaleX(-1);
+
 }
 
-.contact-btn::before {
-  background-image: url("/img/btn-stroke-4.png");
+.landing-img {
+  max-width: 50%;
+  caret-color: transparent;
 }
 
-.btn-content {
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.4em;
-}
+////////////////////////////////////////////////////////
 
-.lines-left {
-  min-width: 130px;
-  height: 75px;
-  background-image: url("/img/btn-lines-1.png");
-  margin-right: -25px;
-}
+// BUTTON STYLE SNIPPETS ///////////////////////////////
 
-.lines-right {
-  transform: rotate(180deg);
-  min-width: 130px;
-  height: 75px;
-  background-image: url("/img/btn-lines-2.png");
-  margin-left: -25px;
-}
+// @font-face {
+//   font-family: caslon;
+//   src: url("/fonts/caslon-antique.bold.ttf");
+// }
+
+// html {
+//   position: relative;
+// }
+
+// .invert-test {
+//   position: absolute;
+//   z-index: 20;
+//   height: 100vh;
+//   width: 50vw;
+//   right: 0;
+//   background-color: $color-bg;
+//   mix-blend-mode: exclusion;
+//   pointer-events: none;
+// }
+
+// body {
+//   font-family: caslon;
+//   overflow: hidden;
+//   background-color: $color-bg;
+//   height: 100vh;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   gap: 100px;
+// }
+
+// img {
+//   width: 100%;
+//   height: 100%;
+// }
+
+
+// button {
+//   overflow: hidden;
+//   position: relative;
+//   width: 150px;
+//   height: 75px;
+//   border: none;
+//   background-color: initial;
+//   color: $color-primary;
+//   background-image: url("/img/btn-1.png");
+
+//   &::before {
+//     position: absolute;
+//     content: '';
+//     width: 300px;
+//     height: 150px;
+//     top: -50%;
+//     left: -50%;
+//     z-index: -10;
+//   }
+//   &::after {
+//     position: absolute;
+//     content: '';
+//     width: 300px;
+//     height: 150px;
+//     background-image: linear-gradient(to right, transparent, $color-bg 10%);
+//     top: -50%;
+//     left: -50%;
+//     z-index: -10;
+//   }
+//   &:hover {
+//     font-size: 1.45em;
+//     font-weight: bolder;
+//     transition: font-size .2s ease-out;
+//   }
+//   &:hover::after {
+//     transform: translateX(100%);
+//     transition: transform .4s ease-out;   
+//   }
+// }
+
+// .home-btn::before {
+//   background-image: url("/img/btn-stroke-1.png");
+// }
+
+// .about-btn::before {
+//   background-image: url("/img/btn-stroke-2.png");
+// }
+
+// .work-btn::before {
+//   background-image: url("/img/btn-stroke-3.png");
+// }
+
+// .contact-btn::before {
+//   background-image: url("/img/btn-stroke-4.png");
+// }
+
+// .btn-content {
+//   overflow: hidden;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   font-size: 1.4em;
+// }
+
+// .lines-left {
+//   min-width: 130px;
+//   height: 75px;
+//   background-image: url("/img/btn-lines-1.png");
+//   margin-right: -25px;
+// }
+
+// .lines-right {
+//   transform: rotate(180deg);
+//   min-width: 130px;
+//   height: 75px;
+//   background-image: url("/img/btn-lines-2.png");
+//   margin-left: -25px;
+// }
+
+////////////////////////////////////////////////////////////////
 
 
