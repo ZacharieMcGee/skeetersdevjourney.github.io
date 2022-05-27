@@ -93,6 +93,14 @@ img {
   caret-color: transparent;
 }
 
+.overlay-invert {
+  position: absolute;
+  width: 100%;
+  height: 3100px;
+  background-color: $color-bg;
+  mix-blend-mode: multiply;
+}
+
 ////////////////////////////////////////////////////////
 
 // BUTTON STYLE SNIPPETS ///////////////////////////////

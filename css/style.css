@@ -75,6 +75,14 @@ img {
   caret-color: transparent;
 }
 
+.overlay-invert {
+  position: absolute;
+  width: 100%;
+  height: 3100px;
+  background-color: #f4e3cf;
+  mix-blend-mode: multiply;
+}
+
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
