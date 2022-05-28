@@ -80,7 +80,14 @@ img {
 }
 
 .landing-img {
-  max-width: 50%;
+  margin-right: 150px;
+  max-width: 40%;
+  caret-color: transparent;
+}
+
+.landing-name {
+  margin-left: 150px;
+  max-width: 30%;
   caret-color: transparent;
 }
 
