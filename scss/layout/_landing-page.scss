@@ -1,0 +1,82 @@
+/*----------------------------------
+Landing Page 
+----------------------------------*/
+
+@use "../util" as *;
+
+.landing-container {
+  position: relative;
+  caret-color: transparent;
+  @include flexo(
+    flex,
+    center,
+    center,
+  );
+  margin: 0 20px;
+}
+
+.landing-text-container {
+  @include flexo(
+    flex,
+    center,
+    flex-end,
+    column
+  ); 
+}
+
+
+.landing-img {
+  position: absolute;
+  min-width: 500px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 22%;
+}
+
+.landing-text {
+  font-size: 1.1em;
+  letter-spacing: .05em;
+  margin-right: 10px;
+}
+
+@include mq('sm') {
+  .landing-text {
+    font-size: 1.5em;
+  }
+}
+
+@include mq('med') {
+  .landing-container {
+    margin: 0 70px;
+  }
+}
+
+@include mq('lg') {
+  // .landing-img, .landing-text-container {
+  //   flex-grow: 1;
+  //   flex-basis: 0;
+  // }
+
+  
+
+  .landing-img {
+    position: initial;
+    min-width: 300px;
+    left: initial;
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  .landing-text {
+    font-size: 1.7em;
+  }
+}
+
+@include mq('xl') {
+  .landing-container {
+    margin: 0 100px;
+  }
+  .landing-text {
+    font-size: 2em;
+  }
+}

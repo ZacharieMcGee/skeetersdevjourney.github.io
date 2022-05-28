@@ -1,9 +1,16 @@
 @use 'variables' as *;
 
 @mixin mq($break) {
-  @media (min-width: map-get($breakpoints, $break)) {
-    @content;
+  @if ($break == 'min') {
+    @media (max-width: map-get($breakpoints, $break)) {
+      @content;
+    }
+  } @else {
+    @media (min-width: map-get($breakpoints, $break)) {
+      @content;
+    }
   }
+  
 }
 
 @mixin flexo( $flex: flex,

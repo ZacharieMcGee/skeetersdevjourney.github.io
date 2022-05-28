@@ -1,0 +1,120 @@
+/*----------------------------------
+Border Element Layout
+----------------------------------*/
+
+@use "../util" as *;
+
+.bg-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(100vh * 5);
+  background-image: url('/img/bg-pattern-2.png');
+  z-index: -20;
+}
+
+.brdr-left,
+.brdr-right {
+  display: none;
+}
+
+.brdr-top {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 700px;
+  width: 100%;
+  height: 50px;
+  background-image: url('/img/brdr-pattern.png');
+  background-size: contain;
+  background-position: center;
+}
+
+.brdr-left {
+  position: absolute;
+  transform-origin: 0% 100%;
+  top: 0;
+  left: 0;
+  min-width: 700px;
+  width: calc(100vh * 5);
+  height: 50px;
+  transform: rotate(90deg);
+  background-image: url('/img/brdr-pattern.png');
+  background-size: contain;
+  background-position: left;
+}
+
+.brdr-right {
+  position: absolute;
+  transform-origin: 100% 100%;
+  top: 0;
+  right: 0;
+  min-width: 700px;
+  width: calc(100vh * 5);
+  height: 50px;
+  transform: rotate(-90deg);
+  background-image: url('/img/brdr-pattern.png');
+  background-size: contain;
+  background-position: left;
+}
+
+.brdr-bottom {
+  position: absolute;
+  top: calc(100vh * 5);
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 700px;
+  width: 100%;
+  height: 50px;
+  background-image: url('/img/brdr-pattern.png');
+  background-size: contain;
+  background-position: center;
+}
+
+.brdr-corner {
+  display: none;
+  max-width: 400px;
+}
+
+.brdr-topleft {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: scaleX(-1);
+}
+
+.brdr-topright {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.brdr-bottomright {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: scaleX(-1);
+}
+
+.brdr-bottomleft {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+@include mq('med') {
+  .brdr-corner,
+  .brdr-left,
+  .brdr-right {
+    display: initial;
+  }
+
+}
+
+@include mq('xl') {
+  .brdr-corner {
+    max-width: 450px; 
+  }
+}

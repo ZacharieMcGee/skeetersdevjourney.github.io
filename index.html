@@ -5,48 +5,85 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/style.css">
-  <title>Document</title>
+
+  <!-- Create title icon -->
+  <title>Zacharie McGee</title>
   <!-- NOTE: sass --watch scss:css -->
 </head>
-<body>
-  <div class="bg-pattern"></div>
-  <div class="brdr-top"></div>
-  <div class="brdr-right"></div> 
-  <div class="brdr-left"></div> 
-  <img class="brdr-tl" src="/img/brdr-topcorner.png" alt>
-  <img class="brdr-tr" src="/img/brdr-topcorner.png" alt>
-  <img class="landing-name" src="/img/anims/name-anim.png" alt> 
-  <img class="landing-img" src="/img/landing.png" alt>
-  <div class="overlay-invert"></div>
+<body class="bg-pattern">
+
+  <!-- Header will contain all of the elements that 
+      compose the window border. Easier to maintain and true header 
+      will be combined with nav
+       -->
+  <header class="brdr-container">
+    <div class="brdr brdr-top"></div>
+    <div class="brdr brdr-right"></div> 
+    <div class="brdr brdr-left"></div> 
+    <div class="brdr brdr-bottom"></div> 
+    <img class="brdr-corner brdr-topleft" src="/img/brdr-topcorner.png" alt>
+    <img class="brdr-corner brdr-topright" src="/img/brdr-topcorner.png" alt>
+    <!-- <img class="brdr-corner brdr-bottomright" src="/img/brdr-topcorner.png" alt>
+    <img class="brdr-corner brdr-bottomleft" src="/img/brdr-topcorner.png" alt> -->
+    <div class="overlay-invert"></div>
+  </header>
+  
+  <nav class="navigation-container">
+    <div class="logo-name">
+      <img src="#" alt> <!-- logo -->
+      <img src="#" alt> <!-- name text -->
+    </div>
+    <button class="home-btn">
+      <div class="btn-content">
+        <div class="detail-l"></div>
+        <div class="btn-text">HOME</div>
+        <div class="detail-r"></div>
+      </div> 
+    </button>
+    <button class="about-btn">
+      <div class="btn-content">
+        <div class="detail-l"></div>
+        <div class="btn-text">ABOUT</div>
+        <div class="detail-r"></div>
+      </div> 
+    </button>
+    <button class="work-btn">
+      <div class="btn-content">
+        <div class="detail-l"></div>
+        <div class="btn-text">WORK</div>
+        <div class="detail-r"></div>
+      </div> 
+    </button>
+    <button class="contact-btn">
+      <div class="btn-content">
+        <div class="detail-l"></div>
+        <div class="btn-text">CONTACT</div>
+        <div class="detail-r"></div>
+      </div> 
+    </button>
+  </nav>
+
+  <main>
+
+    <section class="landing-container">
+      <div class="landing-text-container">
+        <img class="landing-name" src="/img/anims/landing-name.png" alt> 
+        <h2 class="landing-text">FRONT-END WEB DEVELOPER</h2>
+      </div>
+      <img class="landing-img" src="/img/landing.png" alt>
+    </section>
+
+    <section class="about-container"></section>
+
+    <section class="projects-container"></section>
+
+    <section class="components-container"></section>
+
+    <section class="contact-container"></section>
+
+  </main>
   <!--
-  <button class="home-btn">
-    <div class="btn-content">
-      <div class="lines-left"></div>
-      <div class="text">HOME</div>
-      <div class="lines-right"></div>
-    </div> 
-  </button>
-  <button class="about-btn">
-    <div class="btn-content">
-      <div class="lines-left"></div>
-      <div class="text">ABOUT</div>
-      <div class="lines-right"></div>
-    </div> 
-  </button>
-  <button class="work-btn">
-    <div class="btn-content">
-      <div class="lines-left"></div>
-      <div class="text">WORK</div>
-      <div class="lines-right"></div>
-    </div> 
-  </button>
-  <button class="contact-btn">
-    <div class="btn-content">
-      <div class="lines-left"></div>
-      <div class="text">CONTACT</div>
-      <div class="lines-right"></div>
-    </div> 
-  </button>
+
   <div class="invert-test"></div>
   -->
   <script src="js/main.js"></script> 

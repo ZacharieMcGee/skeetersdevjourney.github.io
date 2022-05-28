@@ -1,0 +1,33 @@
+/*----------------------------------
+Main Grid Layout
+----------------------------------*/
+
+@use "../util" as *;
+
+main {
+  @include grido(
+    100%,
+    repeat(5, 100vh)
+  );
+}
+
+.landing-container {
+  border-bottom: 10px solid blue;
+
+}
+
+.about-container {
+  border-bottom: 10px solid blue;
+}
+
+.projects-container {
+  border-bottom: 10px solid blue;
+}
+
+.components-container {
+  border-bottom: 10px solid blue;
+}
+
+.contact-container {
+  border-bottom: 10px solid blue;
+}
