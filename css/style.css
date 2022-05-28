@@ -307,6 +307,7 @@ Base Styling
 body {
   height: 100vh;
   width: 100%;
+  overflow-x: hidden;
 }
 
 .bg-pattern {
@@ -431,7 +432,7 @@ Border Element Layout
 
 .brdr-corner {
   display: none;
-  max-width: 400px;
+  max-width: 350px;
 }
 
 .brdr-topleft {
@@ -469,7 +470,7 @@ Border Element Layout
 }
 @media (min-width: 1200px) {
   .brdr-corner {
-    max-width: 450px;
+    max-width: 425px;
   }
 }
 /*----------------------------------

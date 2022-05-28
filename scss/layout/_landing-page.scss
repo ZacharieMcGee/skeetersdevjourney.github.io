@@ -52,13 +52,6 @@ Landing Page
 }
 
 @include mq('lg') {
-  // .landing-img, .landing-text-container {
-  //   flex-grow: 1;
-  //   flex-basis: 0;
-  // }
-
-  
-
   .landing-img {
     position: initial;
     min-width: 300px;

@@ -75,7 +75,7 @@ Border Element Layout
 
 .brdr-corner {
   display: none;
-  max-width: 400px;
+  max-width: 350px;
 }
 
 .brdr-topleft {
@@ -115,6 +115,6 @@ Border Element Layout
 
 @include mq('xl') {
   .brdr-corner {
-    max-width: 450px; 
+    max-width: 425px; 
   }
 }
