@@ -6,12 +6,21 @@ body {
   align-items: center;
   height: 100vh;
   width: 100%;
-  background-color: #f4e3cf;
 }
 
 img {
   max-width: 100%;
   height: auto;
+}
+
+.bg-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 8000px;
+  background-image: url("/img/bg-pattern-2.png");
+  z-index: -20;
 }
 
 .brdr-top {
@@ -22,7 +31,7 @@ img {
   min-width: 700px;
   width: 100%;
   height: 50px;
-  background-image: url("/img/brdr.png");
+  background-image: url("/img/brdr-pattern.png");
   background-size: contain;
   background-position: center;
 }
@@ -36,7 +45,7 @@ img {
   width: 2000px;
   height: 50px;
   transform: rotate(90deg);
-  background-image: url("/img/brdr.png");
+  background-image: url("/img/brdr-pattern.png");
   background-size: contain;
   background-position: left;
 }
@@ -50,7 +59,7 @@ img {
   width: 2000px;
   height: 50px;
   transform: rotate(-90deg);
-  background-image: url("/img/brdr.png");
+  background-image: url("/img/brdr-pattern.png");
   background-size: contain;
   background-position: left;
 }
@@ -73,14 +82,6 @@ img {
 .landing-img {
   max-width: 50%;
   caret-color: transparent;
-}
-
-.overlay-invert {
-  position: absolute;
-  width: 100%;
-  height: 3100px;
-  background-color: #f4e3cf;
-  mix-blend-mode: multiply;
 }
 
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
