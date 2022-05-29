@@ -17,7 +17,7 @@ Landing Page
 }
 
 .landing-text-container {
-  background: inherit;
+  position: relative;
   @include flexo(
     flex,
     center,
@@ -26,23 +26,43 @@ Landing Page
   ); 
 }
 
-.landing-img {
-  position: absolute;
-  min-width: 500px;
-  left: 50%;
-  transform: translateX(-50%);
-  opacity: 22%;
+@keyframes appear {
+  0% {
+    filter: blur(2px);
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.landing-text-container, .landing-img {
+  flex: 1;
 }
 
 .landing-text {
   font-size: 1.1em;
   letter-spacing: .05em;
   margin-right: 15px;
+  opacity: 0;
+  animation: appear .75s 3s forwards ease-out;
 }
+
+.landing-img {
+  position: absolute;
+  flex-grow: 1.2;
+  min-width: 500px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 22%;
+}
+
 
 .scroll-indicator {
   position: absolute;
-  bottom: 50px;
+  bottom: 50px; 
+  opacity: 0;
+  animation: appear 1.25s 5s forwards ease-out;
 }
 
 @include mq('sm') {
@@ -61,7 +81,6 @@ Landing Page
 @include mq('lg') {
   .landing-img {
     position: initial;
-    min-width: 300px;
     left: initial;
     transform: translateX(0);
     opacity: 1;

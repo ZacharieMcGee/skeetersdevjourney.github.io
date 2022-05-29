@@ -13,11 +13,11 @@ Border Element Layout
 
 .bg-pattern {
   position: absolute;
-  top: 0;
   left: 0;
+  top: 0;
   width: 100%;
   height: calc(100vh * 5);
-  background-image: url('/img/bg-pattern-2.png');
+  background-image: url('/img/bg-pattern.png');
   z-index: -20;
 }
 
