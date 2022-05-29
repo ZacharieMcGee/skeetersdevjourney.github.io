@@ -5,6 +5,7 @@ Landing Page
 @use "../util" as *;
 
 .landing-container {
+  overflow: hidden;
   position: relative;
   caret-color: transparent;
   @include flexo(
@@ -12,10 +13,11 @@ Landing Page
     center,
     center,
   );
-  margin: 0 20px;
+  padding: 0 20px;
 }
 
 .landing-text-container {
+  background: inherit;
   @include flexo(
     flex,
     center,
@@ -23,7 +25,6 @@ Landing Page
     column
   ); 
 }
-
 
 .landing-img {
   position: absolute;
@@ -36,7 +37,12 @@ Landing Page
 .landing-text {
   font-size: 1.1em;
   letter-spacing: .05em;
-  margin-right: 10px;
+  margin-right: 15px;
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 50px;
 }
 
 @include mq('sm') {
@@ -47,7 +53,8 @@ Landing Page
 
 @include mq('med') {
   .landing-container {
-    margin: 0 70px;
+    padding: 0 20px;
+    margin: 0 50px;
   }
 }
 
@@ -66,10 +73,14 @@ Landing Page
 }
 
 @include mq('xl') {
-  .landing-container {
-    margin: 0 100px;
-  }
   .landing-text {
     font-size: 2em;
+  }
+}
+
+// mq for phone and tablet screen orientation change
+@media screen and (max-width: 768px) and (orientation: landscape) {
+  .landing-container {
+    padding: 0 70px;
   }
 }

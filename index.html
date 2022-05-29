@@ -10,13 +10,14 @@
   <title>Zacharie McGee</title>
   <!-- NOTE: sass --watch scss:css -->
 </head>
-<body class="bg-pattern">
+<body>
 
   <!-- Header will contain all of the elements that 
       compose the window border. Easier to maintain and true header 
       will be combined with nav
        -->
-  <header class="brdr-container">
+  <aside class="brdr-container">
+    <div class="bg-pattern"></div>
     <div class="brdr brdr-top"></div>
     <div class="brdr brdr-right"></div> 
     <div class="brdr brdr-left"></div> 
@@ -26,42 +27,45 @@
     <!-- <img class="brdr-corner brdr-bottomright" src="/img/brdr-topcorner.png" alt>
     <img class="brdr-corner brdr-bottomleft" src="/img/brdr-topcorner.png" alt> -->
     <div class="overlay-invert"></div>
-  </header>
+  </aside>
   
-  <nav class="navigation-container">
+  <header>
     <div class="logo-name">
       <img src="#" alt> <!-- logo -->
       <img src="#" alt> <!-- name text -->
     </div>
-    <button class="home-btn">
-      <div class="btn-content">
-        <div class="detail-l"></div>
-        <div class="btn-text">HOME</div>
-        <div class="detail-r"></div>
-      </div> 
-    </button>
-    <button class="about-btn">
-      <div class="btn-content">
-        <div class="detail-l"></div>
-        <div class="btn-text">ABOUT</div>
-        <div class="detail-r"></div>
-      </div> 
-    </button>
-    <button class="work-btn">
-      <div class="btn-content">
-        <div class="detail-l"></div>
-        <div class="btn-text">WORK</div>
-        <div class="detail-r"></div>
-      </div> 
-    </button>
-    <button class="contact-btn">
-      <div class="btn-content">
-        <div class="detail-l"></div>
-        <div class="btn-text">CONTACT</div>
-        <div class="detail-r"></div>
-      </div> 
-    </button>
-  </nav>
+    <nav class="navigation-container">
+      <button class="home-btn">
+        <div class="btn-content">
+          <div class="detail-l"></div>
+          <div class="btn-text">HOME</div>
+          <div class="detail-r"></div>
+        </div> 
+      </button>
+      <button class="about-btn">
+        <div class="btn-content">
+          <div class="detail-l"></div>
+          <div class="btn-text">ABOUT</div>
+          <div class="detail-r"></div>
+        </div> 
+      </button>
+      <button class="work-btn">
+        <div class="btn-content">
+          <div class="detail-l"></div>
+          <div class="btn-text">WORK</div>
+          <div class="detail-r"></div>
+        </div> 
+      </button>
+      <button class="contact-btn">
+        <div class="btn-content">
+          <div class="detail-l"></div>
+          <div class="btn-text">CONTACT</div>
+          <div class="detail-r"></div>
+        </div> 
+      </button>
+    </nav>
+  </header>
+  
 
   <main>
 
@@ -71,6 +75,7 @@
         <h2 class="landing-text">FRONT-END WEB DEVELOPER</h2>
       </div>
       <img class="landing-img" src="/img/landing.png" alt>
+      <div class="scroll-indicator">PLEASE SCROLL</div>
     </section>
 
     <section class="about-container"></section>
