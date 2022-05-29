@@ -28,6 +28,7 @@ Landing Page
 
 @keyframes appear {
   0% {
+    transform: translateY(-75%);
     filter: blur(2px);
     opacity: 0;
   }
