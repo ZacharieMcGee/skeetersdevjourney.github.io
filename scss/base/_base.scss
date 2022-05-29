@@ -29,5 +29,15 @@ img {
 
 /* Hide scrollbar for Chrome, Safari and Opera */
 
+.overlay-WIP {
+  position: fixed;
+  top: 75px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 5em;
+  
+  opacity: 10%;
+  z-index: 100;
+}
 
 

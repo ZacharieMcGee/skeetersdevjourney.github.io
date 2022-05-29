@@ -5,5 +5,18 @@ Navigation Layout
 @use "../util" as *;
 
 header {
-  display: none;
+  position: absolute;
+  @include flexo(
+    flex,
+    space-between,
+    center
+  );
+  background-color: lightgreen;
+  width: 100%;
+  top: 100vh;
+}
+
+.sticky-header {
+  position: fixed;
+  top: 0;
 }
