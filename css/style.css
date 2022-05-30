@@ -152,6 +152,12 @@ input {
   overflow: visible;
 }
 
+button {
+  background-color: initial;
+  border: none;
+  padding: 0;
+}
+
 /* Remove the inheritance of text transform in Edge, Firefox, and IE.
  * 1. Remove the inheritance of text transform in Firefox. */
 button,
@@ -630,8 +636,8 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: lightgreen;
   width: 100%;
+  padding: 0 20px;
   height: 75px;
   top: 100vh;
 }
@@ -642,6 +648,7 @@ header {
 }
 
 .name-container img {
+  display: none;
   height: 40px;
 }
 
@@ -651,6 +658,10 @@ header {
 }
 
 @media (min-width: 768px) {
+  header {
+    padding: 0 55px;
+  }
+
   .full-name,
 .short-name {
     display: none;
@@ -680,6 +691,74 @@ About Page Layout
 /*----------------------------------
 Button Components
 ----------------------------------*/
+.navigation-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5px;
+}
+
+.btn-nav {
+  position: relative;
+  overflow: hidden;
+  width: 87px;
+  height: 45px;
+  font-size: 0.7em;
+  background-size: cover;
+  background-position: center;
+}
+.btn-nav:hover {
+  font-size: 1em;
+  font-weight: bold;
+  transition: font-size 0.4s ease-out;
+}
+
+.home-btn {
+  background-image: url("/img/header/btns/btn-brdr-1.png");
+}
+
+.about-btn {
+  background-image: url("/img/header/btns/btn-brdr-2.png");
+}
+
+.work-btn {
+  background-image: url("/img/header/btns/btn-brdr-1.png");
+}
+
+.contact-btn {
+  background-image: url("/img/header/btns/btn-brdr-2.png");
+}
+
+.btn-content {
+  pointer-events: none;
+  caret-color: transparent;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.detail-l,
+.detail-r {
+  width: 100px;
+  height: 50px;
+  background-size: contain;
+}
+
+.detail-l {
+  background-image: url("/img/header/btns/btn-details-1.png");
+  margin-right: -30px;
+}
+
+.detail-r {
+  background-image: url("/img/header/btns/btn-details-2.png");
+  transform: scale(-1);
+  margin-left: -30px;
+}
+
 /*----------------------------------
 Night Theme Overlay
 ----------------------------------*/

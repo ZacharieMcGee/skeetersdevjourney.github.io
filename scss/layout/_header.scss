@@ -11,8 +11,9 @@ header {
     space-between,
     center
   );
-  background-color: lightgreen;
+  // background-color: lightgreen;
   width: 100%;
+  padding: 0 20px;
   height: 75px;
   top: 100vh;
 }
@@ -23,6 +24,7 @@ header {
 }
 
 .name-container img {
+  display: none; // while making btns
   height: 40px;
 }
 
@@ -32,6 +34,9 @@ header {
 }
 
 @include mq('med') {
+  header {
+    padding: 0 55px;
+  }
   .full-name, 
   .short-name {
     display: none;
