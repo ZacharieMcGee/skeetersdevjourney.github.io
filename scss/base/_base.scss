@@ -23,6 +23,7 @@ body::-webkit-scrollbar {
 
 img {
   // general responsive images
+  display: block;
   max-width: 100%;
   height: auto;
 }
@@ -35,7 +36,6 @@ img {
   left: 50%;
   transform: translateX(-50%);
   font-size: 5em;
-  
   opacity: 10%;
   z-index: 100;
 }

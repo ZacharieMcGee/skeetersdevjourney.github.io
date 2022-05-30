@@ -17,6 +17,7 @@ Landing Page
 }
 
 .landing-text-container {
+  display: none;
   position: relative;
   @include flexo(
     flex,
@@ -58,12 +59,44 @@ Landing Page
   opacity: 22%;
 }
 
-
 .scroll-indicator {
   position: absolute;
-  bottom: 50px; 
+  bottom: 60px; 
+}
+
+.scroll-text {   
+  display: none;
   opacity: 0;
-  animation: appear 1.25s 5s forwards ease-out;
+  animation: appear .6s 4s forwards ease-out;
+  font-size: 1.1em;
+  letter-spacing: .1em;
+  
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-image: url('/img/header/scroll-detail.png');
+    background-size: contain;
+  }
+
+  &::before {
+    transform: scaleX(-1) translateX(calc(100% + 5px));
+  }
+
+  &::after {
+    transform: translateX(5px);
+  }
+}
+
+.arrow-anim {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -35%) scale(1.5);
+  z-index: -1;
 }
 
 @include mq('sm') {
@@ -76,6 +109,15 @@ Landing Page
   .landing-container {
     padding: 0 20px;
     margin: 0 50px;
+  }
+
+  .scroll-text {
+    font-size: 1.4em;
+    &::before,
+    &::after {
+      width: 20px;
+      height: 20px;
+    }
   }
 }
 

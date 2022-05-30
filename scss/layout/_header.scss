@@ -13,10 +13,40 @@ header {
   );
   background-color: lightgreen;
   width: 100%;
+  height: 75px;
   top: 100vh;
 }
 
 .sticky-header {
   position: fixed;
   top: 0;
+}
+
+.name-container img {
+  height: 40px;
+}
+
+.full-name, 
+.half-name {
+  display: none;
+}
+
+@include mq('med') {
+  .full-name, 
+  .short-name {
+    display: none;
+  }
+  .half-name {
+    display: block;
+  }
+}
+
+@include mq('lg') {
+  .half-name, 
+  .short-name {
+    display: none;
+  }
+  .full-name {
+    display: block;
+  }
 }

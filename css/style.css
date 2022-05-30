@@ -1,19 +1,3 @@
-@font-face {
-  font-family: caslon-reg;
-  src: url("/fonts/caslon-antique.regular.ttf");
-}
-@font-face {
-  font-family: caslon-bold;
-  src: url("/fonts/caslon-antique.bold.ttf");
-}
-@font-face {
-  font-family: caslon-italic;
-  src: url("/fonts/caslon-antique.italic.ttf");
-}
-@font-face {
-  font-family: caslon-bolditalic;
-  src: url("/fonts/caslon-antique.bolditalic.ttf");
-}
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
@@ -51,6 +35,7 @@ h1 {
 
 h2, h3, h4, h5, h6, p {
   margin: 0;
+  padding: 0;
 }
 
 /* Grouping content
@@ -320,6 +305,7 @@ body::-webkit-scrollbar {
 }
 
 img {
+  display: block;
   max-width: 100%;
   height: auto;
 }
@@ -335,6 +321,25 @@ img {
   z-index: 100;
 }
 
+/*----------------------------------
+Typography
+----------------------------------*/
+@font-face {
+  font-family: caslon-reg;
+  src: url("/fonts/caslon-antique.regular.ttf");
+}
+@font-face {
+  font-family: caslon-bold;
+  src: url("/fonts/caslon-antique.bold.ttf");
+}
+@font-face {
+  font-family: caslon-italic;
+  src: url("/fonts/caslon-antique.italic.ttf");
+}
+@font-face {
+  font-family: caslon-bolditalic;
+  src: url("/fonts/caslon-antique.bolditalic.ttf");
+}
 /*----------------------------------
 Main Grid Layout
 ----------------------------------*/
@@ -360,28 +365,35 @@ main {
   border-bottom: 2px solid purple;
 }
 
-.contact-container {
-  border-bottom: 2px solid blue;
-}
-
 /*----------------------------------
 Border Element Layout
 ----------------------------------*/
-.brdr-container {
+.brdr-container,
+.bg-pattern,
+.brdr-top,
+.brdr-bottom,
+.brdr-left,
+.brdr-right,
+.brdr-topleft,
+.brdr-topright,
+.brdr-bottomright,
+.brdr-bottomleft {
   position: absolute;
-  overflow-x: hidden;
-  width: 100%;
-  height: 500vh;
 }
 
 .bg-pattern {
-  position: absolute;
   left: 0;
   top: 0;
   width: 100%;
   height: 500vh;
-  background-image: url("/img/bg-pattern.png");
+  background-image: url("/img/border/bg-pattern.png");
   z-index: -20;
+}
+
+.brdr-container {
+  overflow-x: hidden;
+  width: 100%;
+  height: 500vh;
 }
 
 .brdr-left,
@@ -389,57 +401,44 @@ Border Element Layout
   display: none;
 }
 
+.brdr {
+  min-width: 700px;
+  height: 50px;
+  background-image: url("/img/border/brdr.png");
+  background-size: contain;
+}
+
 .brdr-top {
-  position: absolute;
   top: 0;
   left: 50%;
   transform: translateX(calc(-50% + 10px));
-  min-width: 700px;
   width: 100%;
-  min-height: 50px;
-  background-image: url("/img/brdr-pattern.png");
-  background-size: contain;
   background-position: center;
 }
 
 .brdr-bottom {
-  position: absolute;
   bottom: 0;
   left: 50%;
   transform: translateX(calc(-50% + 10px));
-  min-width: 700px;
   width: 100%;
-  height: 50px;
-  background-image: url("/img/brdr-pattern.png");
-  background-size: contain;
   background-position: center;
 }
 
 .brdr-left {
-  position: absolute;
   transform-origin: 0% 100%;
   top: -50px;
   left: 0;
-  min-width: 700px;
   width: 500vh;
-  height: 50px;
   transform: rotate(90deg);
-  background-image: url("/img/brdr-pattern.png");
-  background-size: contain;
   background-position: left;
 }
 
 .brdr-right {
-  position: absolute;
   transform-origin: 100% 100%;
   top: -50px;
   right: 0;
-  min-width: 700px;
   width: 500vh;
-  height: 50px;
   transform: rotate(-90deg);
-  background-image: url("/img/brdr-pattern.png");
-  background-size: contain;
   background-position: right;
 }
 
@@ -449,29 +448,25 @@ Border Element Layout
 }
 
 .brdr-topleft {
-  position: absolute;
   top: 0;
   left: 0;
   transform: scaleX(-1);
 }
 
 .brdr-topright {
-  position: absolute;
   top: 0;
   right: 0;
 }
 
 .brdr-bottomright {
-  position: absolute;
-  top: 0;
-  left: 0;
+  bottom: 0;
+  right: 0;
   transform: scaleX(-1);
 }
 
 .brdr-bottomleft {
-  position: absolute;
-  top: 0;
-  right: 0;
+  bottom: 0;
+  left: 0;
 }
 
 @media (min-width: 768px) {
@@ -511,6 +506,7 @@ Landing Page
 }
 
 .landing-text-container {
+  display: none;
   position: relative;
   display: flex;
   justify-content: center;
@@ -551,9 +547,38 @@ Landing Page
 
 .scroll-indicator {
   position: absolute;
-  bottom: 50px;
+  bottom: 60px;
+}
+
+.scroll-text {
+  display: none;
   opacity: 0;
-  animation: appear 1.25s 5s forwards ease-out;
+  animation: appear 0.6s 4s forwards ease-out;
+  font-size: 1.1em;
+  letter-spacing: 0.1em;
+}
+.scroll-text::before, .scroll-text::after {
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background-image: url("/img/header/scroll-detail.png");
+  background-size: contain;
+}
+.scroll-text::before {
+  transform: scaleX(-1) translateX(calc(100% + 5px));
+}
+.scroll-text::after {
+  transform: translateX(5px);
+}
+
+.arrow-anim {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -35%) scale(1.5);
+  z-index: -1;
 }
 
 @media (min-width: 481px) {
@@ -565,6 +590,14 @@ Landing Page
   .landing-container {
     padding: 0 20px;
     margin: 0 50px;
+  }
+
+  .scroll-text {
+    font-size: 1.4em;
+  }
+  .scroll-text::before, .scroll-text::after {
+    width: 20px;
+    height: 20px;
   }
 }
 @media (min-width: 1024px) {
@@ -599,6 +632,7 @@ header {
   align-items: center;
   background-color: lightgreen;
   width: 100%;
+  height: 75px;
   top: 100vh;
 }
 
@@ -607,8 +641,47 @@ header {
   top: 0;
 }
 
+.name-container img {
+  height: 40px;
+}
+
+.full-name,
+.half-name {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .full-name,
+.short-name {
+    display: none;
+  }
+
+  .half-name {
+    display: block;
+  }
+}
+@media (min-width: 1024px) {
+  .half-name,
+.short-name {
+    display: none;
+  }
+
+  .full-name {
+    display: block;
+  }
+}
+/*----------------------------------
+About Page Layout
+----------------------------------*/
+.about-anim, .contact-anim {
+  display: none;
+}
+
 /*----------------------------------
 Button Components
+----------------------------------*/
+/*----------------------------------
+Night Theme Overlay
 ----------------------------------*/
 
 /*# sourceMappingURL=style.css.map */

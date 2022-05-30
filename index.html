@@ -18,10 +18,10 @@
     <div class="brdr brdr-right"></div> 
     <div class="brdr brdr-left"></div> 
     <div class="brdr brdr-bottom"></div> 
-    <img class="brdr-corner brdr-topleft" src="/img/brdr-topcorners.png" alt>
-    <img class="brdr-corner brdr-topright" src="/img/brdr-topcorners.png" alt>
-    <!-- <img class="brdr-corner brdr-bottomright" src="/img/brdr-topcorner.png" alt>
-    <img class="brdr-corner brdr-bottomleft" src="/img/brdr-topcorner.png" alt> -->
+    <img class="brdr-corner brdr-topleft" src="/img/border/brdr-topcorners.png" alt>
+    <img class="brdr-corner brdr-topright" src="/img/border/brdr-topcorners.png" alt>
+    <img class="brdr-corner brdr-bottomright" src="/img/border/brdr-bottomcorners.png" alt>
+    <img class="brdr-corner brdr-bottomleft" src="/img/border/brdr-bottomcorners.png" alt>
     <div class="overlay-WIP">
       <h1>WIP</h1>
     </div>
@@ -30,10 +30,14 @@
   
   <header id="my-header">
     <div class="logo-name">
-      <img src="#" alt> <!-- logo -->
-      <img src="#" alt> <!-- name text -->
+      <div class="name-container">
+        <img class="full-name" src="/img/header/full-name.png" alt="">
+        <img class="half-name" src="/img/header/half-name.png" alt="">
+        <img class="short-name" src="/img/header/short-name.png" alt="">
+      </div>
     </div>
-    <nav class="navigation-container">
+    <nav class="navigation-container" draggable="true">
+      <div class="hamburger"></div>
       <button class="home-btn">
         <div class="btn-content">
           <div class="detail-l"></div>
@@ -69,20 +73,31 @@
   <main>
     <section class="landing-container">
       <div class="landing-text-container">
-        <img class="landing-name" src="/img/anims/landing-name.png" alt> 
+        <img class="landing-name" src="/img/anims/name-anim.png" alt> 
         <h2 class="landing-text">FRONT-END WEB DEVELOPER</h2>
       </div>
       <img class="landing-img" src="/img/landing-img.png" alt>
-      <div class="scroll-indicator">PLEASE SCROLL</div>
+      <div class="scroll-indicator">
+        <h3 class="scroll-text">SCROLL</h3>
+        <img class="arrow-anim" src="/img/anims/arrow-anim.png" alt="">
+      </div>
     </section>
 
-    <section class="about-container"></section>
+    <section class="about-container">
+      <div class="about-title">
+        <img class="about-anim" src="/img/anims/about-anim.png" alt>
+      </div>
+    </section>
 
     <section class="projects-container"></section>
 
     <section class="components-container"></section>
 
-    <section class="contact-container"></section>
+    <section class="contact-container">
+      <div class="contact-title">
+        <img class="contact-anim" src="/img/anims/contact-anim.png" alt>
+      </div>
+    </section>
   </main>
   <!--
 
