@@ -319,6 +319,8 @@ img {
 /* Hide scrollbar for Chrome, Safari and Opera */
 .overlay-WIP {
   position: fixed;
+  pointer-events: none;
+  caret-color: transparent;
   top: 75px;
   left: 50%;
   transform: translateX(-50%);
@@ -371,6 +373,16 @@ main {
   border-bottom: 2px solid purple;
 }
 
+section {
+  padding: 120px 10px 10px;
+}
+
+@media (min-width: 768px) {
+  section {
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+}
 /*----------------------------------
 Border Element Layout
 ----------------------------------*/
@@ -408,7 +420,6 @@ Border Element Layout
 }
 
 .brdr {
-  min-width: 700px;
   height: 50px;
   background-image: url("/img/border/brdr.png");
   background-size: contain;
@@ -418,7 +429,8 @@ Border Element Layout
   top: 0;
   left: 50%;
   transform: translateX(calc(-50% + 10px));
-  width: 100%;
+  width: 110%;
+  min-width: 800px;
   background-position: center;
 }
 
@@ -426,7 +438,8 @@ Border Element Layout
   bottom: 0;
   left: 50%;
   transform: translateX(calc(-50% + 10px));
-  width: 100%;
+  width: 110%;
+  min-width: 800px;
   background-position: center;
 }
 
@@ -578,7 +591,7 @@ Landing Page
   transform: translateX(5px);
 }
 
-.arrow-anim {
+.arrow {
   display: none;
   position: absolute;
   top: 50%;
@@ -633,13 +646,13 @@ Navigation Layout
 ----------------------------------*/
 header {
   position: absolute;
+  overflow: hidden;
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 0 20px;
-  height: 75px;
   top: 100vh;
+  padding: 10px 10px 60px 10px;
 }
 
 .sticky-header {
@@ -647,8 +660,25 @@ header {
   top: 0;
 }
 
+.navigation-container {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+  top: 60px;
+  right: -350px;
+  opacity: 0;
+  transition: right 0.4s ease-out, opacity 0.5s;
+}
+
+.show-nav {
+  right: 3px;
+  opacity: 1;
+  transition: right 0.4s cubic-bezier(0.5, -0.41, 0.54, 1.38), opacity 1s;
+}
+
 .name-container img {
-  display: none;
   height: 40px;
 }
 
@@ -657,9 +687,20 @@ header {
   display: none;
 }
 
+@media (min-width: 481px) {
+  .navigation-container {
+    gap: 5px;
+  }
+
+  .show-nav {
+    right: 10px;
+  }
+}
 @media (min-width: 768px) {
   header {
-    padding: 0 55px;
+    width: calc(100% - 90px);
+    padding: 10px 10px 55px 10px;
+    margin: 0 45px;
   }
 
   .full-name,
@@ -670,6 +711,10 @@ header {
   .half-name {
     display: block;
   }
+
+  .show-nav {
+    right: 15px;
+  }
 }
 @media (min-width: 1024px) {
   .half-name,
@@ -679,6 +724,22 @@ header {
 
   .full-name {
     display: block;
+  }
+
+  .navigation-container {
+    position: relative;
+    top: initial;
+    right: initial;
+  }
+
+  .hamburger {
+    display: none;
+  }
+}
+@media screen and (max-width: 768px) and (orientation: landscape) {
+  header {
+    width: calc(100% - 130px);
+    margin: 0 65px;
   }
 }
 /*----------------------------------
@@ -691,74 +752,104 @@ About Page Layout
 /*----------------------------------
 Button Components
 ----------------------------------*/
-.navigation-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 5px;
-}
-
-.btn-nav {
+.btn {
   position: relative;
-  overflow: hidden;
-  width: 87px;
-  height: 45px;
-  font-size: 0.7em;
-  background-size: cover;
-  background-position: center;
 }
-.btn-nav:hover {
+.btn > * {
+  pointer-events: none;
+  caret-color: transparent;
+}
+.btn:hover .btn-cont {
   font-size: 1em;
   font-weight: bold;
   transition: font-size 0.4s ease-out;
 }
 
-.home-btn {
-  background-image: url("/img/header/btns/btn-brdr-1.png");
-}
-
-.about-btn {
-  background-image: url("/img/header/btns/btn-brdr-2.png");
-}
-
-.work-btn {
-  background-image: url("/img/header/btns/btn-brdr-1.png");
-}
-
-.contact-btn {
-  background-image: url("/img/header/btns/btn-brdr-2.png");
-}
-
-.btn-content {
-  pointer-events: none;
-  caret-color: transparent;
+.stroke-anim {
+  display: none;
   position: absolute;
+  min-width: 150px;
+  min-height: 75px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  z-index: -10;
+}
+
+.btn-cont {
+  overflow: hidden;
+  position: relative;
+  background-size: cover;
+  background-position: center;
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 77px;
+  height: 40px;
+  font-size: 0.8em;
+}
+
+.btn-flex {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-text {
+  padding-top: 4px;
+}
+
+.home-cont {
+  background-image: url("/img/header/btns/btn-brdr-1.png");
+}
+
+.about-cont {
+  background-image: url("/img/header/btns/btn-brdr-2.png");
+}
+
+.work-cont {
+  background-image: url("/img/header/btns/btn-brdr-1.png");
+}
+
+.contact-cont {
+  background-image: url("/img/header/btns/btn-brdr-2.png");
 }
 
 .detail-l,
 .detail-r {
   width: 100px;
   height: 50px;
-  background-size: contain;
+  background-size: cover;
 }
 
 .detail-l {
   background-image: url("/img/header/btns/btn-details-1.png");
-  margin-right: -30px;
+  margin-right: -32px;
 }
 
 .detail-r {
   background-image: url("/img/header/btns/btn-details-2.png");
   transform: scale(-1);
-  margin-left: -30px;
+  margin-left: -32px;
 }
 
+.hamburger {
+  cursor: pointer;
+  padding: 5px;
+}
+
+@media (min-width: 1024px) {
+  .btn-cont {
+    width: 95px;
+    height: 50px;
+  }
+
+  .stroke-anim {
+    min-width: 200px;
+    min-height: 100px;
+  }
+}
 /*----------------------------------
 Night Theme Overlay
 ----------------------------------*/

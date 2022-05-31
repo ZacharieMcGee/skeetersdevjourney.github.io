@@ -26,3 +26,14 @@ main {
 .components-container {
   border-bottom: 2px solid purple;
 }
+
+section {
+  padding: 120px 10px 10px;
+}
+
+@include mq('med') {
+  section {
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+}

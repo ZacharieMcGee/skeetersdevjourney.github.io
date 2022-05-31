@@ -40,7 +40,6 @@ Border Element Layout
 }
 
 .brdr {
-  min-width: 700px;
   height: 50px;
   background-image: url('/img/border/brdr.png');
   background-size: contain;
@@ -50,7 +49,8 @@ Border Element Layout
   top: 0;
   left: 50%;
   transform: translateX(calc(-50% + 10px));
-  width: 100%;
+  width: 110%;
+  min-width: 800px;
   background-position: center;
 }
 
@@ -58,7 +58,8 @@ Border Element Layout
   bottom: 0;
   left: 50%;
   transform: translateX(calc(-50% + 10px));
-  width: 100%;
+  width: 110%;
+  min-width: 800px;
   background-position: center;
 }
 
