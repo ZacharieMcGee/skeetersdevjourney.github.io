@@ -19,20 +19,15 @@ Border Element Layout
   position: absolute;
 }
 
-.bg-pattern {
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: calc(100vh * 5);
-  background-image: url('/img/border/bg-pattern.png');
-  z-index: -20;
-}
-
 .brdr-container {
   overflow-x: hidden;
   width: 100%;
   height: calc(100vh * 5);
+  background-image: url('/img/border/bg.png');
+  background-size: 100%;
+  z-index: -20;
 }
+
 
 .brdr-left,
 .brdr-right {

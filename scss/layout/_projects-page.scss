@@ -1,0 +1,16 @@
+/*----------------------------------
+Projects Page Layout
+----------------------------------*/
+
+@use "../util" as *;
+
+.projects-list {
+  list-style: none;
+  @include flexo(
+    flex, 
+    flex-start, 
+    center
+  );
+  // background-color: $color-bg;
+  // mix-blend-mode: difference;
+}

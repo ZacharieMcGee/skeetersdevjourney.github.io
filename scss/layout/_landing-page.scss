@@ -42,8 +42,12 @@ Landing Page
   flex: 1;
 }
 
+.landing-name {
+  width: 100%;
+}
+
 .landing-text {
-  font-size: 1.1em;
+  font-size: 1em;
   letter-spacing: .05em;
   margin-right: 15px;
   opacity: 0;

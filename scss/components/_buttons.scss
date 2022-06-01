@@ -92,12 +92,18 @@ Button Components
   margin-left: -32px;
 }
 
-.hamburger {
-  cursor: pointer;
+svg {
+  display: block;
   padding: 5px;
+  width: 30px;
+  height: 30px;
 }
 
-@include mq('lg') {
+.moon-svg {
+  display: none;
+}
+
+@include mq('med') {
   .btn-cont {
     width: 95px;
     height: 50px;

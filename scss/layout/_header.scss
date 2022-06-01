@@ -14,7 +14,9 @@ header {
   );
   width: 100%;
   top: 100vh;
-  padding: 10px 10px 60px 10px;
+
+  // padding: 10px 10px 60px 10px;
+  padding: 10px;
 }
 
 .sticky-header {
@@ -28,61 +30,68 @@ header {
     flex,
     center,
     center,
-    $gap: 2px
+    $gap: 3px
   );
-  top: 60px;
-  right: -350px;
-  opacity: 0;
-  transition: right .4s ease-out,
-              opacity .5s;
 }
 
 .show-nav {
-  right: 3px;
-  opacity: 1;
-  transition: right .4s cubic-bezier(.5,-0.41,.54,1.38),
-              opacity 1s;
+  right: 0;
+  transition: right .3s ease-out;
+  .hamburger {
+    margin-right: 0px;
+    transition: margin-right .3s ease-out;
+  }
+}
+
+.hide-nav {
+  right: -360px;
+  transition: right .3s ease-out;
+  .hamburger {
+    margin-right: 100px;
+    transition: margin-right .3s ease-out;
+  }
 }
 
 .name-container img {
-  height: 40px;
+  height: 28px;
 }
 
-.full-name, 
-.half-name {
+.full-name {
   display: none;
+}
+
+.show-name {
+  opacity: 1;
+  transition: opacity .2s ease-out;
+}
+
+.fade-name {
+  opacity: 0;
+  transition: opacity .2s ease-out;
 }
 
 @include mq('sm') {
   .navigation-container {
     gap: 5px;
   }
-  .show-nav {
-    right: 10px;
-  }
 }
 
 @include mq('med') {
   header {
     width: calc(100% - 90px);
-    padding: 10px 10px 55px 10px;
+    padding: 10px;
     margin: 0 45px;
   }
-  .full-name, 
-  .short-name {
+  .full-name {
     display: none;
   }
   .half-name {
     display: block;
   }
-  .show-nav {
-    right: 15px;
-  }
 }
 
 @include mq('lg') {
-  .half-name, 
-  .short-name {
+  .half-name {
     display: none;
   }
   .full-name {
