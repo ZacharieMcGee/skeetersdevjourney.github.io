@@ -133,23 +133,23 @@ function adjustScreenPosition() {
 Page Title Gif Control
 ----------------------------------*/
 
-// display block from none will start anim from beginning
-const about = document.querySelector('.about-anim');
-const projects = document.querySelector('.projects-anim');
-const contact = document.querySelector('.contact-anim');
+// // display block from none will start anim from beginning
+// const about = document.querySelector('.about-anim');
+// const projects = document.querySelector('.projects-anim');
+// const contact = document.querySelector('.contact-anim');
 
-window.addEventListener('keyup', (e) => {
-  if (e.key == '1') {
-    about.style.display = 'block';
-  } else if (e.key == '2') {
+// window.addEventListener('keyup', (e) => {
+//   if (e.key == '1') {
+//     about.style.display = 'block';
+//   } else if (e.key == '2') {
 
-  } else if (e.key == '3') {
+//   } else if (e.key == '3') {
     
-  } else if (e.key == '4') {
-    contact.style.display = 'block';
-  }
+//   } else if (e.key == '4') {
+//     contact.style.display = 'block';
+//   }
   
-});
+// });
 
 /*----------------------------------
 Navigation Buttons

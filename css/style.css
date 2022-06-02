@@ -288,6 +288,10 @@ template {
   display: none;
 }
 
+ul {
+  list-style: none;
+}
+
 /*----------------------------------
 Typography
 ----------------------------------*/
@@ -377,7 +381,7 @@ main {
 }
 
 section {
-  padding: 120px 10px 10px;
+  padding: 90px 10px 10px;
 }
 
 @media (min-width: 768px) {
@@ -753,10 +757,6 @@ header {
 /*----------------------------------
 About Page Layout
 ----------------------------------*/
-.about-anim, .contact-anim {
-  display: none;
-}
-
 /*----------------------------------
 Projects Page Layout
 ----------------------------------*/
