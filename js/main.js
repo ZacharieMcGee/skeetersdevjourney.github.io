@@ -56,10 +56,10 @@ function go() {
 Landing Page
 ----------------------------------*/
 
-// window.scroll({
-//   top: 0,
-//   behavior: "smooth"
-// });
+window.scroll({
+  top: 0,
+  behavior: "smooth"
+});
 
 /*----------------------------------
 Header Position Change / Auto
@@ -75,8 +75,6 @@ let p1Limit = screenHeight / 2;
 let p2Limit = p1Limit * 3;
 let p3Limit = p1Limit * 5;
 let p4Limit = p1Limit * 7;
-
-
 
 let timerID; 
 
@@ -158,12 +156,13 @@ Navigation Buttons
 const aboutBtn = document.querySelector('.about-btn-container');
 const workBtn = document.querySelector('.work-btn-container');
 const contactBtn = document.querySelector('.contact-btn-container');
+const stroke1 = document.querySelector('.stroke-1');
 const stroke2 = document.querySelector('.stroke-2');
 const stroke3 = document.querySelector('.stroke-3');
-const stroke4 = document.querySelector('.stroke-4');
+
 
 aboutBtn.addEventListener('click', () => {
-  animReset(stroke3);
+  animReset(stroke1);
   window.scroll({
     top: screenHeight,
     behavior: "smooth"
@@ -177,7 +176,7 @@ workBtn.addEventListener('click', () => {
   });
 })
 contactBtn.addEventListener('click', () => {
-  animReset(stroke4);
+  animReset(stroke3);
   window.scroll({
     top: screenHeight * 4,
     behavior: "smooth"
