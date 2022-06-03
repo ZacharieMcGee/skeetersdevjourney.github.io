@@ -19,8 +19,8 @@ Night Theme Overlay
   z-index: 200;
   width: 100%;
   height: calc(100vh * 5);
-  background-color: $color-bg;
-  mix-blend-mode: exclusion;
+  background-color: #fff;
+  mix-blend-mode: difference;
 }
 
 .show-theme-overlay {
