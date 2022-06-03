@@ -8,3 +8,88 @@ About Page Layout
 //   display: none;
 // }
 
+
+.about-container {
+  position: relative;
+  overflow: hidden;
+  caret-color: transparent;
+  @include flexo(
+    flex,
+    center,
+    center
+  );
+  margin-top: 80px;
+}
+
+.about-text-container, .about-img {
+  flex: 1;
+}
+
+.about-text-container {
+  max-width: 600px;
+  text-align: justify;
+}
+
+.about-anim {
+  padding-bottom: 15px;
+}
+
+.about-p1, .about-p2 {
+  font-size: 1.3em;
+  letter-spacing: .05em;
+  // color: rgba(0, 0, 0, .8);
+  padding: 10px;
+}
+
+.text-bg {
+  background-color: rgba(220, 220, 220, .5);
+  box-shadow: 0 0 15px 10px rgba(220, 220, 220, .5);
+  border-radius: 10px;
+}
+
+.about-img {
+  position: absolute;
+  z-index: -1;
+  min-width: 500px;
+  max-width: 800px;
+  // left: 50%;
+  // transform: translateX(-50%);
+  transform: scaleX(-1);
+  opacity: 30%;
+}
+
+.socials-container {
+  @include flexo(
+    flex, center, center
+  );
+  & > * {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+@include mq('lg') {
+  .about-container {
+    margin-left: 50px;
+    margin-right: 50px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .about-img {
+    position: initial;
+    transform: scaleX(1);
+    opacity: 1;
+  }
+
+  .text-bg {
+    background-color: initial;
+    box-shadow: none;
+  }
+
+  .about-p1, .about-p2 {
+    font-size: 1.5em;
+    background: none;
+    color: initial;
+  }
+}

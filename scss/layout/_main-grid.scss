@@ -28,12 +28,12 @@ main {
 }
 
 section {
-  padding: 90px 10px 10px;
+  padding: 10px;
 }
 
-@include mq('med') {
-  section {
-    padding-left: 60px;
-    padding-right: 60px;
-  }
-}
+// @include mq('med') {
+//   section {
+//     padding-left: 60px;
+//     padding-right: 60px;
+//   }
+// }
