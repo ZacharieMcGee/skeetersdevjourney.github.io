@@ -95,8 +95,8 @@ Button Components
 svg {
   display: block;
   padding: 5px;
-  width: 30px;
-  height: 30px;
+  min-width: 30px;
+  min-height: 30px;
 }
 
 .moon-svg {
