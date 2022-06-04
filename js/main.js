@@ -56,10 +56,10 @@ function go() {
 Landing Page
 ----------------------------------*/
 
-window.scroll({
-  top: 0,
-  behavior: "smooth"
-});
+// window.scroll({
+//   top: 0,
+//   behavior: "smooth"
+// });
 
 /*----------------------------------
 Header Position Change / Auto
@@ -238,34 +238,91 @@ themeBtn.addEventListener('click', () => {
 Project List Horizontal Scroll
 ----------------------------------*/
 
+// This is all working but it feels horribly bloated
 const projectList = document.querySelector(".projects-list");
+const projects = document.querySelectorAll('.project');
+let focusedProject = '';
 
-projectList.addEventListener("wheel", (e) => {
-    e.preventDefault();
-    projectList.scrollLeft += e.deltaY;
+window.addEventListener('click', (e) => {
+  if (e.target.parentNode.parentNode !== projectList) {
+    projects.forEach(project => {
+      project.classList.remove('fade-proj');
+      project.classList.remove('grow-proj');
+      focusedProject = '';
+    });
+  }
+})
+
+projectList.addEventListener('mouseover', (e) => {
+  projects.forEach(project => {
+    if (project == e.target.parentNode) {
+      showProj(project);
+    } else {
+      hideProj(project);
+    }
+  })
 });
 
-// const projectList = document.querySelector('.projects-list');
-// const projects = document.querySelectorAll('.project');
+projectList.addEventListener('wheel', (e) => {
+  e.preventDefault();
+  if (focusedProject == '') {
+    focusedProject = projects[0];
+    projects.forEach(project => {
+    if (project == projects[0]) {
+      showProj(project);
+    } else {
+      hideProj(project);
+    }
+    });
+  } else {
+    checkFocusedProject();
+    showNextProj(e);
+  }
+});
 
-// projectList.addEventListener('mouseover', (e) => {
-//   let p = e.target.parentNode;
-//   // if (p.target.parentNode.className ) {
+function showProj(project) {
+  project.classList.remove('fade-proj');
+  project.classList.add('grow-proj');
+}
 
-//   // }
-//   console.log(p.parentNode);
-//   console.log(p);
-//   projects.forEach(proj => {
-//     console.log(proj);
-//     if (proj == p) {
-//       proj.classList.add('grow-proj');
-//       proj.classList.remove('fade-proj');
-      
-//     } else {
-//       proj.classList.add('fade-proj');  
-//       proj.classList.remove('grow-proj');
-      
-//     }
-//   });
+function hideProj(project) {
+  project.classList.remove('grow-proj');
+  project.classList.add('fade-proj');
+}
 
-// })
+function checkFocusedProject() {
+  projects.forEach(proj => {
+    if (proj.classList.contains('grow-proj')) {
+      focusedProject = proj;
+    }
+  });
+}
+
+function showNextProj(e) {
+  let nextProj;
+  if (e.deltaY < 0) {
+    nextProj = focusedProject.nextElementSibling;
+    if (nextProj !== null) {
+      focusedProject = nextProj;
+      projects.forEach(project => {
+        if (project == focusedProject) {
+          showProj(project);
+        } else {
+          hideProj(project);
+        }
+      });
+    }
+  } else {
+    nextProj = focusedProject.previousElementSibling;
+    if (nextProj !== null) {
+      focusedProject = nextProj;
+      projects.forEach(project => {
+        if (project == focusedProject) {
+          showProj(project);
+        } else {
+          hideProj(project);
+        }
+      });
+    }
+  }
+}

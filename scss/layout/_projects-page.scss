@@ -44,23 +44,27 @@ Projects Page Layout
     center,
     center
   );
-  &:hover > .project:not(:hover) {
-    opacity: .6;
-  }
-
-  &:focus > .project:not(:focus) {
-    opacity: .6;
-  }
 }
 
 .project {
+  caret-color: transparent;
   flex-grow: 1;
   flex-basis: 0;
-  transition: flex-grow .4s ease-out;
-  &:hover {
-    flex-grow: 10;
-    transition: flex-grow .5s ease-out;
-  }
+  opacity: 1;
+  transition: opacity .5s ease-out,
+              flex-grow .5s ease-out;
+}
+
+.grow-proj {
+  flex-grow: 10;
+  transition: opacity .5s ease-out,
+              flex-grow .5s ease-out;
+}
+
+.fade-proj {
+  opacity: .6;
+  transition: opacity .5s ease-out,
+              flex-grow .5s ease-out;
 }
 
 .proj-img {
