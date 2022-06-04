@@ -13,9 +13,13 @@ header {
     center
   );
   width: 100%;
-  top: 100vh;
+  min-height: 50px;
+  top: calc(100vh + 250px);
   padding: 10px;
   z-index: 20;
+  // background-color: rgba(220, 220, 220, .45);
+  // box-shadow: 0 0 15px 10px rgba(220, 220, 220, .45);
+  border-radius: 10px;
 }
 
 .sticky-header {
@@ -56,7 +60,7 @@ header {
 }
 
 .name-container img {
-  height: 30px;
+  height: 25px;
 }
 
 .full-name {
@@ -77,13 +81,21 @@ header {
   .navigation-container {
     gap: 10px;
   }
+
+  .hide-nav {
+    right: -388px;
+  }
 }
 
 @include mq('med') {
   header {
     width: calc(100% - 90px);
     padding: 10px;
-    margin: 0 45px;
+    margin: 0 50px;
+  }
+
+  .hide-nav {
+    right: -437px;
   }
 
   .name-container img {
@@ -110,7 +122,12 @@ header {
   .navigation-container {
     position: relative;
     top: initial;
-    right: initial;
+    right: 10px;
+  }
+
+  .show-nav {
+    left: initial;
+    transform: initial;
   }
 
   .hamburger {
@@ -121,6 +138,6 @@ header {
 @media screen and (max-width: 768px) and (orientation: landscape) {
   header {
     width: calc(100% - 130px);
-    margin: 0 65px;
+    margin: 0 60px;
   }
 }

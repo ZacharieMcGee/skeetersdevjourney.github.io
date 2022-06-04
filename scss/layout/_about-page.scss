@@ -13,6 +13,7 @@ About Page Layout
     center,
     center,
   );
+  margin-top: 50px;
 }
 
 .about-text-container {
@@ -110,6 +111,9 @@ About Page Layout
 }
 
 @include mq('med') {
+  .about-container {
+    margin-top: 65px;
+  }
   .about-anim {
     max-width: initial;
   }
@@ -117,6 +121,7 @@ About Page Layout
 
 @include mq('lg') {
   .about-container {
+    margin-top: 70px;
     margin-left: 50px;
     margin-right: 50px;
     padding-left: 20px;

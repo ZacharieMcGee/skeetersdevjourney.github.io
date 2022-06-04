@@ -70,12 +70,6 @@ const header = document.getElementById('my-header');
 
 let screenHeight = window.innerHeight;
 let scrollDist = window.pageYOffset;
-
-let p1Limit = screenHeight / 2;
-let p2Limit = p1Limit * 3;
-let p3Limit = p1Limit * 5;
-let p4Limit = p1Limit * 7;
-
 let timerID; 
 
 window.addEventListener('scroll', adjustScreenPosition);
@@ -86,17 +80,17 @@ function adjustScreenPosition() {
   screenHeight = window.innerHeight;
   scrollDist = window.pageYOffset;
 
-  if (scrollDist >= screenHeight) {
+  if (scrollDist >= screenHeight + 250) {
     header.className = 'sticky-header';
   } else {
     header.removeAttribute('class');
   }
 
   timerID = setTimeout(() => {
-    p1Limit = screenHeight / 2;
-    p2Limit = p1Limit * 3;
-    p3Limit = p1Limit * 5;
-    p4Limit = p1Limit * 7;
+    let p1Limit = screenHeight / 2;
+    let p2Limit = p1Limit * 3 + 250;
+    let p3Limit = p1Limit * 5 + 500;
+    let p4Limit = p1Limit * 7 + 750;
 
     if (scrollDist <= p1Limit) {
       window.scroll({
@@ -105,22 +99,22 @@ function adjustScreenPosition() {
       });
     } else if (scrollDist <= p2Limit) {
       window.scroll({
-        top: screenHeight,
+        top: screenHeight + 250,
         behavior: "smooth"
       });
     } else if (scrollDist <= p3Limit) {
       window.scroll({
-        top: screenHeight * 2,
+        top: screenHeight * 2 + 500,
         behavior: "smooth"
       });
     } else if (scrollDist <= p4Limit) {
       window.scroll({
-        top: screenHeight * 3,
+        top: screenHeight * 3 + 750,
         behavior: "smooth"
       });
     } else {
       window.scroll({
-        top: screenHeight * 4,
+        top: screenHeight * 4 + 1000,
         behavior: "smooth"
       });
     }
@@ -164,21 +158,21 @@ const stroke3 = document.querySelector('.stroke-3');
 aboutBtn.addEventListener('click', () => {
   animReset(stroke1);
   window.scroll({
-    top: screenHeight,
+    top: screenHeight + 250,
     behavior: "smooth"
   });
 })
 workBtn.addEventListener('click', () => {
   animReset(stroke2);
   window.scroll({
-    top: screenHeight * 2,
+    top: screenHeight * 2 + 500,
     behavior: "smooth"
   });
 })
 contactBtn.addEventListener('click', () => {
   animReset(stroke3);
   window.scroll({
-    top: screenHeight * 4,
+    top: screenHeight * 4 + 1000,
     behavior: "smooth"
   });
 })
@@ -238,3 +232,40 @@ themeBtn.addEventListener('click', () => {
     moonSvg.style.display = 'block';
   }
 });
+
+
+/*----------------------------------
+Project List Horizontal Scroll
+----------------------------------*/
+
+const projectList = document.querySelector(".projects-list");
+
+projectList.addEventListener("wheel", (e) => {
+    e.preventDefault();
+    projectList.scrollLeft += e.deltaY;
+});
+
+// const projectList = document.querySelector('.projects-list');
+// const projects = document.querySelectorAll('.project');
+
+// projectList.addEventListener('mouseover', (e) => {
+//   let p = e.target.parentNode;
+//   // if (p.target.parentNode.className ) {
+
+//   // }
+//   console.log(p.parentNode);
+//   console.log(p);
+//   projects.forEach(proj => {
+//     console.log(proj);
+//     if (proj == p) {
+//       proj.classList.add('grow-proj');
+//       proj.classList.remove('fade-proj');
+      
+//     } else {
+//       proj.classList.add('fade-proj');  
+//       proj.classList.remove('grow-proj');
+      
+//     }
+//   });
+
+// })
