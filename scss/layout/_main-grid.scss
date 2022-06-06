@@ -23,22 +23,6 @@ main {
   opacity: 50%;
 }
 
-.landing-container {
-  border-bottom: 2px solid red;
-}
-
-.about-container {
-  border-bottom: 2px solid blue;
-}
-
-.projects-container {
-  border-bottom: 2px solid green;
-}
-
-.components-container {
-  border-bottom: 2px solid purple;
-}
-
 // @include mq('med') {
 //   section {
 //     padding-left: 60px;

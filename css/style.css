@@ -382,22 +382,6 @@ main .content-section {
   opacity: 50%;
 }
 
-.landing-container {
-  border-bottom: 2px solid red;
-}
-
-.about-container {
-  border-bottom: 2px solid blue;
-}
-
-.projects-container {
-  border-bottom: 2px solid green;
-}
-
-.components-container {
-  border-bottom: 2px solid purple;
-}
-
 /*----------------------------------
 Border Element Layout
 ----------------------------------*/
@@ -947,12 +931,15 @@ About Page Layout
   }
 }
 /*----------------------------------
+Main Grid Layout
+----------------------------------*/
+/*----------------------------------
 Projects Page Layout
 ----------------------------------*/
 .projects-container {
   position: relative;
-  overflow: hidden;
   margin-top: 50px;
+  max-width: 1100px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -960,11 +947,21 @@ Projects Page Layout
   gap: 10px;
 }
 
+.projects-title-1 {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 5px;
+}
+
 .project-anim {
   height: 45px;
 }
 
 .about-line {
+  width: 100%;
   pointer-events: none;
 }
 
@@ -990,10 +987,9 @@ Projects Page Layout
   background-position: top right;
 }
 
-.projects-list {
+.projects-1-list {
   position: relative;
   width: 100%;
-  max-width: 1000px;
   border-top: 5px solid rgba(0, 0, 0, 0.7);
   border-bottom: 5px solid rgba(0, 0, 0, 0.7);
   box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.7);
@@ -1001,19 +997,6 @@ Projects Page Layout
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.visit-btn {
-  font-size: 1.2em;
-  line-height: 1.2em;
-  letter-spacing: 0.07em;
-  position: absolute;
-  bottom: 10px;
-  padding: 0.5em 1em;
-  background-color: #000;
-  color: #fff;
-  border-radius: 10px;
-  opacity: 0.8;
 }
 
 .project {
@@ -1044,22 +1027,11 @@ Projects Page Layout
   transform: translate(-50%, 18vh);
 }
 
-.proj-name {
-  opacity: 0;
-  transform: translateY(-20px);
-}
-
-.proj-desc {
-  opacity: 0;
-  transform: translateY(-20px);
-}
-
-.feature-header {
-  opacity: 0;
-  transform: translateY(-20px);
-}
-
-.proj-bullet-list {
+.proj-name,
+.proj-desc,
+.proj-time,
+.feature-header,
+.proj-bullet {
   opacity: 0;
   transform: translateY(-20px);
 }
@@ -1074,29 +1046,39 @@ Projects Page Layout
   height: 100%;
   background-color: lightblue;
 }
+.grow-proj .proj-name,
+.grow-proj .proj-desc,
+.grow-proj .proj-time,
+.grow-proj .feature-header,
+.grow-proj .proj-bullet {
+  opacity: 1;
+  transform: translateY(0);
+}
 .grow-proj .proj-text {
   opacity: 1;
   pointer-events: initial;
 }
 .grow-proj .proj-name {
-  opacity: 1;
-  transform: translateY(0);
   transition: transform 0.3s, opacity 0.3s;
 }
 .grow-proj .proj-desc {
-  opacity: 1;
-  transform: translateY(0);
   transition: transform 0.3s 0.15s, opacity 0.3s 0.15s;
 }
-.grow-proj .feature-header {
-  opacity: 1;
-  transform: translateY(0);
+.grow-proj .proj-time {
   transition: transform 0.3s 0.3s, opacity 0.3s 0.3s;
 }
-.grow-proj .proj-bullet-list {
-  opacity: 1;
-  transform: translateY(0);
+.grow-proj .feature-header {
   transition: transform 0.3s 0.45s, opacity 0.3s 0.45s;
+}
+.grow-proj .proj-bullet:nth-child(-n+2) {
+  transition: transform 0.3s 0.6s, opacity 0.3s 0.6s;
+}
+.grow-proj .proj-bullet:nth-child(3),
+.grow-proj .proj-bullet:nth-child(4) {
+  transition: transform 0.3s 0.75s, opacity 0.3s 0.75s;
+}
+.grow-proj .proj-bullet:nth-child(n+5) {
+  transition: transform 0.3s 0.9s, opacity 0.3s 0.9s;
 }
 
 .indicator2 {
@@ -1134,10 +1116,48 @@ h4 {
 
 @media (min-width: 768px) {
   .projects-container {
-    margin-left: 50px;
-    margin-right: 50px;
+    margin: 70px 50px 0;
+  }
+
+  .projects-title-1 {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-direction: row;
+    gap: 0;
   }
 }
+@media (min-width: 1024px) {
+  .projects-container {
+    margin: 100px auto 0;
+    align-items: flex-start;
+  }
+
+  .project-anim {
+    height: 95px;
+  }
+
+  .projects-1-list {
+    align-self: center;
+    box-shadow: 0 0 15px 10px rgba(0, 0, 0, 0.7);
+  }
+
+  .project {
+    height: 45vh;
+  }
+
+  .proj-text, .section-desc {
+    font-size: 1.3em;
+  }
+
+  .proj-text {
+    transform: translate(-50%, 25vh);
+  }
+}
+/*----------------------------------
+Indicators
+----------------------------------*/
 /*----------------------------------
 Button Components
 ----------------------------------*/

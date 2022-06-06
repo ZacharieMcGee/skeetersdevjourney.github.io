@@ -209,13 +209,13 @@ Project List Horizontal Scroll
 ----------------------------------*/
 
 // This is all working but it feels horribly bloated
-const projectList = document.querySelector(".projects-list");
+const project1List = document.querySelector(".projects-1-list");
 const projects = document.querySelectorAll('.project');
 let focusedProject = '';
 let isWheeling = false;
 
 // window.addEventListener('click', (e) => {
-//   if (e.target.parentNode !== projectList) {
+//   if (e.target.parentNode !== project1List) {
 //     focusedProject = '';
 //     isWheeling = false;
 //     blurAll();
@@ -225,12 +225,12 @@ let isWheeling = false;
 // })
 
 window.addEventListener('click', (e) => {
-if (e.target.parentNode !== projectList) {
+if (e.target.parentNode !== project1List) {
     blurAll();
   } 
 });
 
-projectList.addEventListener('click', (e) => {
+project1List.addEventListener('click', (e) => {
   let p = e.target;
   if (p == focusedProject) {
     console.log('hello click');
@@ -238,7 +238,7 @@ projectList.addEventListener('click', (e) => {
   }
 });
  
-projectList.addEventListener('touchstart', (e) => {
+project1List.addEventListener('touchstart', (e) => {
   let p = e.target;
   e.preventDefault();
   if (p == focusedProject) {
@@ -248,7 +248,7 @@ projectList.addEventListener('touchstart', (e) => {
   }
 });
 
-projectList.addEventListener('mouseover', (e) => {
+project1List.addEventListener('mouseover', (e) => {
   scrollThrough(e);
 });
 
@@ -265,7 +265,7 @@ function scrollThrough(e) {
   }
 }
 
-projectList.addEventListener('wheel', (e) => {
+project1List.addEventListener('wheel', (e) => {
   e.preventDefault();
   isWheeling = true;
   if (focusedProject == '') {
@@ -305,7 +305,7 @@ function showNextProj(e) {
       focusedProject = nextProj;
       showProj(focusedProject);
     } else {
-      focusedProject = projectList.firstElementChild;
+      focusedProject = project1List.firstElementChild;
       showProj(focusedProject);
     }
 
@@ -315,7 +315,7 @@ function showNextProj(e) {
       focusedProject = nextProj;
       showProj(focusedProject);
     } else {
-      focusedProject = projectList.lastElementChild;
+      focusedProject = project1List.lastElementChild;
       showProj(focusedProject);
     }
   }
@@ -325,6 +325,8 @@ function showNextProj(e) {
 Project Site Links
 ----------------------------------*/
 
+// To avoid bubbling issues with acnhor and button tags,
+// links will trigger via js
 function launchSite(p) {
   let c = p.classList;
   if (c.contains('proj-1')) {
@@ -332,19 +334,21 @@ function launchSite(p) {
   } else if (c.contains('proj-2')) {
     window.open('https://skeetersdevjourney.github.io/Project-06-GameApp/', '_blank');
   } else if (c.contains('proj-3')) {
-    window.open('https://skeetersdevjourney.github.io/Project-08-EmployeeDirectory/', '_blank');
+    window.open('https://skeetersdevjourney.github.io/Project-07-WebAppDashboard/', '_blank');
   } else if (c.contains('proj-4')) {
-    window.open('https://skeetersdevjourney.github.io/Project-08-EmployeeDirectory/', '_blank');
+    window.open('https://skeetersdevjourney.github.io/Project-05-PhotoGallery/', '_blank');
   } else if (c.contains('proj-5')) {
-    window.open('https://skeetersdevjourney.github.io/Project-08-EmployeeDirectory/', '_blank');
+    window.open('https://skeetersdevjourney.github.io/Project-04-StyleGuide/', '_blank', '_blank');
   } else if (c.contains('proj-6')) {
-    window.open('https://skeetersdevjourney.github.io/Project-08-EmployeeDirectory/', '_blank');
+    window.open('https://skeetersdevjourney.github.io/Project_03--Online_Registration_Form/', '_blank');
   } else if (c.contains('proj-7')) {
-    window.open('https://skeetersdevjourney.github.io/Project-08-EmployeeDirectory/', '_blank');
+    window.open('https://skeetersdevjourney.github.io/Project02---Responsive-Layout-Design/', '_blank');
+  } else if (c.contains('proj-8')) {
+    window.open('https://skeetersdevjourney.github.io/Project01/', '_blank');
   }
 }
 
-// projectList.addEventListener('click', (e) => {
+// project1List.addEventListener('click', (e) => {
 //   let p = e.target;
 //   if (p.tagName == 'BUTTON') {
 //     openSite(p);
@@ -357,7 +361,7 @@ function launchSite(p) {
 //   }
 // }
 
-// projectList.addEventListener('click', (e) => {
+// project1List.addEventListener('click', (e) => {
 //   let p = e.target;
 //   if (isLinkActive) {
 //     console.log(p.parentNode.classList[1]);
