@@ -5,6 +5,7 @@ Main Grid Layout
 @use "../util" as *;
 
 main {
+  width: 100%;
   @include grido(
     100%,
     100vh $breakLength 

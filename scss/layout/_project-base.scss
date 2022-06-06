@@ -7,7 +7,7 @@ Base Layout of Project Sections
 .projects-container {
   position: relative;
   margin-top: 50px;
-  max-width: 1100px;
+  // max-width: 1100px;
   @include flexo(
     flex,
     flex-start,
@@ -99,15 +99,21 @@ h4 {
 }
 
 @include mq('med') {
+
   .projects-container {
     margin: 70px 50px 0;
+  }
+
+  .project-anim {
+    height: 60px;
   }
 }
 
 @include mq('lg') {
+
   .projects-container {
-    margin: 100px auto 0;
-    align-items: flex-start;
+    margin-top: 100px;
+
   }
 
   .projects-title-1,
@@ -127,19 +133,23 @@ h4 {
   }
 
   .projects-1-list {
-    align-self: center;
     box-shadow: 0 0 15px 10px rgba(0,0,0,.7);   
-  }
-
-  .project {
-    height: 45vh;
   }
 
   .proj-text, .section-desc {
     font-size: 1.3em;
   }
+
   .proj-text {
     transform: translate(-50%, 25vh);
     
+  }
+}
+
+@include mq('xl') {
+  .projects-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 100px auto 0;
   }
 }

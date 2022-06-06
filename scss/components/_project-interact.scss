@@ -89,3 +89,9 @@ Project List Interaction/Anims
 .indicator2 {
   display: none;
 }
+
+@include mq('lg') {
+  .project {
+    height: 45vh;
+  }
+}

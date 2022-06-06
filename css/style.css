@@ -369,6 +369,7 @@ svg {
 Main Grid Layout
 ----------------------------------*/
 main {
+  width: 100%;
   display: grid;
   grid-template-columns: 100%;
   grid-template-rows: 100vh 300px 100vh 300px 100vh 300px 100vh 300px 100vh;
@@ -936,7 +937,6 @@ Base Layout of Project Sections
 .projects-container {
   position: relative;
   margin-top: 50px;
-  max-width: 1100px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -1024,11 +1024,14 @@ h4 {
   .projects-container {
     margin: 70px 50px 0;
   }
+
+  .project-anim {
+    height: 60px;
+  }
 }
 @media (min-width: 1024px) {
   .projects-container {
-    margin: 100px auto 0;
-    align-items: flex-start;
+    margin-top: 100px;
   }
 
   .projects-title-1,
@@ -1046,12 +1049,7 @@ h4 {
   }
 
   .projects-1-list {
-    align-self: center;
     box-shadow: 0 0 15px 10px rgba(0, 0, 0, 0.7);
-  }
-
-  .project {
-    height: 45vh;
   }
 
   .proj-text, .section-desc {
@@ -1060,6 +1058,13 @@ h4 {
 
   .proj-text {
     transform: translate(-50%, 25vh);
+  }
+}
+@media (min-width: 1200px) {
+  .projects-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 100px auto 0;
   }
 }
 /*----------------------------------
@@ -1138,6 +1143,11 @@ Project List Interaction/Anims
   display: none;
 }
 
+@media (min-width: 1024px) {
+  .project {
+    height: 45vh;
+  }
+}
 /*----------------------------------
 Projects Background Images
 ----------------------------------*/
@@ -1160,31 +1170,31 @@ Projects Background Images
 }
 
 .proj-4 {
-  background-image: url("/img/projects/directory.png");
+  background-image: url("/img/projects/gallery.png");
   background-size: cover;
   background-position: top left;
 }
 
 .proj-5 {
-  background-image: url("/img/projects/dashboard.png");
+  background-image: url("/img/projects/guide.png");
   background-size: cover;
-  background-position: center;
+  background-position: top center;
 }
 
 .proj-6 {
-  background-image: url("/img/projects/wordgame.png");
+  background-image: url("/img/projects/registration.png");
   background-size: cover;
-  background-position: center;
+  background-position: top center;
 }
 
 .proj-7 {
-  background-image: url("/img/projects/dashboard.png");
+  background-image: url("/img/projects/responsive.png");
   background-size: cover;
-  background-position: center;
+  background-position: top center;
 }
 
 .proj-8 {
-  background-image: url("/img/projects/directory.png");
+  background-image: url("/img/projects/profile.png");
   background-size: cover;
   background-position: top right;
 }
@@ -1308,7 +1318,7 @@ Night Theme Overlay
   position: absolute;
   z-index: 200;
   width: 100%;
-  height: calc(500vh + 1000px);
+  height: calc(500vh + 1200px);
   background-color: #fff;
   mix-blend-mode: difference;
 }
