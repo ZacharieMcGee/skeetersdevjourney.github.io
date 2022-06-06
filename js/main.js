@@ -330,7 +330,7 @@ function launchSite(p) {
   if (c.contains('proj-1')) {
     window.open('https://skeetersdevjourney.github.io/Project-08-EmployeeDirectory/', '_blank');
   } else if (c.contains('proj-2')) {
-    window.open('https://skeetersdevjourney.github.io/Project-08-EmployeeDirectory/', '_blank');
+    window.open('https://skeetersdevjourney.github.io/Project-06-GameApp/', '_blank');
   } else if (c.contains('proj-3')) {
     window.open('https://skeetersdevjourney.github.io/Project-08-EmployeeDirectory/', '_blank');
   } else if (c.contains('proj-4')) {
