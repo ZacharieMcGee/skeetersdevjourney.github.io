@@ -931,10 +931,7 @@ About Page Layout
   }
 }
 /*----------------------------------
-Main Grid Layout
-----------------------------------*/
-/*----------------------------------
-Projects Page Layout
+Base Layout of Project Sections
 ----------------------------------*/
 .projects-container {
   position: relative;
@@ -945,15 +942,6 @@ Projects Page Layout
   align-items: center;
   flex-direction: column;
   gap: 10px;
-}
-
-.projects-title-1 {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  gap: 5px;
 }
 
 .project-anim {
@@ -969,25 +957,22 @@ Projects Page Layout
   font-size: 1.1em;
 }
 
-.proj-1 {
-  background-image: url("/img/projects/directory.png");
-  background-size: cover;
-  background-position: top left;
+.projects-title-1,
+.projects-title-2 {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 5px;
 }
 
-.proj-2 {
-  background-image: url("/img/projects/wordgame.png");
-  background-size: cover;
-  background-position: bottom center;
+.projects-title-2 {
+  flex-direction: column-reverse;
 }
 
-.proj-3 {
-  background-image: url("/img/projects/dashboard.png");
-  background-size: cover;
-  background-position: top right;
-}
-
-.projects-1-list {
+.projects-1-list,
+.projects-2-list {
   position: relative;
   width: 100%;
   border-top: 5px solid rgba(0, 0, 0, 0.7);
@@ -997,22 +982,6 @@ Projects Page Layout
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.project {
-  caret-color: transparent;
-  flex-grow: 1;
-  flex-basis: 0;
-  opacity: 1;
-  width: 100%;
-  height: 30vh;
-  transition: opacity 0.5s ease-out, flex-grow 0.5s ease-out;
-}
-.project .site-link {
-  display: none;
-  pointer-events: none;
-  width: 0;
-  height: 0;
 }
 
 .proj-text {
@@ -1027,6 +996,85 @@ Projects Page Layout
   transform: translate(-50%, 18vh);
 }
 
+h4 {
+  margin: 5px 0;
+}
+
+.proj-name {
+  margin-bottom: 0;
+}
+
+.proj-desc, .proj-bullet {
+  font-size: 1.1em;
+}
+
+.proj-bullet-list {
+  list-style: circle;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+}
+
+.proj-bullet {
+  margin-left: 25px;
+  margin-bottom: 5px;
+}
+
+@media (min-width: 768px) {
+  .projects-container {
+    margin: 70px 50px 0;
+  }
+}
+@media (min-width: 1024px) {
+  .projects-container {
+    margin: 100px auto 0;
+    align-items: flex-start;
+  }
+
+  .projects-title-1,
+.projects-title-2 {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-direction: row;
+    gap: 0;
+  }
+
+  .project-anim {
+    height: 70px;
+  }
+
+  .projects-1-list {
+    align-self: center;
+    box-shadow: 0 0 15px 10px rgba(0, 0, 0, 0.7);
+  }
+
+  .project {
+    height: 45vh;
+  }
+
+  .proj-text, .section-desc {
+    font-size: 1.3em;
+  }
+
+  .proj-text {
+    transform: translate(-50%, 25vh);
+  }
+}
+/*----------------------------------
+Project List Interaction/Anims
+----------------------------------*/
+.project {
+  caret-color: transparent;
+  flex-grow: 1;
+  flex-basis: 0;
+  opacity: 1;
+  width: 100%;
+  height: 30vh;
+  transition: opacity 0.5s ease-out, flex-grow 0.5s ease-out;
+}
+
 .proj-name,
 .proj-desc,
 .proj-time,
@@ -1037,7 +1085,7 @@ Projects Page Layout
 }
 
 .grow-proj {
-  flex-grow: 10;
+  flex-grow: 20;
   transition: opacity 0.5s ease-out, flex-grow 0.5s ease-out;
 }
 .grow-proj .site-link {
@@ -1081,80 +1129,66 @@ Projects Page Layout
   transition: transform 0.3s 0.9s, opacity 0.3s 0.9s;
 }
 
-.indicator2 {
-  display: none;
-}
-
 .fade-proj {
   opacity: 0.6;
   transition: opacity 0.5s ease-out, flex-grow 0.5s ease-out;
 }
 
-h4 {
-  margin: 5px 0;
+.indicator2 {
+  display: none;
 }
 
-.proj-name {
-  margin-bottom: 0;
+/*----------------------------------
+Projects Background Images
+----------------------------------*/
+.proj-1 {
+  background-image: url("/img/projects/directory.png");
+  background-size: cover;
+  background-position: top left;
 }
 
-.proj-desc, .proj-bullet {
-  font-size: 1.1em;
+.proj-2 {
+  background-image: url("/img/projects/wordgame.png");
+  background-size: cover;
+  background-position: bottom center;
 }
 
-.proj-bullet-list {
-  list-style: circle;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto;
+.proj-3 {
+  background-image: url("/img/projects/dashboard.png");
+  background-size: cover;
+  background-position: top right;
 }
 
-.proj-bullet {
-  margin-left: 25px;
-  margin-bottom: 5px;
+.proj-4 {
+  background-image: url("/img/projects/directory.png");
+  background-size: cover;
+  background-position: top left;
 }
 
-@media (min-width: 768px) {
-  .projects-container {
-    margin: 70px 50px 0;
-  }
-
-  .projects-title-1 {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    flex-direction: row;
-    gap: 0;
-  }
+.proj-5 {
+  background-image: url("/img/projects/dashboard.png");
+  background-size: cover;
+  background-position: center;
 }
-@media (min-width: 1024px) {
-  .projects-container {
-    margin: 100px auto 0;
-    align-items: flex-start;
-  }
 
-  .project-anim {
-    height: 95px;
-  }
-
-  .projects-1-list {
-    align-self: center;
-    box-shadow: 0 0 15px 10px rgba(0, 0, 0, 0.7);
-  }
-
-  .project {
-    height: 45vh;
-  }
-
-  .proj-text, .section-desc {
-    font-size: 1.3em;
-  }
-
-  .proj-text {
-    transform: translate(-50%, 25vh);
-  }
+.proj-6 {
+  background-image: url("/img/projects/wordgame.png");
+  background-size: cover;
+  background-position: center;
 }
+
+.proj-7 {
+  background-image: url("/img/projects/dashboard.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.proj-8 {
+  background-image: url("/img/projects/directory.png");
+  background-size: cover;
+  background-position: top right;
+}
+
 /*----------------------------------
 Indicators
 ----------------------------------*/
@@ -1177,6 +1211,7 @@ Button Components
 .stroke-anim {
   display: none;
   position: absolute;
+  opacity: 0.8;
   min-width: 110px;
   min-height: 50px;
   top: 50%;

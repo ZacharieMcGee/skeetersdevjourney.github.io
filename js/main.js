@@ -209,8 +209,11 @@ Project List Horizontal Scroll
 ----------------------------------*/
 
 // This is all working but it feels horribly bloated
-const project1List = document.querySelector(".projects-1-list");
+const project1List = document.querySelector('.projects-1-list');
+const project2List = document.querySelector('.projects-2-list');
+
 const projects = document.querySelectorAll('.project');
+
 let focusedProject = '';
 let isWheeling = false;
 
@@ -225,20 +228,37 @@ let isWheeling = false;
 // })
 
 window.addEventListener('click', (e) => {
-if (e.target.parentNode !== project1List) {
-    blurAll();
+  let list = e.target.parentNode;
+  if (list !== project1List || list !== project2List) {
+      blurAll();
   } 
 });
 
+///////////////////////////////////////////////////
+
 project1List.addEventListener('click', (e) => {
+  siteListener(e)
+});
+project2List.addEventListener('click', (e) => {
+  siteListener(e)
+});
+function siteListener(e) {
   let p = e.target;
   if (p == focusedProject) {
     console.log('hello click');
     launchSite(p);
   }
-});
+}
+
+///////////////////////////////////////////////////
  
 project1List.addEventListener('touchstart', (e) => {
+  touchListener(e);
+});
+project2List.addEventListener('touchstart', (e) => {
+  touchListener(e);
+});
+function touchListener(e) {
   let p = e.target;
   e.preventDefault();
   if (p == focusedProject) {
@@ -246,12 +266,16 @@ project1List.addEventListener('touchstart', (e) => {
   } else {
     scrollThrough(e);
   }
-});
+}
+
+///////////////////////////////////////////////////
 
 project1List.addEventListener('mouseover', (e) => {
   scrollThrough(e);
 });
-
+project2List.addEventListener('mouseover', (e) => {
+  scrollThrough(e);
+});
 function scrollThrough(e) {
   if (isWheeling == false) {
     projects.forEach(project => {
@@ -265,16 +289,30 @@ function scrollThrough(e) {
   }
 }
 
+///////////////////////////////////////////////////
+
 project1List.addEventListener('wheel', (e) => {
+  allowHorizontalScroll(e);
+});
+project2List.addEventListener('wheel', (e) => {
+  allowHorizontalScroll(e);
+});
+function allowHorizontalScroll(e) {
+  let p = e.target.parentNode;
   e.preventDefault();
   isWheeling = true;
-  if (focusedProject == '') {
+  if (focusedProject == '' && p.classList == 'projects-1-list') {
     focusedProject = projects[0];
     showProj(projects[0]);
+  } else if (focusedProject == '' && p.classList == 'projects-2-list') {
+    focusedProject = projects[3];
+    showProj(projects[3]);
   } else {
     showNextProj(e);
   }
-});
+}
+
+///////////////////////////////////////////////////
 
 function showProj(project) {
   projects.forEach(proj => {
@@ -298,6 +336,8 @@ function blurAll () {
   })
 }
 
+///////////////////////////////////////////////////
+
 function showNextProj(e) {
   if (e.deltaY < 0) {
     let nextProj = focusedProject.nextElementSibling;
@@ -305,7 +345,7 @@ function showNextProj(e) {
       focusedProject = nextProj;
       showProj(focusedProject);
     } else {
-      focusedProject = project1List.firstElementChild;
+      focusedProject = focusedProject.parentNode.firstElementChild;
       showProj(focusedProject);
     }
 
@@ -315,7 +355,7 @@ function showNextProj(e) {
       focusedProject = nextProj;
       showProj(focusedProject);
     } else {
-      focusedProject = project1List.lastElementChild;
+      focusedProject = focusedProject.parentNode.lastElementChild;
       showProj(focusedProject);
     }
   }

@@ -1,5 +1,145 @@
 /*----------------------------------
-Main Grid Layout
+Base Layout of Project Sections
 ----------------------------------*/
 
 @use "../util" as *;
+
+.projects-container {
+  position: relative;
+  margin-top: 50px;
+  max-width: 1100px;
+  @include flexo(
+    flex,
+    flex-start,
+    center,
+    column,
+    $gap: 10px
+  );
+}
+
+.project-anim {
+  height: 45px;
+}
+
+.about-line {
+  width: 100%;
+  pointer-events: none;
+}
+
+.section-desc {
+  font-size: 1.1em;
+}
+
+.projects-title-1,
+.projects-title-2 {
+  width: 100%;
+  @include flexo(
+    flex,
+    center,
+    center,
+    column, 
+    $gap: 5px 
+  );
+}
+
+.projects-title-2 {
+  flex-direction: column-reverse;
+}
+
+.projects-1-list,
+.projects-2-list {
+  position: relative;
+  width: 100%;
+  border-top: 5px solid rgba(0,0,0,.7);
+  border-bottom: 5px solid rgba(0,0,0,.7);
+  box-shadow: 0 0 10px 5px rgba(0,0,0,.7);   
+  border-radius: 3px;
+  @include flexo(
+    flex,
+    center,
+    center
+  );
+}
+
+.proj-text {
+  opacity: 0;
+  text-align: left;
+  letter-spacing: .03em;
+  position: absolute;
+  pointer-events: none;
+  width: 100%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, 18vh);
+}
+
+h4 {
+  margin: 5px 0;
+}
+
+.proj-name {
+  margin-bottom: 0;
+}
+
+.proj-desc, .proj-bullet {
+  font-size: 1.1em;
+}
+
+.proj-bullet-list {
+  list-style: circle;
+  @include grido(
+    1fr 1fr,
+    auto
+  );
+}
+
+.proj-bullet {
+  margin-left: 25px;
+  margin-bottom: 5px;
+}
+
+@include mq('med') {
+  .projects-container {
+    margin: 70px 50px 0;
+  }
+}
+
+@include mq('lg') {
+  .projects-container {
+    margin: 100px auto 0;
+    align-items: flex-start;
+  }
+
+  .projects-title-1,
+  .projects-title-2 {
+    width: 100%;
+    @include flexo(
+      flex,
+      space-between,
+      flex-end,
+      row, 
+      $gap: 0
+    );
+  }
+
+  .project-anim {
+    height: 70px;
+  }
+
+  .projects-1-list {
+    align-self: center;
+    box-shadow: 0 0 15px 10px rgba(0,0,0,.7);   
+  }
+
+  .project {
+    height: 45vh;
+  }
+
+  .proj-text, .section-desc {
+    font-size: 1.3em;
+  }
+  .proj-text {
+    transform: translate(-50%, 25vh);
+    
+  }
+}
