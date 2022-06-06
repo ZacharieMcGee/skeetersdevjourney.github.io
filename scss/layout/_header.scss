@@ -14,7 +14,7 @@ header {
   );
   width: 100%;
   min-height: 50px;
-  top: calc(100vh + 250px);
+  top: calc(100vh + $breakLength);
   padding: 10px;
   z-index: 20;
   // background-color: rgba(220, 220, 220, .45);

@@ -6,39 +6,8 @@ Handle Loading Screen
 // const loadingScreen = document.querySelector('.loading-overlay');
 
 const landingText = document.querySelector('.landing-text-container');
-const scrollIndicator = document.querySelector('.scroll-text');
-const scrollArrow = document.querySelector('.arrow');
-
-// const bgUrl = '/img/border/bg-pattern.png';
-// const background = document.querySelector('.bg-pattern');
-
-// const brdrUrl = '/img/border/brdr.png';
-// const brdr = document.querySelectorAll('.brdr');
-
-// const brdrCorner1 = document.querySelector('.brdr-topleft'); 
-// const brdrCorner2 = document.querySelector('.brdr-topright'); 
-
-// let preloader = document.createElement('img');
-// preloader.src = bgUrl;
-// preloader.addEventListener('load', () => {
-//   background.style.backgroundImage = `url(${bgUrl})`;
-//   preloader = null;
-//   console.log('1');
-//   loadBrdr();
-// });
-
-// function loadBrdr() {
-//   let preloader = document.createElement('img');
-//   preloader.src = brdrUrl;
-//   preloader.addEventListener('load', () => {
-//     brdr.forEach(brdr => {
-//       brdr.style.backgroundImage = `url(${brdrUrl})`;
-//     })
-//     preloader = null;
-//     console.log('2');
-//     go();
-//   });
-// }
+const scrollIndicator = document.querySelector('.indicator-text1');
+const scrollArrow = document.querySelector('.indicator-arrow1');
 
 go();
 
@@ -62,14 +31,15 @@ Landing Page
 // });
 
 /*----------------------------------
-Header Position Change / Auto
-Correct Page Window Scroll Position
+Header Position Change + 
+Window Scroll Auto Correct After Delay
 ----------------------------------*/
 
 const header = document.getElementById('my-header');
 
 let screenHeight = window.innerHeight;
 let scrollDist = window.pageYOffset;
+let breakLength = 300;
 let timerID; 
 
 window.addEventListener('scroll', adjustScreenPosition);
@@ -88,9 +58,9 @@ function adjustScreenPosition() {
 
   timerID = setTimeout(() => {
     let p1Limit = screenHeight / 2;
-    let p2Limit = p1Limit * 3 + 250;
-    let p3Limit = p1Limit * 5 + 500;
-    let p4Limit = p1Limit * 7 + 750;
+    let p2Limit = (p1Limit * 3) + breakLength;
+    let p3Limit = (p1Limit * 5) + (breakLength * 2);
+    let p4Limit = (p1Limit * 7) + (breakLength * 3);
 
     if (scrollDist <= p1Limit) {
       window.scroll({
@@ -99,22 +69,22 @@ function adjustScreenPosition() {
       });
     } else if (scrollDist <= p2Limit) {
       window.scroll({
-        top: screenHeight + 250,
+        top: screenHeight + breakLength,
         behavior: "smooth"
       });
     } else if (scrollDist <= p3Limit) {
       window.scroll({
-        top: screenHeight * 2 + 500,
+        top: (screenHeight * 2) + (breakLength * 2),
         behavior: "smooth"
       });
     } else if (scrollDist <= p4Limit) {
       window.scroll({
-        top: screenHeight * 3 + 750,
+        top: (screenHeight * 3) + (breakLength * 3),
         behavior: "smooth"
       });
     } else {
       window.scroll({
-        top: screenHeight * 4 + 1000,
+        top: (screenHeight * 4) + (breakLength * 4),
         behavior: "smooth"
       });
     }
@@ -158,21 +128,21 @@ const stroke3 = document.querySelector('.stroke-3');
 aboutBtn.addEventListener('click', () => {
   animReset(stroke1);
   window.scroll({
-    top: screenHeight + 250,
+    top: screenHeight + breakLength,
     behavior: "smooth"
   });
 })
 workBtn.addEventListener('click', () => {
   animReset(stroke2);
   window.scroll({
-    top: screenHeight * 2 + 500,
+    top: screenHeight * 2 + (breakLength * 2),
     behavior: "smooth"
   });
 })
 contactBtn.addEventListener('click', () => {
   animReset(stroke3);
   window.scroll({
-    top: screenHeight * 4 + 1000,
+    top: screenHeight * 4 + (breakLength * 4),
     behavior: "smooth"
   });
 })
@@ -242,87 +212,154 @@ Project List Horizontal Scroll
 const projectList = document.querySelector(".projects-list");
 const projects = document.querySelectorAll('.project');
 let focusedProject = '';
+let isWheeling = false;
+
+// window.addEventListener('click', (e) => {
+//   if (e.target.parentNode !== projectList) {
+//     focusedProject = '';
+//     isWheeling = false;
+//     blurAll();
+//   } else if (e.target == focusedProject) {
+//     console.log('hello');
+//   }
+// })
 
 window.addEventListener('click', (e) => {
-  if (e.target.parentNode.parentNode !== projectList) {
-    projects.forEach(project => {
-      project.classList.remove('fade-proj');
-      project.classList.remove('grow-proj');
-      focusedProject = '';
-    });
+if (e.target.parentNode !== projectList) {
+    blurAll();
+  } 
+});
+
+projectList.addEventListener('click', (e) => {
+  let p = e.target;
+  if (p == focusedProject) {
+    console.log('hello click');
+    launchSite(p);
   }
-})
+});
+ 
+projectList.addEventListener('touchstart', (e) => {
+  let p = e.target;
+  e.preventDefault();
+  if (p == focusedProject) {
+    launchSite(p);
+  } else {
+    scrollThrough(e);
+  }
+});
 
 projectList.addEventListener('mouseover', (e) => {
-  projects.forEach(project => {
-    if (project == e.target.parentNode) {
-      showProj(project);
-    } else {
-      hideProj(project);
-    }
-  })
+  scrollThrough(e);
 });
+
+function scrollThrough(e) {
+  if (isWheeling == false) {
+    projects.forEach(project => {
+      if (project == e.target) {
+        focusedProject = project;
+        showProj(project);
+      } 
+    });
+  } else {
+    isWheeling = false;
+  }
+}
 
 projectList.addEventListener('wheel', (e) => {
   e.preventDefault();
+  isWheeling = true;
   if (focusedProject == '') {
     focusedProject = projects[0];
-    projects.forEach(project => {
-    if (project == projects[0]) {
-      showProj(project);
-    } else {
-      hideProj(project);
-    }
-    });
+    showProj(projects[0]);
   } else {
-    checkFocusedProject();
     showNextProj(e);
   }
 });
 
 function showProj(project) {
-  project.classList.remove('fade-proj');
-  project.classList.add('grow-proj');
-}
-
-function hideProj(project) {
-  project.classList.remove('grow-proj');
-  project.classList.add('fade-proj');
-}
-
-function checkFocusedProject() {
   projects.forEach(proj => {
-    if (proj.classList.contains('grow-proj')) {
-      focusedProject = proj;
+    if (proj == project) {
+      proj.classList.remove('fade-proj');
+      proj.classList.add('grow-proj');
+    } else {
+      proj.classList.remove('grow-proj');
+      proj.classList.add('fade-proj');
     }
   });
+  console.log(focusedProject.classList[1]);
+}
+
+function blurAll () {
+  isWheeling = false;
+  focusedProject = '';
+  projects.forEach(proj => {
+    proj.classList.remove('grow-proj');
+    proj.classList.remove('fade-proj');
+  })
 }
 
 function showNextProj(e) {
-  let nextProj;
   if (e.deltaY < 0) {
-    nextProj = focusedProject.nextElementSibling;
+    let nextProj = focusedProject.nextElementSibling;
     if (nextProj !== null) {
       focusedProject = nextProj;
-      projects.forEach(project => {
-        if (project == focusedProject) {
-          showProj(project);
-        } else {
-          hideProj(project);
-        }
-      });
+      showProj(focusedProject);
+    } else {
+      focusedProject = projectList.firstElementChild;
+      showProj(focusedProject);
     }
+
   } else {
-    nextProj = focusedProject.previousElementSibling;
+    let nextProj = focusedProject.previousElementSibling;
     if (nextProj !== null) {
       focusedProject = nextProj;
-      projects.forEach(project => {
-        if (project == focusedProject) {
-          showProj(project);
-        } else {
-          hideProj(project);
-        }
-      });
+      showProj(focusedProject);
+    } else {
+      focusedProject = projectList.lastElementChild;
+      showProj(focusedProject);
     }
   }
 }
+
+/*----------------------------------
+Project Site Links
+----------------------------------*/
+
+function launchSite(p) {
+  let c = p.classList;
+  if (c.contains('proj-1')) {
+    window.open('https://skeetersdevjourney.github.io/Project-08-EmployeeDirectory/', '_blank');
+  } else if (c.contains('proj-2')) {
+    window.open('https://skeetersdevjourney.github.io/Project-08-EmployeeDirectory/', '_blank');
+  } else if (c.contains('proj-3')) {
+    window.open('https://skeetersdevjourney.github.io/Project-08-EmployeeDirectory/', '_blank');
+  } else if (c.contains('proj-4')) {
+    window.open('https://skeetersdevjourney.github.io/Project-08-EmployeeDirectory/', '_blank');
+  } else if (c.contains('proj-5')) {
+    window.open('https://skeetersdevjourney.github.io/Project-08-EmployeeDirectory/', '_blank');
+  } else if (c.contains('proj-6')) {
+    window.open('https://skeetersdevjourney.github.io/Project-08-EmployeeDirectory/', '_blank');
+  } else if (c.contains('proj-7')) {
+    window.open('https://skeetersdevjourney.github.io/Project-08-EmployeeDirectory/', '_blank');
+  }
+}
+
+// projectList.addEventListener('click', (e) => {
+//   let p = e.target;
+//   if (p.tagName == 'BUTTON') {
+//     openSite(p);
+//   }
+// });
+
+// function openSite(p) {
+//   if (p.parentNode.classList.contains('proj-1')) {
+//     window.open('https://skeetersdevjourney.github.io/Project-08-EmployeeDirectory/', '_blank');
+//   }
+// }
+
+// projectList.addEventListener('click', (e) => {
+//   let p = e.target;
+//   if (isLinkActive) {
+//     console.log(p.parentNode.classList[1]);
+//   }
+// });

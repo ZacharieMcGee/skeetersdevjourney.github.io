@@ -8,6 +8,10 @@ Base Styling
   font-family: caslon-reg, sans-serif;
 }
 
+html {
+  background-color: black;
+}
+
 body {
   position: relative;
   overflow-x: hidden;
@@ -26,6 +30,10 @@ img {
   display: block;
   max-width: 100%;
   height: auto;
+}
+
+svg {
+  display: block;
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */

@@ -22,7 +22,7 @@ Border Element Layout
 .brdr-container {
   overflow-x: hidden;
   width: 100%;
-  height: calc((100vh * 5) + (250px * 4));
+  height: calc((100vh * 5) + ($breakLength * 4));
   background-image: url('/img/border/bg.png');
   background-size: 100%;
   z-index: -20;
@@ -62,7 +62,7 @@ Border Element Layout
   transform-origin: 0% 100%;
   top: -50px;
   left: 0;
-  width: calc((100vh * 5) + (250px * 4));
+  width: calc((100vh * 5) + ($breakLength * 4));
   transform: rotate(90deg);
   background-position: left;
 }
@@ -71,7 +71,7 @@ Border Element Layout
   transform-origin: 100% 100%;
   top: -50px;
   right: 0;
-  width: calc((100vh * 5) + (250px * 4));
+  width: calc((100vh * 5) + ($breakLength * 4));
   transform: rotate(-90deg);
   background-position: right;
 }
