@@ -309,13 +309,14 @@
         <img class="contact-anim" src="/img/anims/contact-anim.png" alt>
         <img class="about-line" src="/img/border/line.png" alt>
       </div>
-      <form action="https://getform.io/f/4378e12d-448a-468d-a12c-d557eb44d36f" method="post">
-        <input type="text" name="name" required>
-        <input type="subject" name="subject" required>
-        <input type="email" name="email" required>
+      <form action="https://formsubmit.co/c8ee7d4a91eb67f3e910a5cdb77fd28c" method="POST">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="https://zacharie-mcgee.com/thanks.html">
+        <input type="text" name="name" placeholder="Name" required>
+        <input type="email" name="email" placeholder="Email Address" required>
         <textarea name="message" required></textarea>
         <button type="submit">Send</button>
-   </form>
+      </form>
     </section>
   </main>
   <!--
@@ -324,6 +325,8 @@
   -->
   <script src="js/main.js"></script>
   <script src="https://kit.fontawesome.com/2365d2b9a6.js" crossorigin="anonymous"></script>
+  <script src="https://smtpjs.com/v3/smtp.js">
+  </script>
  
 </body>
 
