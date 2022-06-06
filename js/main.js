@@ -229,7 +229,8 @@ let isWheeling = false;
 
 window.addEventListener('click', (e) => {
   let list = e.target.parentNode;
-  if (list !== project1List || list !== project2List) {
+  if (list !== project1List && list !== project2List) {
+      console.log(`Event: Blur`);
       blurAll();
   } 
 });
@@ -237,9 +238,11 @@ window.addEventListener('click', (e) => {
 ///////////////////////////////////////////////////
 
 project1List.addEventListener('click', (e) => {
+  console.log('Event: Click on List 1');
   siteListener(e)
 });
 project2List.addEventListener('click', (e) => {
+  console.log('Event: Click on List 1');
   siteListener(e)
 });
 function siteListener(e) {
@@ -253,27 +256,31 @@ function siteListener(e) {
 ///////////////////////////////////////////////////
  
 project1List.addEventListener('touchstart', (e) => {
+  console.log('Event: TouchStart on List 1');
   touchListener(e);
 });
 project2List.addEventListener('touchstart', (e) => {
+  console.log('Event: TouchStart on List 2');
   touchListener(e);
 });
 function touchListener(e) {
   let p = e.target;
-  e.preventDefault();
-  if (p == focusedProject) {
-    launchSite(p);
-  } else {
+  if (p !== focusedProject) {
+    e.preventDefault();
     scrollThrough(e);
+  } else {
+    launchSite(p);
   }
 }
 
 ///////////////////////////////////////////////////
 
 project1List.addEventListener('mouseover', (e) => {
+  console.log('Event: Hover on List 1');
   scrollThrough(e);
 });
 project2List.addEventListener('mouseover', (e) => {
+  console.log('Event: Hover on List 2');
   scrollThrough(e);
 });
 function scrollThrough(e) {
@@ -292,10 +299,14 @@ function scrollThrough(e) {
 ///////////////////////////////////////////////////
 
 project1List.addEventListener('wheel', (e) => {
+  console.log('Event: Wheel on List 1');
   allowHorizontalScroll(e);
+  
 });
 project2List.addEventListener('wheel', (e) => {
+  console.log('Event: Wheel on List 2');
   allowHorizontalScroll(e);
+  
 });
 function allowHorizontalScroll(e) {
   let p = e.target.parentNode;
@@ -383,9 +394,7 @@ function launchSite(p) {
     window.open('https://skeetersdevjourney.github.io/Project_03--Online_Registration_Form/', '_blank');
   } else if (c.contains('proj-7')) {
     window.open('https://skeetersdevjourney.github.io/Project02---Responsive-Layout-Design/', '_blank');
-  } else if (c.contains('proj-8')) {
-    window.open('https://skeetersdevjourney.github.io/Project01/', '_blank');
-  }
+  } 
 }
 
 // project1List.addEventListener('click', (e) => {
