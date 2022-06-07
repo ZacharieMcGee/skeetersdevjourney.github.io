@@ -299,19 +299,11 @@ Typography
 ----------------------------------*/
 @font-face {
   font-family: caslon-reg;
-  src: url("fonts/caslon-antique.regular.ttf");
+  src: url("/fonts/caslon-antique.regular.ttf");
 }
 @font-face {
   font-family: caslon-bold;
-  src: url("fonts/caslon-antique.bold.ttf");
-}
-@font-face {
-  font-family: caslon-italic;
-  src: url("fonts/caslon-antique.italic.ttf");
-}
-@font-face {
-  font-family: caslon-bolditalic;
-  src: url("fonts/caslon-antique.bolditalic.ttf");
+  src: url("/fonts/caslon-antique.bold.ttf");
 }
 /*----------------------------------
 Loading Screen
@@ -352,7 +344,6 @@ svg {
   display: block;
 }
 
-/* Hide scrollbar for Chrome, Safari and Opera */
 .overlay-WIP {
   position: fixed;
   pointer-events: none;
@@ -387,7 +378,6 @@ main .content-section {
 Border Element Layout
 ----------------------------------*/
 .brdr-container,
-.bg-pattern,
 .brdr-top,
 .brdr-bottom,
 .brdr-left,
@@ -403,7 +393,7 @@ Border Element Layout
   overflow-x: hidden;
   width: 100%;
   height: calc(500vh + 1200px);
-  background-image: url("img/border/bg.png");
+  background-image: url("/img/border/bg.png");
   background-size: 100%;
   z-index: -20;
 }
@@ -415,7 +405,7 @@ Border Element Layout
 
 .brdr {
   height: 50px;
-  background-image: url("img/border/brdr.png");
+  background-image: url("/img/border/brdr.png");
   background-size: contain;
 }
 
@@ -579,7 +569,7 @@ Landing Page
   position: absolute;
   width: 15px;
   height: 15px;
-  background-image: url("img/header/scroll-detail.png");
+  background-image: url("/img/header/scroll-detail.png");
   background-size: contain;
 }
 .indicator-text1::before {
@@ -1192,43 +1182,43 @@ Project List Interaction/Anims
 Projects Background Images
 ----------------------------------*/
 .proj-1 {
-  background-image: url("img/projects/directory.png");
+  background-image: url("/img/projects/directory.png");
   background-size: cover;
   background-position: top left;
 }
 
 .proj-2 {
-  background-image: url("img/projects/wordgame.png");
+  background-image: url("/img/projects/wordgame.png");
   background-size: cover;
   background-position: bottom center;
 }
 
 .proj-3 {
-  background-image: url("img/projects/dashboard.png");
+  background-image: url("/img/projects/dashboard.png");
   background-size: cover;
   background-position: top right;
 }
 
 .proj-4 {
-  background-image: url("img/projects/gallery.png");
+  background-image: url("/img/projects/gallery.png");
   background-size: cover;
   background-position: top left;
 }
 
 .proj-5 {
-  background-image: url("img/projects/guide.png");
+  background-image: url("/img/projects/guide.png");
   background-size: cover;
   background-position: top center;
 }
 
 .proj-6 {
-  background-image: url("img/projects/registration.png");
+  background-image: url("/img/projects/registration.png");
   background-size: cover;
   background-position: top center;
 }
 
 .proj-7 {
-  background-image: url("img/projects/responsive.png");
+  background-image: url("/img/projects/responsive.png");
   background-size: cover;
   background-position: top center;
 }
@@ -1295,19 +1285,19 @@ Button Components
 }
 
 .home-cont {
-  background-image: url("img/header/btns/btn-brdr-1.png");
+  background-image: url("/img/header/btns/btn-brdr-1.png");
 }
 
 .about-cont {
-  background-image: url("img/header/btns/btn-brdr-2.png");
+  background-image: url("/img/header/btns/btn-brdr-2.png");
 }
 
 .work-cont {
-  background-image: url("img/header/btns/btn-brdr-1.png");
+  background-image: url("/img/header/btns/btn-brdr-1.png");
 }
 
 .contact-cont {
-  background-image: url("img/header/btns/btn-brdr-2.png");
+  background-image: url("/img/header/btns/btn-brdr-2.png");
 }
 
 .detail-l,
@@ -1318,12 +1308,12 @@ Button Components
 }
 
 .detail-l {
-  background-image: url("img/header/btns/btn-details-1.png");
+  background-image: url("/img/header/btns/btn-details-1.png");
   margin-right: -32px;
 }
 
 .detail-r {
-  background-image: url("img/header/btns/btn-details-2.png");
+  background-image: url("/img/header/btns/btn-details-2.png");
   transform: scale(-1);
   margin-left: -32px;
 }

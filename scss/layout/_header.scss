@@ -17,8 +17,6 @@ header {
   top: calc(100vh + $breakLength);
   padding: 10px;
   z-index: 20;
-  // background-color: rgba(220, 220, 220, .45);
-  // box-shadow: 0 0 15px 10px rgba(220, 220, 220, .45);
   border-radius: 10px;
 }
 
@@ -41,13 +39,6 @@ header {
   left: 50%;
   transform: translateX(-50%);
   right: initial;
-  // transition: right .3s ease-out;
-  // .hamburger {
-  //   margin-right: 0px;
-  //   transition: margin-right .3s,
-  //               left .3s,
-  //               transform .3s;
-  // }
 }
 
 .hide-nav {
