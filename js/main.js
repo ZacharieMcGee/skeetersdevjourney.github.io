@@ -1,4 +1,25 @@
 /*----------------------------------
+First Time and Confirmation Message
+----------------------------------*/
+
+const modal = document.querySelector('.confirmation-message');
+const closeModalBtn = document.querySelector('.close-modal-btn');
+
+function sentEmail() {
+  window.localStorage.setItem('showConfirmation', 'true');
+}
+
+if (window.localStorage.getItem('showConfirmation') == 'true') {
+  modal.openModal();
+}
+
+closeModalBtn.addEventListener('click', () => {
+  modal.close();
+  window.localStorage.setItem('showConfirmation', 'false');
+});
+
+
+/*----------------------------------
 Load Large Images and 
 Handle Loading Screen
 ----------------------------------*/
@@ -10,7 +31,6 @@ const scrollIndicator = document.querySelector('.indicator-text1');
 const scrollArrow = document.querySelector('.indicator-arrow1');
 
 go();
-
 function go() {
   // console.log('hiding overlay');
   // loadingScreen.style.display = 'none';
@@ -25,10 +45,10 @@ function go() {
 Landing Page
 ----------------------------------*/
 
-// window.scroll({
-//   top: 0,
-//   behavior: "smooth"
-// });
+window.scroll({
+  top: 0,
+  behavior: "smooth"
+});
 
 /*----------------------------------
 Header Position Change + 
@@ -417,6 +437,4 @@ function launchSite(p) {
 //   }
 // });
 
-function sentEmail() {
-  alert('message confirmation');
-}
+
