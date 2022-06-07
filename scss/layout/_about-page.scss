@@ -47,7 +47,7 @@ About Page Layout
 .about-p1, .about-p2 {
   font-size: 1.2em;
   letter-spacing: .05em;
-  padding: 5px;
+  padding: 10px;
 }
 
 .about-p1 {
@@ -73,30 +73,55 @@ About Page Layout
     flex, 
     center, 
     center,
-    $gap: 10px
+    $gap: 15px
   );
 }
 
-.social-icon {
-  width: 45px;
-  height: 45px;
+.social-icon svg {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  &:hover {
+    fill: $color-secondary;
+    color: $color-secondary;
+    transition: fill .2s ease-out,
+                color .2s ease-out;
+  }
 }
 
-.resume-btn {
+
+.resume-container {
+  position: relative;
   @include flexo(
     flex,
     center,
     center
   );
+  height: 40px;
+}
+
+.resume-link {
   font-family: caslon-bold, sans-serif;
   font-size: 1.4em;
-  height: 35px;
-  padding: .5em;
   text-decoration: none;
   color: black;
-  // background-image: url('/img/header/btns/btn-anim.png');
-  // background-position: center;
-  // background-size: cover;
+  padding: 5px;
+  &:hover {
+    color: ghostwhite;
+    opacity: .9;
+    transition: color .3s;
+  }
+}
+
+.resume-anim {
+  pointer-events: none;
+  position: absolute;
+  width: 110px;
+  height: 80px;
+  background-image: url('/img/header/btns/btn-anim.png');
+  background-position: center;
+  background-size: cover;
+  z-index: -1;
 }
 
 .skills-list {
@@ -121,10 +146,14 @@ About Page Layout
   letter-spacing: .04em;
 }
 
+.fa-brands {
+  font-size: 2.5em;
+}
 
 .stray-icon {
+  padding: 0;
   margin: 0 auto;
-  max-height: 48px;
+  max-height: 40px;
 }
 
 @include mq('med') {
@@ -133,6 +162,15 @@ About Page Layout
   }
   .about-anim {
     max-width: initial;
+  }
+
+  .fa-brands {
+    font-size: 3em;
+  }
+  
+  .stray-icon {
+    margin: 0 auto;
+    max-height: 48px;
   }
 }
 

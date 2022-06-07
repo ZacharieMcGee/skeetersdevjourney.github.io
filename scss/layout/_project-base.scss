@@ -7,7 +7,6 @@ Base Layout of Project Sections
 .projects-container {
   position: relative;
   margin-top: 50px;
-  // max-width: 1100px;
   @include flexo(
     flex,
     flex-start,

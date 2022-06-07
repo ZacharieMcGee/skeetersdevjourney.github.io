@@ -804,7 +804,7 @@ About Page Layout
 .about-p1, .about-p2 {
   font-size: 1.2em;
   letter-spacing: 0.05em;
-  padding: 5px;
+  padding: 10px;
 }
 
 .about-p1 {
@@ -829,24 +829,50 @@ About Page Layout
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 15px;
 }
 
-.social-icon {
-  width: 45px;
-  height: 45px;
+.social-icon svg {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+}
+.social-icon svg:hover {
+  fill: #477fa6;
+  color: #477fa6;
+  transition: fill 0.2s ease-out, color 0.2s ease-out;
 }
 
-.resume-btn {
+.resume-container {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 40px;
+}
+
+.resume-link {
   font-family: caslon-bold, sans-serif;
   font-size: 1.4em;
-  height: 35px;
-  padding: 0.5em;
   text-decoration: none;
   color: black;
+  padding: 5px;
+}
+.resume-link:hover {
+  color: ghostwhite;
+  opacity: 0.9;
+  transition: color 0.3s;
+}
+
+.resume-anim {
+  pointer-events: none;
+  position: absolute;
+  width: 110px;
+  height: 80px;
+  background-image: url("/img/header/btns/btn-anim.png");
+  background-position: center;
+  background-size: cover;
+  z-index: -1;
 }
 
 .skills-list {
@@ -870,9 +896,14 @@ About Page Layout
   letter-spacing: 0.04em;
 }
 
+.fa-brands {
+  font-size: 2.5em;
+}
+
 .stray-icon {
+  padding: 0;
   margin: 0 auto;
-  max-height: 48px;
+  max-height: 40px;
 }
 
 @media (min-width: 768px) {
@@ -882,6 +913,15 @@ About Page Layout
 
   .about-anim {
     max-width: initial;
+  }
+
+  .fa-brands {
+    font-size: 3em;
+  }
+
+  .stray-icon {
+    margin: 0 auto;
+    max-height: 48px;
   }
 }
 @media (min-width: 1024px) {

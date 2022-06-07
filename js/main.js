@@ -45,10 +45,10 @@ function go() {
 Landing Page
 ----------------------------------*/
 
-window.scroll({
-  top: 0,
-  behavior: "smooth"
-});
+// window.scroll({
+//   top: 0,
+//   behavior: "smooth"
+// });
 
 /*----------------------------------
 Header Position Change + 
@@ -110,6 +110,8 @@ function adjustScreenPosition() {
     }
   }, 1500);
 }
+
+
 
 /*----------------------------------
 Page Title Gif Control
@@ -247,13 +249,19 @@ let isWheeling = false;
 //   }
 // })
 
+window.addEventListener('scroll', (e) => {
+  blurListener(e);
+})
 window.addEventListener('click', (e) => {
+  blurListener(e);
+});
+function blurListener(e) {
   let list = e.target.parentNode;
   if (list !== project1List && list !== project2List) {
       console.log(`Event: Blur`);
       blurAll();
   } 
-});
+}
 
 ///////////////////////////////////////////////////
 
