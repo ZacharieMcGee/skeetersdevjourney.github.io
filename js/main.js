@@ -10,7 +10,7 @@ function sentEmail() {
 }
 
 if (window.localStorage.getItem('showConfirmation') == 'true') {
-  modal.openModal();
+  modal.showModal();
 }
 
 closeModalBtn.addEventListener('click', () => {
