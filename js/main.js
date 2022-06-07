@@ -416,3 +416,7 @@ function launchSite(p) {
 //     console.log(p.parentNode.classList[1]);
 //   }
 // });
+
+function sentEmail() {
+  alert('message confirmation');
+}
