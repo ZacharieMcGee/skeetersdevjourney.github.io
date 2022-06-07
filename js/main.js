@@ -1,8 +1,8 @@
 /*----------------------------------
-First Time and Confirmation Message
+Confirmation Message
 ----------------------------------*/
 
-const modal = document.querySelector('.confirmation-message');
+const modal = document.querySelector('#confirmation-message');
 const closeModalBtn = document.querySelector('.close-modal-btn');
 
 function sentEmail() {
@@ -55,7 +55,7 @@ Header Position Change +
 Window Scroll Auto Correct After Delay
 ----------------------------------*/
 
-const header = document.getElementById('my-header');
+const header = document.querySelector('#my-header');
 
 let screenHeight = window.innerHeight;
 let scrollDist = window.pageYOffset;
@@ -138,42 +138,36 @@ Page Title Gif Control
 /*----------------------------------
 Navigation Buttons
 ----------------------------------*/
+const btns = document.querySelectorAll('.nav-btn');
+const btnAnims = document.querySelectorAll('.btn-anim');
 
-const aboutBtn = document.querySelector('.about-btn-container');
-const workBtn = document.querySelector('.work-btn-container');
-const contactBtn = document.querySelector('.contact-btn-container');
-const stroke1 = document.querySelector('.stroke-1');
-const stroke2 = document.querySelector('.stroke-2');
-const stroke3 = document.querySelector('.stroke-3');
-
-
-aboutBtn.addEventListener('click', () => {
-  animReset(stroke1);
+btns[0].addEventListener('click', () => {
+  animReset(btnAnims[0]);
   window.scroll({
     top: screenHeight + breakLength,
     behavior: "smooth"
   });
 })
-workBtn.addEventListener('click', () => {
-  animReset(stroke2);
+btns[1].addEventListener('click', () => {
+  animReset(btnAnims[1]);
   window.scroll({
-    top: screenHeight * 2 + (breakLength * 2),
+    top: (screenHeight * 2) + (breakLength * 2),
     behavior: "smooth"
   });
 })
-contactBtn.addEventListener('click', () => {
-  animReset(stroke3);
+btns[2].addEventListener('click', () => {
+  animReset(btnAnims[2]);
   window.scroll({
-    top: screenHeight * 4 + (breakLength * 4),
+    top: (screenHeight * 4) + (breakLength * 4),
     behavior: "smooth"
   });
 })
 
 function animReset(stroke) {
+  stroke.src = stroke.src.replace(/\?.*$/,"")+"?x="+Math.random();
   stroke.style.display = 'block';
   setTimeout(() => {
     stroke.style.display = 'none';
-    stroke.src = stroke.src.replace(/\?.*$/,"")+"?x="+Math.random();
   }, 750);
 }
 
@@ -181,8 +175,8 @@ function animReset(stroke) {
 Hamburger Button 
 ----------------------------------*/
 
-const burgerBtn = document.querySelector('.hamburger');
-const navBtns = document.querySelector('.navigation-container');
+const burgerBtn = document.querySelector('.burger');
+const navBtns = document.querySelector('.nav-container');
 const nameContainer = document.querySelector('.name-container');
 
 burgerBtn.addEventListener('click', () => {

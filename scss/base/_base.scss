@@ -4,48 +4,23 @@ Base Styling
 
 @use "../util" as *;
 
-* {
-  font-family: caslon-reg, sans-serif;
-}
-
 html {
-  background-color: black;
+  background-color: $color-primary;
 }
 
 body {
   position: relative;
-  overflow-x: hidden;
-  min-height: 100vh;
-  min-width: 100%; 
+  overflow-x: hidden; 
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
-body::-webkit-scrollbar {
-  display: none;
-}
-
-img {
-  // general responsive images
+// general responsive graphics
+img, svg {
   display: block;
   max-width: 100%;
   height: auto;
 }
-
-svg {
-  display: block;
-}
-
-.overlay-WIP {
-  position: fixed;
-  pointer-events: none; 
-  caret-color: transparent;
-  top: 75px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 5em;
-  opacity: 5%;
-  z-index: 100;
-}
-
-

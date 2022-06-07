@@ -4,33 +4,29 @@ Border Element Layout
 
 @use "../util" as *;
 
-// absolute positioning
-
-.brdr-container,
-.brdr-top,
-.brdr-bottom,
-.brdr-left,
-.brdr-right,
-.brdr-topleft,
-.brdr-topright,
-.brdr-bottomright,
-.brdr-bottomleft {
+// Absolutely positioned border elements
+#brdr-container,
+.brdr-t,
+.brdr-b,
+.brdr-l,
+.brdr-r,
+.brdr-tl,
+.brdr-tr,
+.brdr-br,
+.brdr-bl {
   position: absolute;
 }
 
-.brdr-container {
+#brdr-container {
   overflow-x: hidden;
   width: 100%;
-  height: calc((100vh * 5) + ($breakLength * 4));
+  height: 100%;
+
+  // background parchment paper which is
+  // a seamless pattern
   background-image: url('/img/border/bg.png');
-  background-size: 100%;
-  z-index: -20;
-}
-
-
-.brdr-left,
-.brdr-right {
-  display: none;
+  background-size: contain;
+  z-index: -10;
 }
 
 .brdr {
@@ -39,7 +35,12 @@ Border Element Layout
   background-size: contain;
 }
 
-.brdr-top {
+.brdr-l,
+.brdr-r {
+  display: none;
+}
+
+.brdr-t {
   top: 0;
   left: 50%;
   transform: translateX(calc(-50% + 10px));
@@ -48,7 +49,7 @@ Border Element Layout
   background-position: center;
 }
 
-.brdr-bottom {
+.brdr-b {
   bottom: 0;
   left: 50%;
   transform: translateX(calc(-50% + 10px));
@@ -57,7 +58,7 @@ Border Element Layout
   background-position: center;
 }
 
-.brdr-left {
+.brdr-l {
   transform-origin: 0% 100%;
   top: -50px;
   left: 0;
@@ -66,7 +67,7 @@ Border Element Layout
   background-position: left;
 }
 
-.brdr-right {
+.brdr-r {
   transform-origin: 100% 100%;
   top: -50px;
   right: 0;
@@ -75,57 +76,59 @@ Border Element Layout
   background-position: right;
 }
 
-.brdr-corner {
+.brdr-c {
   display: none;
   max-width: 350px;
 }
 
-.brdr-topleft {
+.brdr-tl {
   top: 0;
   left: 0;
   transform: scaleX(-1);
 }
 
-.brdr-topright {
+.brdr-tr {
   top: 0;
   right: 0;
 }
 
-.brdr-bottomright {
+.brdr-br {
   bottom: 0;
   right: 0;
   transform: scaleX(-1);
 }
 
-.brdr-bottomleft {
+.brdr-bl {
   bottom: 0;
   left: 0;
 }
 
 @include mq('med') {
-  .brdr-corner,
-  .brdr-left,
-  .brdr-right {
+  .brdr-c,
+  .brdr-l,
+  .brdr-r {
     display: initial;
   }
 
 }
 
 @include mq('xl') {
-  .brdr-corner {
+  .brdr-c {
     max-width: 425px; 
   }
 }
 
+// media query that checks for mobile/tablets
+// in landscape mode
 @media screen and (max-width: 768px) and (orientation: landscape) {
 
-  .brdr-left,
-  .brdr-right {
+  .brdr-l,
+  .brdr-r {
     display: initial;
   }
 
-  .brdr-top,
-  .brdr-bottom {
+  .brdr-t,
+  .brdr-b {
     display: none;
   }
 }

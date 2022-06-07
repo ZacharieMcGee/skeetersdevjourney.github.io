@@ -25,7 +25,7 @@ header {
   top: 0;
 }
 
-.navigation-container {
+.nav-container {
   position: absolute;
   @include flexo(
     flex,
@@ -44,7 +44,7 @@ header {
 .hide-nav {
   right: -360px;
   // transition: right .3s ease-out;
-  .hamburger {
+  .burger {
     margin-right: 100px;
     // transition: margin-right .3s ease-out;
   }
@@ -58,18 +58,21 @@ header {
   display: none;
 }
 
+.show-name,
+.fade-name {
+  transition: opacity .2s ease-out;
+}
+
 .show-name {
   opacity: 1;
-  transition: opacity .2s ease-out;
 }
 
 .fade-name {
   opacity: 0;
-  transition: opacity .2s ease-out;
 }
 
 @include mq('sm') {
-  .navigation-container {
+  .nav-container {
     gap: 10px;
   }
 
@@ -110,7 +113,7 @@ header {
     display: block;
   }
 
-  .navigation-container {
+  .nav-container {
     position: relative;
     top: initial;
     right: 10px;
@@ -121,7 +124,7 @@ header {
     transform: initial;
   }
 
-  .hamburger {
+  .burger {
     display: none;
   }
 }

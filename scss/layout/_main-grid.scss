@@ -11,12 +11,13 @@ main {
     100vh $breakLength 
     100vh $breakLength 
     100vh $breakLength 
-    100vh $breakLength 100vh
+    100vh $breakLength 
+    100vh
   );
+}
 
-  .content-section {
-    padding: 10px;
-  }
+.content-section {
+  padding: 10px;
 }
 
 .break-section {
@@ -24,9 +25,8 @@ main {
   opacity: 50%;
 }
 
-// @include mq('med') {
-//   section {
-//     padding-left: 60px;
-//     padding-right: 60px;
-//   }
-// }
+@include mq('med') {
+  .content-section {
+    padding: 0px;
+  }
+}

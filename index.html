@@ -7,53 +7,65 @@
   <link rel="stylesheet" href="css/style.css">
 
   <!-- Create title icon -->
-  <title>Zacharie McGee</title>
-  <!-- NOTE: sass --watch scss:css -->
+  <title>Zacharie McGee's Portfolio</title>
 </head>
 <body>
-  <div class="theme-overlay hide-theme-overlay"></div>
 
-  <aside class="brdr-container">
+
+  <!-- OVERLAYS, BORDER ELEMENTS, MODAL -->
+  <aside id="brdr-container">
+
     <!-- <div class="loading-overlay">
       <h1>LOADING...</h1>
     </div> -->
-    <div class="overlay-WIP">
-      <h1>WIP</h1>
-    </div>
-    <div class="brdr brdr-top"></div>
-    <div class="brdr brdr-right"></div> 
-    <div class="brdr brdr-left"></div> 
-    <div class="brdr brdr-bottom"></div> 
-    <img class="brdr-corner brdr-topleft" src="img/border/brdr-top-corners.png" alt>
-    <img class="brdr-corner brdr-topright" src="img/border/brdr-top-corners.png" alt>
-    <img class="brdr-corner brdr-bottomright" src="img/border/brdr-btm-corners.png" alt>
-    <img class="brdr-corner brdr-bottomleft" src="img/border/brdr-btm-corners.png" alt>
-    <dialog class="confirmation-message">
-      <h1 class="confirmation-header">MESSAGE SENT SUCCESSFULLY</h1>
-      <p class="cofirmation-text">Thank you!</p>
+
+    <div class="theme-overlay hide-theme-overlay"></div>
+
+    <!-- Border elements are background images so that they can repeat to the user screen size. -->
+    <div class="brdr brdr-t"></div>
+    <div class="brdr brdr-r"></div> 
+    <div class="brdr brdr-l"></div> 
+    <div class="brdr brdr-b"></div> 
+
+    <!-- Corner elements don't need to be repeated so they are set in img tags. -->
+    <img class="brdr-c brdr-tl" src="img/border/brdr-top-corners.png" alt="">
+    <img class="brdr-c brdr-tr" src="img/border/brdr-top-corners.png" alt="">
+    <img class="brdr-c brdr-br" src="img/border/brdr-btm-corners.png" alt="">
+    <img class="brdr-c brdr-bl" src="img/border/brdr-btm-corners.png" alt="">
+
+    <!-- Modal for the confirmation message displayed
+    after submitting the contact form -->
+    <dialog id="confirm-modal">
+      <h1 class="confirm-header">MESSAGE SENT SUCCESSFULLY</h1>
+      <p class="confirm-text">Thank you!</p>
       <button class="close-modal-btn">CLOSE</button>
     </dialog>
+
   </aside>
   
+  <!-- STICKY HEADER -->
   <header id="my-header">
 
-    <div class="logo-name">
-      <div class="name-container show-name">
-        <img class="full-name" src="img/header/full-name.png" alt="">
-        <img class="half-name" src="img/header/half-name.png" alt="">
-      </div>
+    <!-- Decorative name images in the header for small & large screens -->
+    <div class="name-container show-name">
+      <img class="full-name" src="img/header/full-name.png" alt="">
+      <img class="half-name" src="img/header/half-name.png" alt="">
     </div>
 
-    <nav class="navigation-container hide-nav">
-      <button class="hamburger">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+    <!-- Navigation container -->
+    <nav class="nav-container hide-nav">
+
+      <!-- Hamburger button -->
+      <button class="burger">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
           <path d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/>
         </svg>
       </button>
 
-      <button class="btn about-btn-container">
-        <img class="stroke-anim stroke-1" src="img/header/btns/btn-anim.png" alt>
-        <div class="btn-cont about-cont">
+      <!-- About Button -->
+      <button class="nav-btn">
+        <img class="btn-anim" src="img/header/btns/btn-anim.png" alt="">
+        <div class="btn-content">
           <div class="btn-flex">
             <div class="detail-l"></div>
             <p class="btn-text">ABOUT</p>
@@ -62,9 +74,10 @@
         </div> 
       </button>
 
-      <button class="btn work-btn-container">
-        <img class="stroke-anim stroke-2" src="img/header/btns/btn-anim.png" alt>
-        <div class="btn-cont work-cont">
+      <!-- Work Button -->
+      <button class="nav-btn">
+        <img class="btn-anim" src="img/header/btns/btn-anim.png" alt="">
+        <div class="btn-content">
           <div class="btn-flex">
             <div class="detail-l"></div>
             <p class="btn-text">WORK</p>
@@ -73,9 +86,10 @@
         </div> 
       </button>
 
-      <button class="btn contact-btn-container">
-        <img class="stroke-anim stroke-3" src="img/header/btns/btn-anim.png" alt>
-        <div class="btn-cont contact-cont">
+      <!-- Contact Button -->
+      <button class="nav-btn">
+        <img class="btn-anim" src="img/header/btns/btn-anim.png" alt="">
+        <div class="btn-content">
           <div class="btn-flex">
             <div class="detail-l"></div>
             <p class="btn-text">CONTACT</p>
@@ -84,6 +98,7 @@
         </div> 
       </button>
 
+      <!-- Theme Selector -->
       <button class="btn-theme">
         <svg class="sun-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
           <path d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/>
@@ -92,6 +107,7 @@
           <path d="M421.6 379.9c-.6641 0-1.35 .0625-2.049 .1953c-11.24 2.143-22.37 3.17-33.32 3.17c-94.81 0-174.1-77.14-174.1-175.5c0-63.19 33.79-121.3 88.73-152.6c8.467-4.812 6.339-17.66-3.279-19.44c-11.2-2.078-29.53-3.746-40.9-3.746C132.3 31.1 32 132.2 32 256c0 123.6 100.1 224 223.8 224c69.04 0 132.1-31.45 173.8-82.93C435.3 389.1 429.1 379.9 421.6 379.9zM255.8 432C158.9 432 80 353 80 256c0-76.32 48.77-141.4 116.7-165.8C175.2 125 163.2 165.6 163.2 207.8c0 99.44 65.13 183.9 154.9 212.8C298.5 428.1 277.4 432 255.8 432z"/>
         </svg>
       </button>
+
     </nav>
   </header>
 
@@ -111,6 +127,7 @@
 
     <section class="break-section"></section>
 
+    <!-- About Page -->
     <section class="content-section about-container">
       <img class="about-img" src="img/page-art/about-img.png" alt> 
       
@@ -317,7 +334,7 @@
       <form action="https://formsubmit.co/c8ee7d4a91eb67f3e910a5cdb77fd28c" method="POST"
       onsubmit="sentEmail()">
         <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_next" value="https://zacharie-mcgee.com/">
+        <input type="hidden" name="_next" value="https://skeetersdevjourney.github.io/">
         <input type="text" name="name" placeholder="Name" required>
         <input type="email" name="email" placeholder="Email Address" required>
         <textarea name="message" required></textarea>

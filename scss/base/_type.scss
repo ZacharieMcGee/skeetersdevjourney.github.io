@@ -9,7 +9,6 @@ Typography
   src: url("/fonts/caslon-antique.regular.ttf");
 }
 
-@font-face {
-  font-family: caslon-bold;
-  src: url("/fonts/caslon-antique.bold.ttf");
+* {
+  font-family: caslon-reg, sans-serif;
 }
