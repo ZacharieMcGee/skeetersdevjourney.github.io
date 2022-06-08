@@ -38,15 +38,17 @@ header {
 .show-nav {
   left: 50%;
   transform: translateX(-50%);
-  right: initial;
+  right: 0;
+  transition: transform .4s ease-out,
+              right .4s ease-out;
 }
 
 .hide-nav {
   right: -360px;
-  // transition: right .3s ease-out;
+  transition: right .4s ease-out;
   .burger {
     margin-right: 100px;
-    // transition: margin-right .3s ease-out;
+    transition: margin-right .4s;
   }
 }
 
@@ -109,8 +111,17 @@ header {
   .half-name {
     display: none;
   }
+  
+  .fade-name {
+    opacity: 0;
+  }
+
   .full-name {
     display: block;
+  }
+
+  .fade-name {
+    opacity: 1;
   }
 
   .nav-container {

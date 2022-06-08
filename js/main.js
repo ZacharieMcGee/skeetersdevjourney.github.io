@@ -2,7 +2,7 @@
 Confirmation Message
 ----------------------------------*/
 
-const modal = document.querySelector('#confirmation-message');
+const modal = document.querySelector('#confirm-modal');
 const closeModalBtn = document.querySelector('.close-modal-btn');
 
 function sentEmail() {
@@ -26,9 +26,9 @@ Handle Loading Screen
 
 // const loadingScreen = document.querySelector('.loading-overlay');
 
-const landingText = document.querySelector('.landing-text-container');
-const scrollIndicator = document.querySelector('.indicator-text1');
-const scrollArrow = document.querySelector('.indicator-arrow1');
+const landingText = document.querySelector('.land-txt-container');
+const scrollIndicator = document.querySelector('.indicator-text');
+const scrollArrow = document.querySelector('.indicator-arrow');
 
 go();
 function go() {
@@ -59,7 +59,7 @@ const header = document.querySelector('#my-header');
 
 let screenHeight = window.innerHeight;
 let scrollDist = window.pageYOffset;
-let breakLength = 300;
+let breakLength = 400;
 let timerID; 
 
 window.addEventListener('scroll', adjustScreenPosition);
@@ -70,7 +70,7 @@ function adjustScreenPosition() {
   screenHeight = window.innerHeight;
   scrollDist = window.pageYOffset;
 
-  if (scrollDist >= screenHeight + 250) {
+  if (scrollDist >= screenHeight + breakLength) {
     header.className = 'sticky-header';
   } else {
     header.removeAttribute('class');
@@ -179,6 +179,10 @@ const burgerBtn = document.querySelector('.burger');
 const navBtns = document.querySelector('.nav-container');
 const nameContainer = document.querySelector('.name-container');
 
+const menuBtn = document.querySelector('.fa-bars');
+const xBtn = document.querySelector('.fa-xmark');
+xBtn.style.display = 'none';
+
 burgerBtn.addEventListener('click', () => {
   if (navBtns.classList.contains('show-nav')) {
     navBtns.classList.remove('show-nav');
@@ -186,12 +190,18 @@ burgerBtn.addEventListener('click', () => {
 
     nameContainer.classList.remove('fade-name');
     nameContainer.classList.add('show-name');
+
+    xBtn.style.display = 'none';
+    menuBtn.style.display = 'block';
   } else {
     navBtns.classList.remove('hide-nav');
     navBtns.classList.add('show-nav');
 
     nameContainer.classList.add('fade-name');
     nameContainer.classList.remove('show-name');
+
+    menuBtn.style.display = 'none';
+    xBtn.style.display = 'block';
   }
 });
 
@@ -201,21 +211,23 @@ Theme Button
 
 const themeBtn = document.querySelector('.btn-theme');
 const themeOverlay = document.querySelector('.theme-overlay');
-const sunSvg = document.querySelector('.sun-svg');
-const moonSvg = document.querySelector('.moon-svg');
+const sunBtn = document.querySelector('.fa-sun');
+const monnBtn = document.querySelector('.fa-moon');
+
+monnBtn.style.display = 'none';
 
 themeBtn.addEventListener('click', () => {
   if (themeOverlay.classList.contains('show-theme-overlay')) {
     themeOverlay.classList.remove('show-theme-overlay');
     themeOverlay.classList.add('hide-theme-overlay');
-    moonSvg.style.display = 'none';
-    sunSvg.style.display = 'block';
+    monnBtn.style.display = 'none';
+    sunBtn.style.display = 'block';
 
   } else {
     themeOverlay.classList.remove('hide-theme-overlay');
     themeOverlay.classList.add('show-theme-overlay');
-    sunSvg.style.display = 'none';
-    moonSvg.style.display = 'block';
+    sunBtn.style.display = 'none';
+    monnBtn.style.display = 'block';
   }
 });
 
@@ -225,10 +237,10 @@ Project List Horizontal Scroll
 ----------------------------------*/
 
 // This is all working but it feels horribly bloated
-const project1List = document.querySelector('.projects-1-list');
-const project2List = document.querySelector('.projects-2-list');
+const project1List = document.querySelector('.proj-1-list');
+const project2List = document.querySelector('.proj-2-list');
 
-const projects = document.querySelectorAll('.project');
+const projects = document.querySelectorAll('.proj');
 
 let focusedProject = '';
 let isWheeling = false;
@@ -252,7 +264,6 @@ window.addEventListener('click', (e) => {
 function blurListener(e) {
   let list = e.target.parentNode;
   if (list !== project1List && list !== project2List) {
-      console.log(`Event: Blur`);
       blurAll();
   } 
 }
@@ -260,17 +271,14 @@ function blurListener(e) {
 ///////////////////////////////////////////////////
 
 project1List.addEventListener('click', (e) => {
-  console.log('Event: Click on List 1');
   siteListener(e)
 });
 project2List.addEventListener('click', (e) => {
-  console.log('Event: Click on List 1');
   siteListener(e)
 });
 function siteListener(e) {
   let p = e.target;
   if (p == focusedProject) {
-    console.log('hello click');
     launchSite(p);
   }
 }
@@ -278,11 +286,9 @@ function siteListener(e) {
 ///////////////////////////////////////////////////
  
 project1List.addEventListener('touchstart', (e) => {
-  console.log('Event: TouchStart on List 1');
   touchListener(e);
 });
 project2List.addEventListener('touchstart', (e) => {
-  console.log('Event: TouchStart on List 2');
   touchListener(e);
 });
 function touchListener(e) {
@@ -298,11 +304,9 @@ function touchListener(e) {
 ///////////////////////////////////////////////////
 
 project1List.addEventListener('mouseover', (e) => {
-  console.log('Event: Hover on List 1');
   scrollThrough(e);
 });
 project2List.addEventListener('mouseover', (e) => {
-  console.log('Event: Hover on List 2');
   scrollThrough(e);
 });
 function scrollThrough(e) {
@@ -321,12 +325,10 @@ function scrollThrough(e) {
 ///////////////////////////////////////////////////
 
 project1List.addEventListener('wheel', (e) => {
-  console.log('Event: Wheel on List 1');
   allowHorizontalScroll(e);
   
 });
 project2List.addEventListener('wheel', (e) => {
-  console.log('Event: Wheel on List 2');
   allowHorizontalScroll(e);
   
 });
@@ -334,10 +336,10 @@ function allowHorizontalScroll(e) {
   let p = e.target.parentNode;
   e.preventDefault();
   isWheeling = true;
-  if (focusedProject == '' && p.classList == 'projects-1-list') {
+  if (focusedProject == '' && p.classList == 'proj-1-list') {
     focusedProject = projects[0];
     showProj(projects[0]);
-  } else if (focusedProject == '' && p.classList == 'projects-2-list') {
+  } else if (focusedProject == '' && p.classList == 'proj-2-list') {
     focusedProject = projects[3];
     showProj(projects[3]);
   } else {
@@ -357,7 +359,6 @@ function showProj(project) {
       proj.classList.add('fade-proj');
     }
   });
-  console.log(focusedProject.classList[1]);
 }
 
 function blurAll () {

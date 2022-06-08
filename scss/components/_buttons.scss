@@ -39,7 +39,6 @@ Button Components
   z-index: -9;
 }
 
-//
 .btn-content {
   overflow: hidden;
   @include flexo(
@@ -83,15 +82,31 @@ Button Components
   margin-left: -32px;
 }
 
-svg {
-  display: block;
+.fa-bars, 
+.fa-xmark,
+.fa-sun,
+.fa-moon {
   padding: 5px;
-  min-width: 30px;
-  min-height: 30px;
+  font-size: 24px;
 }
 
-.moon-svg {
-  display: none;
+@keyframes rise {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  60% {
+    transform: translateY(-15%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fa-sun,
+.fa-moon {
+  animation: rise .3s ease-out;
 }
 
 @include mq('med') {

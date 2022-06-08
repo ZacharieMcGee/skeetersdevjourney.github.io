@@ -1,10 +1,10 @@
 /*----------------------------------
-Landing Page 
+land Page 
 ----------------------------------*/
 
 @use "../util" as *;
 
-.landing-container {
+#landing-page {
   overflow: hidden;
   position: relative;
   caret-color: transparent;
@@ -16,7 +16,7 @@ Landing Page
   padding: 0 20px;
 }
 
-.landing-text-container {
+.land-txt-container {
   display: none;
   position: relative;
   @include flexo(
@@ -38,15 +38,15 @@ Landing Page
   }
 }
 
-.landing-text-container, .landing-img {
+.land-txt-container, .land-img {
   flex: 1;
 }
 
-.landing-name {
+.land-name {
   width: 100%;
 }
 
-.landing-text {
+.land-text {
   font-size: 1em;
   letter-spacing: .05em;
   margin-right: 15px;
@@ -54,7 +54,7 @@ Landing Page
   animation: appear .75s 3s forwards ease-out;
 }
 
-.landing-img {
+.land-img {
   position: absolute;
   flex-grow: 1.2;
   min-width: 500px;
@@ -63,51 +63,14 @@ Landing Page
   opacity: 22%;
 }
 
-.indicator1 {
-  position: absolute;
-  bottom: 100px; 
-}
-
-.indicator-text1 {   
-  display: none;
-  opacity: 0;
-  animation: appear .6s 4s forwards ease-out;
-  font-size: 1.1em;
-  letter-spacing: .1em;
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    width: 15px;
-    height: 15px;
-    background-image: url('/img/header/scroll-detail.png');
-    background-size: contain;
-  }
-  &::before {
-    transform: scaleX(-1) translateX(calc(100% + 5px));
-  }
-  &::after {
-    transform: translateX(5px);
-  }
-}
-
-.indicator-arrow1 {
-  display: none;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -35%) scale(1.5);
-  z-index: -1;
-}
-
 @include mq('sm') {
-  .landing-text {
+  .land-text {
     font-size: 1.5em;
   }
 }
 
 @include mq('med') {
-  .landing-container {
+  #landing-page {
     padding: 0 20px;
     margin: 0 50px;
   }
@@ -123,27 +86,27 @@ Landing Page
 }
 
 @include mq('lg') {
-  .landing-img {
+  .land-img {
     position: initial;
     left: initial;
     transform: translateX(0);
     opacity: 1;
   }
 
-  .landing-text {
+  .land-text {
     font-size: 1.7em;
   }
 }
 
 @include mq('xl') {
-  .landing-text {
+  .land-text {
     font-size: 2em;
   }
 }
 
 // mq for phone and tablet screen orientation change
 @media screen and (max-width: 768px) and (orientation: landscape) {
-  .landing-container {
+  #landing-page {
     padding: 0 70px;
   }
 }

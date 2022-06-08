@@ -4,9 +4,8 @@ Base Layout of Project Sections
 
 @use "../util" as *;
 
-.projects-container {
+#projects-page {
   position: relative;
-  margin-top: 50px;
   @include flexo(
     flex,
     flex-start,
@@ -16,21 +15,21 @@ Base Layout of Project Sections
   );
 }
 
-.project-anim {
+.proj-anim {
   height: 45px;
 }
 
-.about-line {
+.abt-line {
   width: 100%;
   pointer-events: none;
 }
 
 .section-desc {
-  font-size: 1.1em;
+  font-size: 1.2em;
 }
 
-.projects-title-1,
-.projects-title-2 {
+.proj-title-1,
+.proj-title-2 {
   width: 100%;
   @include flexo(
     flex,
@@ -41,14 +40,15 @@ Base Layout of Project Sections
   );
 }
 
-.projects-title-2 {
+.proj-title-2 {
   flex-direction: column-reverse;
 }
 
-.projects-1-list,
-.projects-2-list {
+.proj-1-list,
+.proj-2-list {
   position: relative;
   width: 100%;
+  margin-top: 10px;
   border-top: 5px solid rgba(0,0,0,.7);
   border-bottom: 5px solid rgba(0,0,0,.7);
   box-shadow: 0 0 10px 5px rgba(0,0,0,.7);   
@@ -98,25 +98,18 @@ h4 {
 }
 
 @include mq('med') {
-
-  .projects-container {
-    margin: 70px 50px 0;
-  }
-
-  .project-anim {
+  .proj-anim {
     height: 60px;
+  }
+  .proj-1-list,
+  .proj-2-list {
+    margin-top: 20px;
   }
 }
 
 @include mq('lg') {
-
-  .projects-container {
-    margin-top: 100px;
-
-  }
-
-  .projects-title-1,
-  .projects-title-2 {
+  .proj-title-1,
+  .proj-title-2 {
     width: 100%;
     @include flexo(
       flex,
@@ -127,16 +120,16 @@ h4 {
     );
   }
 
-  .project-anim {
+  .proj-anim {
     height: 70px;
   }
 
-  .projects-1-list {
+  .proj-1-list {
     box-shadow: 0 0 15px 10px rgba(0,0,0,.7);   
   }
 
   .proj-text, .section-desc {
-    font-size: 1.3em;
+    font-size: 1.6em;
   }
 
   .proj-text {
@@ -146,9 +139,13 @@ h4 {
 }
 
 @include mq('xl') {
-  .projects-container {
+  .proj-title-1,
+  .proj-title-2,
+  .abt-line,
+  .proj-1-list,
+  .proj-2-list {
     width: 100%;
     max-width: 1200px;
-    margin: 100px auto 0;
+    margin: 0 auto;
   }
 }

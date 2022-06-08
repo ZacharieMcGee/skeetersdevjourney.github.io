@@ -17,16 +17,35 @@ main {
 }
 
 .content-section {
-  padding: 10px;
+  margin-top: 50px;
+  padding: 15px;
+  &:first-child {
+    margin-top: 0;
+  }
 }
 
-.break-section {
-  background-color: lightgreen;
-  opacity: 50%;
-}
+
+// @include mq('sm') {
+//   .content-section {
+
+//   }
+// }
 
 @include mq('med') {
   .content-section {
-    padding: 0px;
+    margin: 65px 50px 0;
+    padding: 25px;
   }
 }
+
+@include mq('lg') {
+  .content-section {
+    margin-top: 70px;
+  }
+}
+
+// @include mq('xl') {
+//   .content-section {
+
+//   }
+// }

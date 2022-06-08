@@ -3,3 +3,40 @@ Indicators
 ----------------------------------*/
 
 @use "../util" as *;
+
+.indicator {
+  position: absolute;
+  bottom: 100px; 
+}
+
+.indicator-text {   
+  display: none;
+  opacity: 0;
+  animation: appear .6s 4s forwards ease-out;
+  font-size: 1.2em;
+  letter-spacing: .1em;
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-image: url('/img/header/scroll-detail.png');
+    background-size: contain;
+  }
+  &::before {
+    transform: scaleX(-1) translateX(calc(100% + 5px));
+  }
+  &::after {
+    transform: translateX(5px);
+  }
+}
+
+.indicator-arrow {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -35%) scale(1.5);
+  z-index: -1;
+}

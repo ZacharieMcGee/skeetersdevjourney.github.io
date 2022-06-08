@@ -4,18 +4,20 @@ About Page Layout
 
 @use "../util" as *;
 
-.about-container {
+#about-page {
   position: relative;
   overflow: hidden;
+  caret-color: transparent;
   @include flexo(
     flex,
     center,
     center,
   );
-  margin-top: 50px;
 }
 
-.about-text-container {
+.abt-txt-container {
+  text-align: justify;
+  max-width: 600px;
   @include flexo(
     flex,
     center,
@@ -25,36 +27,33 @@ About Page Layout
   );
 }
 
-.about-text-container, .about-img {
+.abt-txt-container, .abt-img {
   flex: 1;
 }
 
-.about-text-container {
-  max-width: 600px;
-  text-align: justify;
-}
-
-.about-anim {
+.abt-anim {
   max-width: 70%;
 }
 
-.about-text {
-  background-color: rgba(220, 220, 220, .45);
-  box-shadow: 0 0 15px 10px rgba(220, 220, 220, .45);
+.abt-text {
+  caret-color: initial;
+  background-color: rgba(220, 220, 220, .5);
+  box-shadow: 0 0 15px 10px rgba(220, 220, 220, .5);
   border-radius: 10px;
 }
 
-.about-p1, .about-p2 {
+.abt-p1, 
+.abt-p2 {
   font-size: 1.2em;
   letter-spacing: .05em;
   padding: 10px;
 }
 
-.about-p1 {
+.abt-p1 {
   padding-bottom: 0;
 }
 
-.about-img {
+.abt-img {
   position: absolute;
   z-index: -1;
   width: 100%;
@@ -64,7 +63,7 @@ About Page Layout
   opacity: 25%;
 }
 
-.about-line {
+.abt-line {
   height: 6px;
 }
 
@@ -91,20 +90,20 @@ About Page Layout
 
 .resume-container {
   position: relative;
+  height: 40px;
   @include flexo(
     flex,
     center,
     center
   );
-  height: 40px;
 }
 
 .resume-link {
-  font-size: 1.4em;
+  position: relative;
   text-decoration: none;
   color: black;
+  font-size: 1.4em;
   padding: 5px;
-  position: relative;
   z-index: 1;
   &:hover {
     color: ghostwhite;
@@ -121,15 +120,15 @@ About Page Layout
   background-image: url('/img/header/btns/btn-anim.png');
   background-position: center;
   background-size: cover;
-  
 }
 
 .skills-list {
   text-align: center;
   margin: 0 auto;
+  row-gap: 10px;
   @include grido(
     repeat(6, 50px),
-    repeat(2, 80px),
+    1fr 1fr
   );
 }
 
@@ -141,8 +140,7 @@ About Page Layout
 }
 
 .skill-text {
-  font-size: 1.1em;
-  letter-spacing: .04em;
+  letter-spacing: .05em;
 }
 
 .fa-brands {
@@ -152,52 +150,55 @@ About Page Layout
 .stray-icon {
   padding: 0;
   margin: 0 auto;
-  max-height: 40px;
+  height: 40px;
 }
 
 @include mq('med') {
-  .about-container {
-    margin-top: 65px;
-  }
+
   .about-anim {
     max-width: initial;
+  }
+
+  .skills-list {
+    grid-template-columns: repeat(6, 70px)
   }
 
   .fa-brands {
     font-size: 3em;
   }
+
+  .skill-text {
+    font-size: 1.2em;
+  }
   
   .stray-icon {
     margin: 0 auto;
-    max-height: 48px;
+    height: 48px;
   }
 }
 
 @include mq('lg') {
-  .about-container {
-    margin-top: 70px;
-    margin-left: 50px;
-    margin-right: 50px;
+  #about-page {
     padding-left: 20px;
     padding-right: 20px;
   }
 
-  .about-text-container {
+  .abt-txt-container {
     align-items: flex-start;
     gap: 20px;
   }
 
-  .about-img {
+  .abt-img {
     position: initial;
     opacity: 1;
   }
 
-  .about-text {
+  .abt-text {
     background-color: initial;
     box-shadow: none;
   }
 
-  .about-p1, .about-p2 {
+  .abt-p1, .abt-p2 {
     font-size: 1.5em;
     background: none;
     color: initial;

@@ -4,7 +4,7 @@ Project List Interaction/Anims
 
 @use "../util" as *;
 
-.project {
+.proj {
   caret-color: transparent;
   flex-grow: 1;
   flex-basis: 0;
@@ -91,7 +91,7 @@ Project List Interaction/Anims
 }
 
 @include mq('lg') {
-  .project {
+  .proj {
     height: 45vh;
   }
 }
