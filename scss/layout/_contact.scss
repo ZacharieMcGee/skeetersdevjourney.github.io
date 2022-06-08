@@ -61,7 +61,7 @@ Contact Layout
   &:focus,
   &:active {
     &::placeholder {
-      color: rgba(248,248,255,.7);;
+      color: rgba(248,248,255,.7);
     }
     color: ghostwhite;
     background-color: $color-secondary;
@@ -99,7 +99,7 @@ textarea {
 }
 
 @include mq('med') {
-  
+
   #content-page {
     @include flexo(
       flex,
