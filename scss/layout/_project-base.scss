@@ -4,7 +4,8 @@ Base Layout of Project Sections
 
 @use "../util" as *;
 
-#projects-page {
+#projects-1-page,
+#projects-2-page {
   position: relative;
   @include flexo(
     flex,

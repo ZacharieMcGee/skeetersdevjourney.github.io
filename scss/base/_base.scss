@@ -4,6 +4,10 @@ Base Styling
 
 @use "../util" as *;
 
+* {
+  caret-color: transparent;
+}
+
 html {
   background-color: $color-primary;
 }

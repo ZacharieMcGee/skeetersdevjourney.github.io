@@ -311,6 +311,10 @@ Loading Screen
 /*----------------------------------
 Base Styling
 ----------------------------------*/
+* {
+  caret-color: transparent;
+}
+
 html {
   background-color: #0b1c30;
 }
@@ -517,9 +521,8 @@ land Page
 }
 
 .land-txt-container {
-  display: none;
   position: relative;
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: flex-end;
   flex-direction: column;
@@ -946,7 +949,8 @@ About Page Layout
 /*----------------------------------
 Base Layout of Project Sections
 ----------------------------------*/
-#projects-page {
+#projects-1-page,
+#projects-2-page {
   position: relative;
   display: flex;
   justify-content: flex-start;
@@ -1215,15 +1219,15 @@ Indicators
 .indicator-text {
   display: none;
   opacity: 0;
-  animation: appear 0.6s 4s forwards ease-out;
-  font-size: 1.2em;
+  animation: appear 1s forwards ease-out;
+  font-size: 1.3em;
   letter-spacing: 0.1em;
 }
 .indicator-text::before, .indicator-text::after {
   content: "";
   position: absolute;
-  width: 15px;
-  height: 15px;
+  width: 20px;
+  height: 20px;
   background-image: url("/img/header/scroll-detail.png");
   background-size: contain;
 }
@@ -1241,6 +1245,10 @@ Indicators
   left: 50%;
   transform: translate(-50%, -35%) scale(1.5);
   z-index: -1;
+}
+
+.up {
+  transform: translate(-50%, -70%) scale(1.5) rotate(180deg);
 }
 
 /*----------------------------------

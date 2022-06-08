@@ -20,35 +20,44 @@ closeModalBtn.addEventListener('click', () => {
 
 
 /*----------------------------------
-Load Large Images and 
-Handle Loading Screen
+Handling Indicators and Title Anims
 ----------------------------------*/
 
 // const loadingScreen = document.querySelector('.loading-overlay');
 
 const landingText = document.querySelector('.land-txt-container');
-const scrollIndicator = document.querySelector('.indicator-text');
-const scrollArrow = document.querySelector('.indicator-arrow');
+const indicatorTexts = document.querySelectorAll('.indicator-text');
+const indicatorArrows = document.querySelectorAll('.indicator-arrow');
+playLandingAnims();
 
-go();
-function go() {
-  // console.log('hiding overlay');
-  // loadingScreen.style.display = 'none';
+function playLandingAnims() {
   landingText.style.display = 'flex';
-  scrollIndicator.style.display = 'block';
+  setTimeout(() => {
+    indicate(0);
+  }, 4000);
+}
+
+function indicate(i) {
+  indicatorTexts[i].style.display = 'block';
   setTimeout(()=> {
-    scrollArrow.style.display = 'block';
-  }, 4500);
+    indicatorArrows[i].src = indicatorArrows[i].src.replace(/\?.*$/,"")+"?x="+Math.random();
+    indicatorArrows[i].style.display = 'block';
+  }, 1000);
+}
+
+function hideIndicator(i) {
+  indicatorTexts[i].style.display = 'none';
+  indicatorArrows[i].style.display = 'none';
 }
 
 /*----------------------------------
 Landing Page
 ----------------------------------*/
 
-// window.scroll({
-//   top: 0,
-//   behavior: "smooth"
-// });
+window.scroll({
+  top: 0,
+  behavior: "smooth"
+});
 
 /*----------------------------------
 Header Position Change + 
@@ -62,8 +71,14 @@ let scrollDist = window.pageYOffset;
 let breakLength = screenHeight / 2;
 let timerID; 
 
-window.addEventListener('scroll', adjustScreenPosition);
-window.addEventListener('resize', adjustScreenPosition);
+window.addEventListener('scroll', () => {
+  adjustScreenPosition();
+  indicatorAnims();
+});
+window.addEventListener('resize', () => {
+  adjustScreenPosition();
+  indicatorAnims();
+});
 
 function adjustScreenPosition() {
   clearTimeout(timerID);
@@ -111,28 +126,6 @@ function adjustScreenPosition() {
     }
   }, 1500);
 }
-
-/*----------------------------------
-Page Title Gif Control
-----------------------------------*/
-
-// // display block from none will start anim from beginning
-// const about = document.querySelector('.about-anim');
-// const projects = document.querySelector('.projects-anim');
-// const contact = document.querySelector('.contact-anim');
-
-// window.addEventListener('keyup', (e) => {
-//   if (e.key == '1') {
-//     about.style.display = 'block';
-//   } else if (e.key == '2') {
-
-//   } else if (e.key == '3') {
-    
-//   } else if (e.key == '4') {
-//     contact.style.display = 'block';
-//   }
-  
-// });
 
 /*----------------------------------
 Navigation Buttons
@@ -244,16 +237,6 @@ const projects = document.querySelectorAll('.proj');
 let focusedProject = '';
 let isWheeling = false;
 
-// window.addEventListener('click', (e) => {
-//   if (e.target.parentNode !== project1List) {
-//     focusedProject = '';
-//     isWheeling = false;
-//     blurAll();
-//   } else if (e.target == focusedProject) {
-//     console.log('hello');
-//   }
-// })
-
 window.addEventListener('scroll', (e) => {
   blurListener(e);
 })
@@ -263,6 +246,8 @@ window.addEventListener('click', (e) => {
 function blurListener(e) {
   let list = e.target.parentNode;
   if (list !== project1List && list !== project2List) {
+      focusedProject = '';
+      isWheeling = false;
       blurAll();
   } 
 }
@@ -401,20 +386,19 @@ Project Site Links
 // To avoid bubbling issues with acnhor and button tags,
 // links will trigger via js
 function launchSite(p) {
-  let c = p.classList;
-  if (c.contains('proj-1')) {
+  if (p == projects[0]) {
     window.open('https://skeetersdevjourney.github.io/Project-08-EmployeeDirectory/', '_blank');
-  } else if (c.contains('proj-2')) {
+  } else if (p == projects[1]) {
     window.open('https://skeetersdevjourney.github.io/Project-06-GameApp/', '_blank');
-  } else if (c.contains('proj-3')) {
+  } else if (p == projects[2]) {
     window.open('https://skeetersdevjourney.github.io/Project-07-WebAppDashboard/', '_blank');
-  } else if (c.contains('proj-4')) {
+  } else if (p == projects[3]) {
     window.open('https://skeetersdevjourney.github.io/Project-05-PhotoGallery/', '_blank');
-  } else if (c.contains('proj-5')) {
+  } else if (p == projects[4]) {
     window.open('https://skeetersdevjourney.github.io/Project-04-StyleGuide/', '_blank', '_blank');
-  } else if (c.contains('proj-6')) {
+  } else if (p == projects[5]) {
     window.open('https://skeetersdevjourney.github.io/Project_03--Online_Registration_Form/', '_blank');
-  } else if (c.contains('proj-7')) {
+  } else if (p == projects[6]) {
     window.open('https://skeetersdevjourney.github.io/Project02---Responsive-Layout-Design/', '_blank');
   } 
 }

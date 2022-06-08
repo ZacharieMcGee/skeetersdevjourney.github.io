@@ -17,14 +17,11 @@ land Page
 }
 
 .land-txt-container {
-  display: none;
   position: relative;
-  @include flexo(
-    flex,
-    center,
-    flex-end,
-    column
-  ); 
+  display: none;
+  justify-content: center;
+  align-items: flex-end;
+  flex-direction: column; 
 }
 
 @keyframes appear {

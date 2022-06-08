@@ -6,21 +6,21 @@ Indicators
 
 .indicator {
   position: absolute;
-  bottom: 100px; 
+  bottom: 100px;
 }
 
-.indicator-text {   
+.indicator-text { 
   display: none;
   opacity: 0;
-  animation: appear .6s 4s forwards ease-out;
-  font-size: 1.2em;
+  animation: appear 1s forwards ease-out;
+  font-size: 1.3em;
   letter-spacing: .1em;
   &::before,
   &::after {
     content: '';
     position: absolute;
-    width: 15px;
-    height: 15px;
+    width: 20px;
+    height: 20px;
     background-image: url('/img/header/scroll-detail.png');
     background-size: contain;
   }
@@ -39,4 +39,10 @@ Indicators
   left: 50%;
   transform: translate(-50%, -35%) scale(1.5);
   z-index: -1;
+}
+
+.up {
+  transform:  translate(-50%, -70%) 
+              scale(1.5)
+              rotate(180deg);
 }
