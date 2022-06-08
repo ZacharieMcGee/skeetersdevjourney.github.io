@@ -27,6 +27,8 @@ header {
 
 .nav-container {
   position: absolute;
+  right: 50%;
+  // transform: translateX(50%);
   @include flexo(
     flex,
     center,
@@ -36,20 +38,20 @@ header {
 }
 
 .show-nav {
-  left: 50%;
-  transform: translateX(-50%);
-  right: 0;
-  transition: transform .7s ease-out,
-              right .7s ease-out,
-              left .7s ease-out,
+  transform: translateX(50%);
+  transition: transform .6s ease-out;
+  .grow-margin {
+    margin-left: 0;
+    transition: margin-left .6s;
+  }
 }
 
 .hide-nav {
-  right: -370px;
-  transition: right .7s ease-out;
-  .burger {
-    margin-right: 100px;
-    transition: margin-right .6s .2s;
+  transform: translateX(133%);
+  transition: transform .7s ease-out;
+  .grow-margin {
+    margin-left: 100px;
+    transition: margin-left .7s;
   }
 }
 
