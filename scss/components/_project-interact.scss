@@ -5,6 +5,7 @@ Project List Interaction/Anims
 @use "../util" as *;
 
 .proj {
+  cursor: pointer;
   caret-color: transparent;
   flex-grow: 1;
   flex-basis: 0;
@@ -20,6 +21,7 @@ Project List Interaction/Anims
 .proj-time,
 .feature-header,
 .proj-bullet {
+  cursor: initial;
   opacity: 0;
   transform: translateY(-20px);
 }
@@ -46,6 +48,7 @@ Project List Interaction/Anims
   }
 
   .proj-text {
+    cursor: initial;
     opacity: 1;
     pointer-events: initial;
   }

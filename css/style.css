@@ -366,6 +366,9 @@ main {
 .content-section:first-child {
   margin-top: 0;
 }
+.content-section:last-child {
+  margin-bottom: 50px;
+}
 
 @media (min-width: 768px) {
   .content-section {
@@ -845,6 +848,7 @@ About Page Layout
   position: absolute;
   width: 110px;
   height: 80px;
+  opacity: 0.7;
   background-image: url("/img/header/btns/btn-anim.png");
   background-position: center;
   background-size: cover;
@@ -1091,9 +1095,117 @@ h4 {
   }
 }
 /*----------------------------------
+Contact Layout
+----------------------------------*/
+.cont-container {
+  max-width: 800px;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cont-anim {
+  height: 60px;
+}
+
+#cont-form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#cont-form input:nth-child(3) {
+  border-radius: 10px 10px 0 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+#cont-form input:nth-child(4) {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+#cont-form textarea,
+.send-btn {
+  border-radius: 0 0 10px 10px;
+}
+
+.cont-input,
+.send-btn {
+  background-color: rgba(248, 248, 255, 0.6);
+  border: none;
+  outline: none;
+  font-size: 1.3em;
+  padding: 0.75em;
+}
+.cont-input:hover, .cont-input:focus,
+.send-btn:hover,
+.send-btn:focus {
+  background-color: ghostwhite;
+  transition: background-color 0.3s;
+}
+.cont-input:focus, .cont-input:active,
+.send-btn:focus,
+.send-btn:active {
+  color: ghostwhite;
+  background-color: #477fa6;
+  transition: background-color 0.5s;
+  box-shadow: inset 0 0 10px 5px rgba(0, 0, 0, 0.2);
+}
+.cont-input:focus::placeholder, .cont-input:active::placeholder,
+.send-btn:focus::placeholder,
+.send-btn:active::placeholder {
+  color: rgba(248, 248, 255, 0.7);
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: inset 0 0 0 30px #477fa6 !important;
+  -webkit-text-fill-color: ghostwhite !important;
+}
+
+.cont-input {
+  caret-color: initial;
+  width: 100%;
+}
+
+textarea {
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 250px;
+  max-height: 55vh;
+}
+
+.send-btn {
+  cursor: pointer;
+  width: 50%;
+  font-size: 1.3em;
+  letter-spacing: 0.05em;
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+@media (min-width: 768px) {
+  #content-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .cont-anim {
+    height: 80px;
+  }
+}
+/*----------------------------------
 Project List Interaction/Anims
 ----------------------------------*/
 .proj {
+  cursor: pointer;
   caret-color: transparent;
   flex-grow: 1;
   flex-basis: 0;
@@ -1108,6 +1220,7 @@ Project List Interaction/Anims
 .proj-time,
 .feature-header,
 .proj-bullet {
+  cursor: initial;
   opacity: 0;
   transform: translateY(-20px);
 }
@@ -1131,6 +1244,7 @@ Project List Interaction/Anims
   transform: translateY(0);
 }
 .grow-proj .proj-text {
+  cursor: initial;
   opacity: 1;
   pointer-events: initial;
 }
@@ -1265,6 +1379,9 @@ Button Components
   position: absolute;
 }
 
+.nav-btn {
+  cursor: pointer;
+}
 .nav-btn > * {
   pointer-events: none;
 }
@@ -1329,6 +1446,7 @@ Button Components
 .fa-xmark,
 .fa-sun,
 .fa-moon {
+  cursor: pointer;
   padding: 5px;
   font-size: 24px;
 }

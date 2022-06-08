@@ -16,6 +16,7 @@ Button Components
 }
 
 .nav-btn { 
+  cursor: pointer;
   & > * {
     pointer-events: none;
   }
@@ -86,6 +87,7 @@ Button Components
 .fa-xmark,
 .fa-sun,
 .fa-moon {
+  cursor: pointer;
   padding: 5px;
   font-size: 24px;
 }

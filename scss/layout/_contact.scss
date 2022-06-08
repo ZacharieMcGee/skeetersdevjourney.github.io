@@ -1,0 +1,114 @@
+/*----------------------------------
+Contact Layout
+----------------------------------*/
+
+@use "../util" as *;
+
+.cont-container {
+  max-width: 800px;
+  height: 100%;
+  margin: 0 auto;
+  @include flexo(
+    flex,
+    center,
+    center,
+    column,
+    $gap: 10px
+  );
+}
+
+.cont-anim {
+  height: 60px;
+}
+
+#cont-form {
+  width: 100%;
+  @include flexo(
+    flex,
+    center,
+    center,
+    column,
+  );
+}
+
+#cont-form input:nth-child(3) {
+  border-radius: 10px 10px 0 0; 
+  border-bottom: 1px solid rgba(0,0,0,.2);
+}
+
+#cont-form input:nth-child(4) {
+  border-bottom: 1px solid rgba(0,0,0,.2);
+}
+
+#cont-form textarea, 
+.send-btn {
+  border-radius: 0 0 10px 10px; 
+}
+
+.cont-input,
+.send-btn {
+  background-color: rgba(248,248,255,0.6);
+  border: none;
+  outline: none;
+  font-size: 1.3em;
+  padding: .75em;
+  &:hover,
+  &:focus {
+    background-color: rgba(248,248,255,1);
+    transition: background-color .3s;
+
+  }
+  &:focus,
+  &:active {
+    &::placeholder {
+      color: rgba(248,248,255,.7);;
+    }
+    color: ghostwhite;
+    background-color: $color-secondary;
+    transition: background-color .5s;
+    box-shadow: inset 0 0 10px 5px rgba(0,0,0,.2);
+  }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active  {
+    -webkit-box-shadow: inset 0 0 0 30px $color-secondary !important;
+    -webkit-text-fill-color: ghostwhite !important;
+}
+
+.cont-input {
+  caret-color: initial;
+  width: 100%;
+}
+
+textarea {
+  min-width: 100%; 
+  max-width: 100%;
+  min-height: 250px;
+  max-height: 55vh;
+}
+
+.send-btn {
+  cursor: pointer;
+  width: 50%;
+  font-size: 1.3em;
+  letter-spacing: .05em;
+  border-top: 1px solid rgba(0,0,0,.2);
+}
+
+@include mq('med') {
+  
+  #content-page {
+    @include flexo(
+      flex,
+      center,
+      center
+    );
+  }
+
+  .cont-anim {
+    height: 80px;
+  }
+}
