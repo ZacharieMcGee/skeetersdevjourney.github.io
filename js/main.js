@@ -73,11 +73,11 @@ let timerID;
 
 window.addEventListener('scroll', () => {
   adjustScreenPosition();
-  indicatorAnims();
+  // indicatorAnims();
 });
 window.addEventListener('resize', () => {
   adjustScreenPosition();
-  indicatorAnims();
+  // indicatorAnims();
 });
 
 function adjustScreenPosition() {

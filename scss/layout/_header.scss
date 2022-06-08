@@ -27,8 +27,6 @@ header {
 
 .nav-container {
   position: absolute;
-  right: 50%;
-  // transform: translateX(50%);
   @include flexo(
     flex,
     center,
@@ -38,8 +36,10 @@ header {
 }
 
 .show-nav {
+  right: 50%;
   transform: translateX(50%);
-  transition: transform .6s ease-out;
+   transition:  right .7s ease-out,
+                transform .7s ease-out;
   .grow-margin {
     margin-left: 0;
     transition: margin-left .6s;
@@ -47,8 +47,10 @@ header {
 }
 
 .hide-nav {
-  transform: translateX(133%);
-  transition: transform .7s ease-out;
+  right: -365px;
+  transform: translateX(0);
+  transition: right .7s ease-out,
+              transform .7s ease-out;
   .grow-margin {
     margin-left: 100px;
     transition: margin-left .7s;
