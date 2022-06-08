@@ -340,7 +340,19 @@ main {
   width: 100%;
   display: grid;
   grid-template-columns: 100%;
-  grid-template-rows: 100vh 400px 100vh 400px 100vh 400px 100vh 400px 100vh;
+  grid-template-rows: 100vh 50vh 100vh 50vh 100vh 50vh 100vh 50vh 100vh;
+}
+
+.break-section {
+  pointer-events: none;
+  caret-color: transparent;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.break-graphic2 {
+  display: none;
 }
 
 .content-section {
@@ -356,10 +368,18 @@ main {
     margin: 65px 50px 0;
     padding: 25px;
   }
+
+  .break-section {
+    margin: 0 50px;
+  }
 }
 @media (min-width: 1024px) {
   .content-section {
     margin-top: 70px;
+  }
+
+  .break-graphic2 {
+    display: block;
   }
 }
 /*----------------------------------
@@ -419,7 +439,7 @@ Border Element Layout
   transform-origin: 0% 100%;
   top: -50px;
   left: 0;
-  width: calc(500vh + 1600px);
+  width: 700vh;
   transform: rotate(90deg);
   background-position: left;
 }
@@ -428,7 +448,7 @@ Border Element Layout
   transform-origin: 100% 100%;
   top: -50px;
   right: 0;
-  width: calc(500vh + 1600px);
+  width: 700vh;
   transform: rotate(-90deg);
   background-position: right;
 }
@@ -592,7 +612,7 @@ header {
   align-items: center;
   width: 100%;
   min-height: 50px;
-  top: calc(100vh + 400px);
+  top: 150vh;
   padding: 10px;
   z-index: 20;
   border-radius: 10px;
@@ -615,16 +635,16 @@ header {
   left: 50%;
   transform: translateX(-50%);
   right: 0;
-  transition: transform 0.4s ease-out, right 0.4s ease-out;
+  transition: transform 0.7s ease-out, right 0.7s ease-out, left 0.7s ease-out;
 }
 
 .hide-nav {
-  right: -360px;
-  transition: right 0.4s ease-out;
+  right: -370px;
+  transition: right 0.7s ease-out;
 }
 .hide-nav .burger {
   margin-right: 100px;
-  transition: margin-right 0.4s;
+  transition: margin-right 0.6s 0.2s;
 }
 
 .name-container img {
@@ -635,17 +655,14 @@ header {
   display: none;
 }
 
-.show-name,
-.fade-name {
-  transition: opacity 0.2s ease-out;
-}
-
 .show-name {
   opacity: 1;
+  transition: opacity 0.2s 0.5s ease-out;
 }
 
 .fade-name {
   opacity: 0;
+  transition: opacity 0.2s ease-out;
 }
 
 @media (min-width: 481px) {
@@ -654,7 +671,7 @@ header {
   }
 
   .hide-nav {
-    right: -388px;
+    right: -395px;
   }
 }
 @media (min-width: 768px) {
@@ -772,7 +789,7 @@ About Page Layout
   width: 100%;
   min-width: 450px;
   max-width: 850px;
-  transform: scaleX(-1) translateX(20px);
+  transform: scaleX(-1) translateX(10px);
   opacity: 25%;
 }
 
@@ -1055,12 +1072,18 @@ h4 {
 @media (min-width: 1200px) {
   .proj-title-1,
 .proj-title-2,
-.abt-line,
-.proj-1-list,
-.proj-2-list {
+.abt-line {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
+  }
+
+  .proj-1-list,
+.proj-2-list {
+    width: 100%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 /*----------------------------------
@@ -1302,22 +1325,50 @@ Button Components
   font-size: 24px;
 }
 
+@keyframes spin1 {
+  0% {
+    opacity: 0;
+    transform: rotate(180deg);
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(0);
+  }
+}
+@keyframes spin2 {
+  0% {
+    opacity: 0;
+    transform: rotate(-180deg);
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(0);
+  }
+}
+.fa-bars {
+  animation: spin1 0.5s ease-out;
+}
+
+.fa-xmark {
+  animation: spin2 0.5s ease-out;
+}
+
 @keyframes rise {
   0% {
     opacity: 0;
-    transform: translateY(100%);
+    transform: translateY(100%) scale(0);
   }
   60% {
     transform: translateY(-15%);
   }
   100% {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
   }
 }
 .fa-sun,
 .fa-moon {
-  animation: rise 0.3s ease-out;
+  animation: rise 0.4s ease-out;
 }
 
 @media (min-width: 768px) {
@@ -1339,7 +1390,7 @@ Night Theme Overlay
   position: absolute;
   z-index: 200;
   width: 100%;
-  height: calc(500vh + 1600px);
+  height: 700vh;
   background-color: #fff;
   mix-blend-mode: difference;
 }

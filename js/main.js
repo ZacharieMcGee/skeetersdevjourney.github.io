@@ -59,7 +59,7 @@ const header = document.querySelector('#my-header');
 
 let screenHeight = window.innerHeight;
 let scrollDist = window.pageYOffset;
-let breakLength = 400;
+let breakLength = screenHeight / 2;
 let timerID; 
 
 window.addEventListener('scroll', adjustScreenPosition);
@@ -69,6 +69,7 @@ function adjustScreenPosition() {
   clearTimeout(timerID);
   screenHeight = window.innerHeight;
   scrollDist = window.pageYOffset;
+  breakLength = screenHeight / 2;
 
   if (scrollDist >= screenHeight + breakLength) {
     header.className = 'sticky-header';
@@ -110,8 +111,6 @@ function adjustScreenPosition() {
     }
   }, 1500);
 }
-
-
 
 /*----------------------------------
 Page Title Gif Control

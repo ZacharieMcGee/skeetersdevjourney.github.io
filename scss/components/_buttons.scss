@@ -90,23 +90,55 @@ Button Components
   font-size: 24px;
 }
 
+@keyframes spin1 {
+  0% {
+    opacity: 0;
+    transform: rotate(180deg);
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(0);
+  }
+}
+
+@keyframes spin2 {
+  0% {
+    opacity: 0;
+    transform: rotate(-180deg);
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(0);
+  }
+}
+
+.fa-bars {
+  animation: spin1 .5s ease-out;
+}
+
+.fa-xmark {
+  animation: spin2 .5s ease-out;
+}
+
 @keyframes rise {
   0% {
     opacity: 0;
-    transform: translateY(100%);
+    transform:  translateY(100%) 
+                scale(0);
   }
   60% {
     transform: translateY(-15%);
   }
   100% {
     opacity: 1;
-    transform: translateY(0);
+    transform:  translateY(0) 
+                scale(1);
   }
 }
 
 .fa-sun,
 .fa-moon {
-  animation: rise .3s ease-out;
+  animation: rise .4s ease-out;
 }
 
 @include mq('med') {

@@ -141,11 +141,18 @@ h4 {
 @include mq('xl') {
   .proj-title-1,
   .proj-title-2,
-  .abt-line,
-  .proj-1-list,
-  .proj-2-list {
+  .abt-line {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
   }
+
+  .proj-1-list,
+  .proj-2-list {
+    width: 100%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
 }
