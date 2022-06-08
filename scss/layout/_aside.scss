@@ -103,6 +103,56 @@ Border Element Layout
   left: 0;
 }
 
+.break-section-1,
+.break-section-2,
+.break-section-3,
+.break-section-4 {
+  overflow: hidden;
+  pointer-events: none;
+  caret-color: transparent;
+  @include flexo(
+    flex,
+    space-between,
+    center
+  );
+}
+
+.break-graphic-1,
+.break-graphic-6,
+.break-graphic-7 {
+  width: 0;
+}
+
+.break-graphic-2,
+.break-graphic-3 {
+  min-width: 500px;
+}
+
+.break-graphic-3 {
+  transform: scaleX(-1);
+}
+
+.break-graphic-4 {
+  transform: scaleY(-1);
+}
+
+.break-graphic-5 {
+  transform: scale(-1);
+}
+
+.break-graphic-6 {
+  transform: scale(-1);
+}
+
+.break-graphic-7 {
+  transform: scaleX(-1);
+}
+
+.break-graphic-8 {
+  transform: scaleY(-1);
+}
+
+
 @include mq('med') {
   .brdr-c,
   .brdr-l,
@@ -110,12 +160,28 @@ Border Element Layout
     display: initial;
   }
 
+  .break-section-1,
+  .break-section-2,
+  .break-section-3,
+  .break-section-4 {
+    margin: 0 50px;
+  }
+
+}
+
+@include mq('lg') {
+  .break-graphic-1,
+  .break-graphic-6,
+  .break-graphic-7 {
+    width: initial;
+  }
 }
 
 @include mq('xl') {
   .brdr-c {
     max-width: 425px; 
   }
+ 
 }
 
 // media query that checks for mobile/tablets

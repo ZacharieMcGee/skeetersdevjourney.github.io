@@ -16,20 +16,6 @@ main {
   );
 }
 
-.break-section {
-  pointer-events: none;
-  caret-color: transparent;
-  @include flexo(
-    flex,
-    space-between,
-    center
-  );
-}
-
-.break-graphic2 {
-  display: none;
-}
-
 .content-section {
   margin-top: 50px;
   padding: 15px;
@@ -46,17 +32,11 @@ main {
     margin: 65px 50px 0;
     padding: 25px;
   }
-  .break-section {
-    margin: 0 50px;
-  }
 }
 
 @include mq('lg') {
   .content-section {
     margin-top: 70px;
-  }
-  .break-graphic2 {
-    display: block;
   }
 }
 

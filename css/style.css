@@ -347,18 +347,6 @@ main {
   grid-template-rows: 100vh 50vh 100vh 50vh 100vh 50vh 100vh 50vh 100vh;
 }
 
-.break-section {
-  pointer-events: none;
-  caret-color: transparent;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.break-graphic2 {
-  display: none;
-}
-
 .content-section {
   margin-top: 50px;
   padding: 15px;
@@ -375,18 +363,10 @@ main {
     margin: 65px 50px 0;
     padding: 25px;
   }
-
-  .break-section {
-    margin: 0 50px;
-  }
 }
 @media (min-width: 1024px) {
   .content-section {
     margin-top: 70px;
-  }
-
-  .break-graphic2 {
-    display: block;
   }
 }
 /*----------------------------------
@@ -487,11 +467,72 @@ Border Element Layout
   left: 0;
 }
 
+.break-section-1,
+.break-section-2,
+.break-section-3,
+.break-section-4 {
+  overflow: hidden;
+  pointer-events: none;
+  caret-color: transparent;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.break-graphic-1,
+.break-graphic-6,
+.break-graphic-7 {
+  width: 0;
+}
+
+.break-graphic-2,
+.break-graphic-3 {
+  min-width: 500px;
+}
+
+.break-graphic-3 {
+  transform: scaleX(-1);
+}
+
+.break-graphic-4 {
+  transform: scaleY(-1);
+}
+
+.break-graphic-5 {
+  transform: scale(-1);
+}
+
+.break-graphic-6 {
+  transform: scale(-1);
+}
+
+.break-graphic-7 {
+  transform: scaleX(-1);
+}
+
+.break-graphic-8 {
+  transform: scaleY(-1);
+}
+
 @media (min-width: 768px) {
   .brdr-c,
 .brdr-l,
 .brdr-r {
     display: initial;
+  }
+
+  .break-section-1,
+.break-section-2,
+.break-section-3,
+.break-section-4 {
+    margin: 0 50px;
+  }
+}
+@media (min-width: 1024px) {
+  .break-graphic-1,
+.break-graphic-6,
+.break-graphic-7 {
+    width: initial;
   }
 }
 @media (min-width: 1200px) {

@@ -54,10 +54,10 @@ function hideIndicator(i) {
 Landing Page
 ----------------------------------*/
 
-// window.scroll({
-//   top: 0,
-//   behavior: "smooth"
-// });
+window.scroll({
+  top: 0,
+  behavior: "smooth"
+});
 
 /*----------------------------------
 Header Position Change + 
