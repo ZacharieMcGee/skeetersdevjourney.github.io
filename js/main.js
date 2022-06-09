@@ -10,14 +10,15 @@ function sentEmail() {
 }
 
 if (window.localStorage.getItem('showConfirmation') == 'true') {
+  modal.style.display = "flex";
   modal.showModal();
 }
 
 closeModalBtn.addEventListener('click', () => {
   modal.close();
+  modal.style.display = "none";
   window.localStorage.setItem('showConfirmation', 'false');
 });
-
 
 /*----------------------------------
 Handling Indicators and Title Anims
@@ -43,6 +44,11 @@ function indicate(i) {
     indicatorArrows[i].src = indicatorArrows[i].src.replace(/\?.*$/,"")+"?x="+Math.random();
     indicatorArrows[i].style.display = 'block';
   }, 1000);
+}
+
+function showIndicator(i) {
+  indicatorTexts[i].style.display = 'block';
+  indicatorArrows[i].style.display = 'block';
 }
 
 function hideIndicator(i) {
@@ -73,11 +79,10 @@ let timerID;
 
 window.addEventListener('scroll', () => {
   adjustScreenPosition();
-  // indicatorAnims();
+  indicateResume();
 });
 window.addEventListener('resize', () => {
   adjustScreenPosition();
-  // indicatorAnims();
 });
 
 function adjustScreenPosition() {
@@ -85,6 +90,13 @@ function adjustScreenPosition() {
   screenHeight = window.innerHeight;
   scrollDist = window.pageYOffset;
   breakLength = screenHeight / 2;
+  let isMobile = false;
+
+  if (window.innerWidth < 768) {
+    isMobile = true;
+  } else {
+    isMobile = false;
+  }
 
   if (scrollDist >= screenHeight + breakLength) {
     header.className = 'sticky-header';
@@ -98,33 +110,45 @@ function adjustScreenPosition() {
     let p3Limit = (p1Limit * 5) + (breakLength * 2);
     let p4Limit = (p1Limit * 7) + (breakLength * 3);
 
-    if (scrollDist <= p1Limit) {
-      window.scroll({
-        top: 0,
-        behavior: "smooth"
-      });
-    } else if (scrollDist <= p2Limit) {
-      window.scroll({
-        top: screenHeight + breakLength,
-        behavior: "smooth"
-      });
-    } else if (scrollDist <= p3Limit) {
-      window.scroll({
-        top: (screenHeight * 2) + (breakLength * 2),
-        behavior: "smooth"
-      });
-    } else if (scrollDist <= p4Limit) {
-      window.scroll({
-        top: (screenHeight * 3) + (breakLength * 3),
-        behavior: "smooth"
-      });
-    } else {
-      window.scroll({
-        top: (screenHeight * 4) + (breakLength * 4),
-        behavior: "smooth"
-      });
+    if (isMobile == false) {
+      if (scrollDist <= p1Limit) {
+        window.scroll({
+          top: 0,
+          behavior: "smooth"
+        });
+      } else if (scrollDist <= p2Limit) {
+        window.scroll({
+          top: screenHeight + breakLength,
+          behavior: "smooth"
+        });
+      } else if (scrollDist <= p3Limit) {
+        window.scroll({
+          top: (screenHeight * 2) + (breakLength * 2),
+          behavior: "smooth"
+        });
+      } else if (scrollDist <= p4Limit) {
+        window.scroll({
+          top: (screenHeight * 3) + (breakLength * 3),
+          behavior: "smooth"
+        });
+      } else {
+        window.scroll({
+          top: (screenHeight * 4) + (breakLength * 4),
+          behavior: "smooth"
+        });
+      }
     }
   }, 1500);
+}
+
+const resumeAnim = document.querySelector('.resume-anim');
+
+function indicateResume() {
+  if (scrollDist >= screenHeight + breakLength) {
+    setTimeout(() => {
+      resumeAnim.classList.add('show-resume');
+    }, 1000);
+  }
 }
 
 /*----------------------------------
@@ -223,7 +247,6 @@ themeBtn.addEventListener('click', () => {
   }
 });
 
-
 /*----------------------------------
 Project List Horizontal Scroll
 ----------------------------------*/
@@ -236,6 +259,7 @@ const projects = document.querySelectorAll('.proj');
 
 let focusedProject = '';
 let isWheeling = false;
+let isIndicating = true;
 
 window.addEventListener('scroll', (e) => {
   blurListener(e);
@@ -246,9 +270,14 @@ window.addEventListener('click', (e) => {
 function blurListener(e) {
   let list = e.target.parentNode;
   if (list !== project1List && list !== project2List) {
-      focusedProject = '';
-      isWheeling = false;
-      blurAll();
+    focusedProject = '';
+    isWheeling = false;
+    blurAll();
+    if (isIndicating) {
+      indicate(1);
+      showIndicator(2);
+      isIndicating = false;
+    }
   } 
 }
 
@@ -314,7 +343,6 @@ project1List.addEventListener('wheel', (e) => {
 });
 project2List.addEventListener('wheel', (e) => {
   allowHorizontalScroll(e);
-  
 });
 function allowHorizontalScroll(e) {
   let p = e.target.parentNode;
@@ -334,6 +362,9 @@ function allowHorizontalScroll(e) {
 ///////////////////////////////////////////////////
 
 function showProj(project) {
+  hideIndicator(1);
+  hideIndicator(2);
+  isIndicating = true;
   projects.forEach(proj => {
     if (proj == project) {
       proj.classList.remove('fade-proj');

@@ -1,0 +1,43 @@
+/*----------------------------------
+Modal
+----------------------------------*/
+
+@use "../util" as *;
+
+dialog {
+  color: $color-primary;
+  @include flexo(
+    null,
+    center,
+    center,
+    column,
+    $gap: 10px
+  );
+  background-image: url('/img/border/bg.png');
+  background-size: cover;
+}
+
+dialog::backdrop {
+  background-color: rgba(0,0,0,.6);
+}
+
+.confirm-header {
+  font-size: 2.5em;
+}
+
+.confirm-text,
+.close-modal-btn {
+  font-size: 1.5em;
+}
+
+.close-modal-btn {
+  outline: none;
+  border: none;
+  background-color: rgba(248,248,255,.6);
+  padding: .3em .5em;
+  border-radius: 10px;
+  &:hover,
+  &:focus {
+    background-color: $color-secondary;
+  }
+}

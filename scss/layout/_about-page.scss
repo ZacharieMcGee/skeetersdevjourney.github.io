@@ -113,6 +113,7 @@ About Page Layout
 }
 
 .resume-anim {
+  display: none;
   pointer-events: none;
   position: absolute;
   width: 110px;
@@ -121,6 +122,10 @@ About Page Layout
   background-image: url('/img/header/btns/btn-anim.png');
   background-position: center;
   background-size: cover;
+}
+
+.show-resume {
+  display: block;
 }
 
 .skills-list {
