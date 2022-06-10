@@ -70,17 +70,22 @@ Base Layout of Project Sections
   left: 50%;
   top: 50%;
   transform: translate(-50%, 16vh);
+  margin: 0 auto;
+  @include flexo(
+    flex, 
+    center,
+    flex-start,
+    column
+  );
+}
+
+.proj-text-section {
+  width: 100%;
 }
 
 h4 {
   margin: 5px 0;
-  background-color: rgba(220, 220, 220, .65);
-  box-shadow: 0 0 10px 5px rgba(220, 220, 220, .65);
-  border-radius: 10px;
-}
-
-.proj-name {
-  margin-bottom: 0;
+  border-bottom: 2px solid rgba(0,0,0,.8);
 }
 
 .proj-desc, 
@@ -105,7 +110,7 @@ h4 {
 @include mq('med') {
   h4 {
     margin: 10px 0;
-    padding: .5em;
+    padding: 5px;
   }
 
   .proj-anim {
@@ -140,7 +145,11 @@ h4 {
 
   .proj-text {
     transform: translate(-50%, 22vh);
-    
+    flex-direction: row;
+    gap: 40px;
+    & > * {
+      flex: 1;
+    }
   }
 }
 

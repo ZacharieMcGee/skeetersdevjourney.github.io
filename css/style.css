@@ -1064,17 +1064,20 @@ Base Layout of Project Sections
   left: 50%;
   top: 50%;
   transform: translate(-50%, 16vh);
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.proj-text-section {
+  width: 100%;
 }
 
 h4 {
   margin: 5px 0;
-  background-color: rgba(220, 220, 220, 0.65);
-  box-shadow: 0 0 10px 5px rgba(220, 220, 220, 0.65);
-  border-radius: 10px;
-}
-
-.proj-name {
-  margin-bottom: 0;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.8);
 }
 
 .proj-desc,
@@ -1098,7 +1101,7 @@ h4 {
 @media (min-width: 768px) {
   h4 {
     margin: 10px 0;
-    padding: 0.5em;
+    padding: 5px;
   }
 
   .proj-anim {
@@ -1130,6 +1133,11 @@ h4 {
 
   .proj-text {
     transform: translate(-50%, 22vh);
+    flex-direction: row;
+    gap: 40px;
+  }
+  .proj-text > * {
+    flex: 1;
   }
 }
 @media (min-width: 1200px) {
@@ -1329,10 +1337,10 @@ Project List Interaction/Anims
 .grow-proj .proj-name {
   transition: transform 0.3s, opacity 0.3s;
 }
-.grow-proj .proj-desc {
+.grow-proj .proj-time {
   transition: transform 0.3s 0.15s, opacity 0.3s 0.15s;
 }
-.grow-proj .proj-time {
+.grow-proj .proj-desc {
   transition: transform 0.3s 0.3s, opacity 0.3s 0.3s;
 }
 .grow-proj .feature-header {
