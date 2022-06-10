@@ -5,7 +5,7 @@ Modal
 @use "../util" as *;
 
 dialog {
-  color: $color-primary;
+  display: none;
   @include flexo(
     null,
     center,

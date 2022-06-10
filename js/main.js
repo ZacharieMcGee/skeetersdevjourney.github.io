@@ -3,7 +3,7 @@ Handling Indicators and Title Anims
 ----------------------------------*/
 
 const loadingScreen = document.querySelector('.loading-overlay');
-const bgContainer = document.querySelector('#brdr-container');
+
 const landingText = document.querySelector('.land-txt-container');
 const indicatorText = document.querySelector('.indicator-text');
 const indicatorArrow = document.querySelector('.indicator-arrow');
@@ -18,9 +18,21 @@ function load(src) {
   });
 }
 
-const image = '/img/border/bg.png';
-load(image)
-  .then(() => bgContainer.style.backgroundImage = `url(${image}`)
+const bgContainer = document.querySelector('#brdr-container');
+const bgImgUrl = '/img/border/bg.png';
+
+const landingImg = document.querySelector('.land-name');
+const landingImgUrl = 'img/anims/name-anim.png';
+
+const landingName = document.querySelector('.land-img');
+const landingNameUrl = 'img/page-art/landing-img.png';
+
+load(bgImgUrl)
+  .then(() => bgContainer.style.backgroundImage = `url(${bgImgUrl}`)
+  .then(() => load(landingImgUrl))
+  .then(() => landingImg.src = landingImgUrl)
+  .then(() => load(landingNameUrl))
+  .then(() => landingName.src = landingNameUrl)
   .then(() => loadingScreen.style.display = 'none')
   .then(() => {
     setTimeout(() => {
