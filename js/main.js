@@ -1,5 +1,5 @@
 /*----------------------------------
-Confirmation Message
+Confirmation Message and Set Site Url
 ----------------------------------*/
 
 const modal = document.querySelector('#confirm-modal');
@@ -19,6 +19,9 @@ closeModalBtn.addEventListener('click', () => {
   modal.style.display = "none";
   window.localStorage.setItem('showConfirmation', 'false');
 });
+
+const confirmationRedirect = document.querySelector('#redirect');
+confirmationRedirect.value = document.location.origin;
 
 /*----------------------------------
 Handling Indicators and Title Anims
