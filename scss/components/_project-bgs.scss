@@ -4,39 +4,40 @@ Project Background Images
 
 @use "../util" as *;
 
-.proj {
-  background-size: cover;
+.proj-img {
+    pointer-events: none;
+    background-size: cover;
 }
 
 .proj-1-list {
-  .proj:first-child {
+  .proj:first-child .proj-img {
     background-image: url('/img/projects/directory.png');
     background-position: top left;
   }
-  .proj:nth-child(2) {
+  .proj:nth-child(2) .proj-img {
     background-image: url('/img/projects/wordgame.png');
     background-position: bottom center;
   }
-  .proj:last-child {
+  .proj:last-child .proj-img {
     background-image: url('/img/projects/dashboard.png');
     background-position: top right;
   }
 }
 
 .proj-2-list {
-  .proj:first-child {
+  .proj:first-child .proj-img {
     background-image: url('/img/projects/gallery.png');
     background-position: top left;
   }
-  .proj:nth-child(2) {
+  .proj:nth-child(2) .proj-img {
     background-image: url('/img/projects/guide.png');
     background-position: top center;
   }
-  .proj:nth-child(3) {
+  .proj:nth-child(3) .proj-img {
     background-image: url('/img/projects/registration.png');
     background-position: top center;
   }
-  .proj:last-child {
+  .proj:last-child .proj-img {
     background-image: url('/img/projects/responsive.png');
     background-position: top center;
   }

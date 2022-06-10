@@ -1,3 +1,7 @@
+// static indicators
+// set font colors
+// night theme
+
 /*----------------------------------
 Confirmation Message
 ----------------------------------*/
@@ -24,40 +28,35 @@ closeModalBtn.addEventListener('click', () => {
 Handling Indicators and Title Anims
 ----------------------------------*/
 
-// const loadingScreen = document.querySelector('.loading-overlay');
-
 const landingText = document.querySelector('.land-txt-container');
-const indicatorTexts = document.querySelectorAll('.indicator-text');
-const indicatorArrows = document.querySelectorAll('.indicator-arrow');
+const indicatorText = document.querySelector('.indicator-text');
+const indicatorArrow = document.querySelector('.indicator-arrow');
+
+const staticIndicators = document.querySelectorAll('.indicator-2');
+
 playLandingAnims();
 
 function playLandingAnims() {
   landingText.style.display = 'flex';
   setTimeout(() => {
-    indicate(0);
+    indicatorText.style.display = 'block';
+    setTimeout(()=> {
+      indicatorArrow.src = indicatorArrow.src.replace(/\?.*$/,"")+"?x="+Math.random();
+      indicatorArrow.style.display = 'block';
+    }, 1000);
   }, 4000);
 }
 
-function indicate(i) {
-  indicatorTexts[i].style.display = 'block';
-  setTimeout(()=> {
-    indicatorArrows[i].src = indicatorArrows[i].src.replace(/\?.*$/,"")+"?x="+Math.random();
-    indicatorArrows[i].style.display = 'block';
-  }, 1000);
+function showIndicators() {
+  staticIndicators.forEach(indicator => indicator.classList.add('show-indicator'));
 }
 
-function showIndicator(i) {
-  indicatorTexts[i].style.display = 'block';
-  indicatorArrows[i].style.display = 'block';
-}
-
-function hideIndicator(i) {
-  indicatorTexts[i].style.display = 'none';
-  indicatorArrows[i].style.display = 'none';
+function hideIndicators() {
+  staticIndicators.forEach(indicator => indicator.classList.remove('show-indicator'));
 }
 
 /*----------------------------------
-Landing Page
+Scroll to Landing Page on Refresh
 ----------------------------------*/
 
 window.scroll({
@@ -92,16 +91,16 @@ function adjustScreenPosition() {
   breakLength = screenHeight / 2;
   let isMobile = false;
 
-  if (window.innerWidth < 768) {
-    isMobile = true;
-  } else {
-    isMobile = false;
-  }
-
   if (scrollDist >= screenHeight + breakLength) {
     header.className = 'sticky-header';
   } else {
     header.removeAttribute('class');
+  }
+
+  if (window.innerWidth < 768) {
+    isMobile = true;
+  } else {
+    isMobile = false;
   }
 
   timerID = setTimeout(() => {
@@ -222,7 +221,7 @@ burgerBtn.addEventListener('click', () => {
 });
 
 /*----------------------------------
-Theme Button
+Theme Selector
 ----------------------------------*/
 
 const themeBtn = document.querySelector('.btn-theme');
@@ -274,8 +273,7 @@ function blurListener(e) {
     isWheeling = false;
     blurAll();
     if (isIndicating) {
-      indicate(1);
-      showIndicator(2);
+      showIndicators();
       isIndicating = false;
     }
   } 
@@ -362,8 +360,7 @@ function allowHorizontalScroll(e) {
 ///////////////////////////////////////////////////
 
 function showProj(project) {
-  hideIndicator(1);
-  hideIndicator(2);
+  hideIndicators();
   isIndicating = true;
   projects.forEach(proj => {
     if (proj == project) {

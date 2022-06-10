@@ -4,15 +4,21 @@ Indicators
 
 @use "../util" as *;
 
-.indicator {
+.indicator,
+.indicator-2 {
+  pointer-events: none;
+  caret-color: transparent;
   position: absolute;
   bottom: 100px;
 }
 
-.indicator-text { 
-  display: none;
-  opacity: 0;
-  animation: appear 1s forwards ease-out;
+.indicator-2 {
+  opacity: 0; 
+  filter: blur(20px);
+}
+
+.indicator-text,
+.indicator-text-2 { 
   font-size: 1.3em;
   letter-spacing: .1em;
   &::before,
@@ -32,8 +38,14 @@ Indicators
   }
 }
 
-.indicator-arrow {
+.indicator-text {
   display: none;
+  opacity: 0;
+  animation: appear 1s forwards ease-out;
+}
+
+.indicator-arrow,
+.indicator-arrow-2 {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -41,8 +53,19 @@ Indicators
   z-index: -1;
 }
 
+.indicator-arrow {
+  display: none;
+}
+
 .up {
   transform:  translate(-50%, -70%) 
               scale(1.5)
               rotate(180deg);
+}
+
+.show-indicator {
+  opacity: 1; 
+  filter: blur(0);
+  transition: opacity .6s,
+              filter .6s;
 }

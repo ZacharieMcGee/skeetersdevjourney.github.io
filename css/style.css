@@ -303,6 +303,7 @@ Typography
 }
 * {
   font-family: caslon-reg, sans-serif;
+  color: #04060d;
 }
 
 /*----------------------------------
@@ -316,7 +317,7 @@ Base Styling
 }
 
 html {
-  background-color: #0b1c30;
+  background-color: #04060d;
 }
 
 body {
@@ -1055,11 +1056,11 @@ Base Layout of Project Sections
 }
 
 .proj-text {
-  opacity: 0;
-  text-align: left;
-  letter-spacing: 0.03em;
   position: absolute;
   pointer-events: none;
+  text-align: left;
+  opacity: 0;
+  letter-spacing: 0.03em;
   width: 100%;
   left: 50%;
   top: 50%;
@@ -1268,6 +1269,13 @@ Project List Interaction/Anims
   transition: opacity 0.5s ease-out, flex-grow 0.5s ease-out;
 }
 
+.proj-img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 40;
+}
+
 .proj-name,
 .proj-desc,
 .proj-time,
@@ -1329,10 +1337,6 @@ Project List Interaction/Anims
   transition: opacity 0.5s ease-out, flex-grow 0.5s ease-out;
 }
 
-.indicator2 {
-  display: none;
-}
-
 @media (min-width: 1024px) {
   .proj {
     height: 45vh;
@@ -1341,36 +1345,37 @@ Project List Interaction/Anims
 /*----------------------------------
 Project Background Images
 ----------------------------------*/
-.proj {
+.proj-img {
+  pointer-events: none;
   background-size: cover;
 }
 
-.proj-1-list .proj:first-child {
+.proj-1-list .proj:first-child .proj-img {
   background-image: url("/img/projects/directory.png");
   background-position: top left;
 }
-.proj-1-list .proj:nth-child(2) {
+.proj-1-list .proj:nth-child(2) .proj-img {
   background-image: url("/img/projects/wordgame.png");
   background-position: bottom center;
 }
-.proj-1-list .proj:last-child {
+.proj-1-list .proj:last-child .proj-img {
   background-image: url("/img/projects/dashboard.png");
   background-position: top right;
 }
 
-.proj-2-list .proj:first-child {
+.proj-2-list .proj:first-child .proj-img {
   background-image: url("/img/projects/gallery.png");
   background-position: top left;
 }
-.proj-2-list .proj:nth-child(2) {
+.proj-2-list .proj:nth-child(2) .proj-img {
   background-image: url("/img/projects/guide.png");
   background-position: top center;
 }
-.proj-2-list .proj:nth-child(3) {
+.proj-2-list .proj:nth-child(3) .proj-img {
   background-image: url("/img/projects/registration.png");
   background-position: top center;
 }
-.proj-2-list .proj:last-child {
+.proj-2-list .proj:last-child .proj-img {
   background-image: url("/img/projects/responsive.png");
   background-position: top center;
 }
@@ -1378,19 +1383,27 @@ Project Background Images
 /*----------------------------------
 Indicators
 ----------------------------------*/
-.indicator {
+.indicator,
+.indicator-2 {
+  pointer-events: none;
+  caret-color: transparent;
   position: absolute;
   bottom: 100px;
 }
 
-.indicator-text {
-  display: none;
+.indicator-2 {
   opacity: 0;
-  animation: appear 1s forwards ease-out;
+  filter: blur(20px);
+}
+
+.indicator-text,
+.indicator-text-2 {
   font-size: 1.3em;
   letter-spacing: 0.1em;
 }
-.indicator-text::before, .indicator-text::after {
+.indicator-text::before, .indicator-text::after,
+.indicator-text-2::before,
+.indicator-text-2::after {
   content: "";
   position: absolute;
   width: 20px;
@@ -1398,15 +1411,23 @@ Indicators
   background-image: url("/img/header/scroll-detail.png");
   background-size: contain;
 }
-.indicator-text::before {
+.indicator-text::before,
+.indicator-text-2::before {
   transform: scaleX(-1) translateX(calc(100% + 5px));
 }
-.indicator-text::after {
+.indicator-text::after,
+.indicator-text-2::after {
   transform: translateX(5px);
 }
 
-.indicator-arrow {
+.indicator-text {
   display: none;
+  opacity: 0;
+  animation: appear 1s forwards ease-out;
+}
+
+.indicator-arrow,
+.indicator-arrow-2 {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -1414,8 +1435,18 @@ Indicators
   z-index: -1;
 }
 
+.indicator-arrow {
+  display: none;
+}
+
 .up {
   transform: translate(-50%, -70%) scale(1.5) rotate(180deg);
+}
+
+.show-indicator {
+  opacity: 1;
+  filter: blur(0);
+  transition: opacity 0.6s, filter 0.6s;
 }
 
 /*----------------------------------
@@ -1567,7 +1598,7 @@ Night Theme Overlay
 .theme-overlay {
   pointer-events: none;
   position: absolute;
-  z-index: 200;
+  z-index: 30;
   width: 100%;
   height: 700vh;
   background-color: #fff;
@@ -1588,7 +1619,7 @@ Night Theme Overlay
 Modal
 ----------------------------------*/
 dialog {
-  color: #0b1c30;
+  color: #04060d;
   justify-content: center;
   align-items: center;
   flex-direction: column;

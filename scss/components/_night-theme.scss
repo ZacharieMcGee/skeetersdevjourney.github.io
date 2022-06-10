@@ -7,7 +7,7 @@ Night Theme Overlay
 .theme-overlay {
   pointer-events: none;
   position: absolute;
-  z-index: 200;
+  z-index: 30;
   width: 100%;
   height: calc((100vh * 5) + ($breakLength * 4));
   background-color: #fff;
