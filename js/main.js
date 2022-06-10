@@ -278,11 +278,24 @@ function blurListener(e) {
 ///////////////////////////////////////////////////
 
 project1List.addEventListener('click', (e) => {
-  siteListener(e)
+  siteListener(e);  
 });
 project2List.addEventListener('click', (e) => {
-  siteListener(e)
+  siteListener(e);
 });
+project1List.addEventListener('keyup', (e) => {
+  console.log('hello');
+  if (e.key == 'Enter') {
+    siteListener(e);
+  }
+});
+project2List.addEventListener('keyup', (e) => {
+  console.log('hello');
+  if (e.key == 'Enter') {
+    siteListener(e);
+  }
+});
+
 function siteListener(e) {
   let p = e.target;
   if (p == focusedProject) {
@@ -315,6 +328,16 @@ project1List.addEventListener('mouseover', (e) => {
 });
 project2List.addEventListener('mouseover', (e) => {
   scrollThrough(e);
+});
+project1List.addEventListener('keyup', (e) => {
+  if (e.key == 'Tab') {
+    scrollThrough(e);
+  }
+});
+project2List.addEventListener('keyup', (e) => {
+  if (e.key == 'Tab') {
+    scrollThrough(e);
+  }
 });
 function scrollThrough(e) {
   if (isWheeling == false) {
