@@ -1150,15 +1150,24 @@ h4 {
 /*----------------------------------
 Contact Layout
 ----------------------------------*/
-.cont-container {
-  max-width: 800px;
-  height: 100%;
-  margin: 0 auto;
+#contact-page {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   gap: 10px;
+}
+#contact-page > * {
+  max-width: 1200px;
+}
+
+.contact-title {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 5px;
 }
 
 .cont-anim {
@@ -1207,7 +1216,6 @@ Contact Layout
   color: ghostwhite;
   background-color: #477fa6;
   transition: background-color 0.5s;
-  box-shadow: inset 0 0 10px 5px rgba(0, 0, 0, 0.2);
 }
 .cont-input:focus::placeholder, .cont-input:active::placeholder,
 .send-btn:focus::placeholder,
@@ -1219,8 +1227,8 @@ input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
-  -webkit-box-shadow: inset 0 0 0 30px #477fa6 !important;
-  -webkit-text-fill-color: ghostwhite !important;
+  -webkit-box-shadow: inset 0 0 0 30px ghostwhite !important;
+  -webkit-text-fill-color: #04060d !important;
 }
 
 .cont-input {
@@ -1248,10 +1256,18 @@ textarea {
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: initial;
   }
 
   .cont-anim {
     height: 80px;
+  }
+}
+@media (min-width: 1024px) {
+  .contact-title {
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-direction: row;
   }
 }
 /*----------------------------------
@@ -1471,7 +1487,7 @@ Button Components
 .nav-btn:hover .btn-content {
   font-size: 1em;
   font-weight: bold;
-  transition: font-size 0.3s ease-out;
+  transition: font-size 0.3s ease-out, font-weight 0.3s;
 }
 
 .btn-anim {
@@ -1589,6 +1605,10 @@ Button Components
   .btn-anim {
     min-width: 140px;
     min-height: 90px;
+  }
+
+  .nav-btn:hover .btn-content {
+    font-size: 1.3em;
   }
 }
 /*----------------------------------
