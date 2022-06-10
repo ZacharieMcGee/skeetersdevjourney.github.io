@@ -27,15 +27,31 @@ confirmationRedirect.value = document.location.origin;
 Handling Indicators and Title Anims
 ----------------------------------*/
 
+const bgContainer = document.querySelector('#brdr-container');
 const landingText = document.querySelector('.land-txt-container');
 const indicatorText = document.querySelector('.indicator-text');
 const indicatorArrow = document.querySelector('.indicator-arrow');
-
 const staticIndicators = document.querySelectorAll('.indicator-2');
 
-setTimeout(() => {
-  playLandingAnims();
-}, 1000);
+function load(src) {
+  return new Promise((resolve, reject) => {
+      const image = new Image();
+      image.addEventListener('load', resolve);
+      image.addEventListener('error', reject);
+      image.src = src;
+  });
+}
+
+const image = '/img/border/bg.png';
+load(image)
+  .then(() => bgContainer.style.backgroundImage = `url(${image}`)
+  .then(() => {
+    setTimeout(() => {
+      playLandingAnims();
+    }, 500);
+});
+
+
 
 function playLandingAnims() {
   landingText.style.display = 'flex';
