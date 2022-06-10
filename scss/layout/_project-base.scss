@@ -102,13 +102,12 @@ h4 {
 }
 
 @include mq('med') {
-  .proj-anim {
-    height: 60px;
+  h4 {
+    margin: 10px 0;
   }
 
-  .proj-1-list,
-  .proj-2-list {
-    margin-top: 20px;
+  .proj-anim {
+    height: 60px;
   }
 }
 
