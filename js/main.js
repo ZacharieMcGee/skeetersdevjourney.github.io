@@ -1,7 +1,3 @@
-// static indicators
-// set font colors
-// night theme
-
 /*----------------------------------
 Confirmation Message
 ----------------------------------*/
@@ -430,25 +426,5 @@ function launchSite(p) {
     window.open('https://skeetersdevjourney.github.io/Project02---Responsive-Layout-Design/', '_blank');
   } 
 }
-
-// project1List.addEventListener('click', (e) => {
-//   let p = e.target;
-//   if (p.tagName == 'BUTTON') {
-//     openSite(p);
-//   }
-// });
-
-// function openSite(p) {
-//   if (p.parentNode.classList.contains('proj-1')) {
-//     window.open('https://skeetersdevjourney.github.io/Project-08-EmployeeDirectory/', '_blank');
-//   }
-// }
-
-// project1List.addEventListener('click', (e) => {
-//   let p = e.target;
-//   if (isLinkActive) {
-//     console.log(p.parentNode.classList[1]);
-//   }
-// });
 
 
