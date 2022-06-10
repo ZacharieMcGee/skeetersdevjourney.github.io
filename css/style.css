@@ -603,6 +603,7 @@ land Page
   position: absolute;
   flex-grow: 1.2;
   min-width: 500px;
+  max-width: 800px;
   left: 50%;
   transform: translateX(-50%);
   opacity: 22%;
@@ -1055,8 +1056,8 @@ Base Layout of Project Sections
 }
 
 .proj-text {
-  position: absolute;
   pointer-events: none;
+  position: absolute;
   text-align: left;
   opacity: 0;
   letter-spacing: 0.03em;
