@@ -11,7 +11,7 @@ Project List Interaction/Anims
   flex-basis: 0;
   opacity: 1;
   width: 100%;
-  height: 30vh;
+  height: 27vh;
   transition: opacity .5s ease-out,
               flex-grow .5s ease-out;
 }
@@ -105,6 +105,6 @@ Project List Interaction/Anims
 
 @include mq('lg') {
   .proj {
-    height: 45vh;
+    height: 40vh;
   }
 }

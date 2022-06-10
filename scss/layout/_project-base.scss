@@ -49,7 +49,6 @@ Base Layout of Project Sections
 .proj-2-list {
   position: relative;
   width: 100%;
-  margin-top: 10px;
   border-top: 5px solid rgba(0,0,0,.7);
   border-bottom: 5px solid rgba(0,0,0,.7);
   box-shadow: 0 0 10px 5px rgba(0,0,0,.7);   
@@ -70,7 +69,7 @@ Base Layout of Project Sections
   width: 100%;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, 18vh);
+  transform: translate(-50%, 16vh);
 }
 
 h4 {
@@ -84,8 +83,11 @@ h4 {
   margin-bottom: 0;
 }
 
-.proj-desc, .proj-bullet {
+.proj-desc, 
+.proj-bullet, 
+.proj-time {
   font-size: 1.1em;
+  line-height: 1.3em;
 }
 
 .proj-bullet-list {
@@ -98,12 +100,12 @@ h4 {
 
 .proj-bullet {
   margin-left: 25px;
-  margin-bottom: 5px;
 }
 
 @include mq('med') {
   h4 {
     margin: 10px 0;
+    padding: .5em;
   }
 
   .proj-anim {
@@ -137,7 +139,7 @@ h4 {
   }
 
   .proj-text {
-    transform: translate(-50%, 25vh);
+    transform: translate(-50%, 22vh);
     
   }
 }
