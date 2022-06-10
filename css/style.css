@@ -1176,7 +1176,7 @@ Contact Layout
 }
 
 .cont-anim {
-  height: 60px;
+  height: 50px;
 }
 
 #cont-form {
@@ -1244,7 +1244,7 @@ input:-webkit-autofill:active {
 textarea {
   min-width: 100%;
   max-width: 100%;
-  min-height: 250px;
+  min-height: 150px;
   max-height: 55vh;
 }
 
