@@ -30,13 +30,15 @@ const indicatorArrow = document.querySelector('.indicator-arrow');
 
 const staticIndicators = document.querySelectorAll('.indicator-2');
 
-playLandingAnims();
+setTimeout(() => {
+  playLandingAnims();
+}, 1000);
 
 function playLandingAnims() {
   landingText.style.display = 'flex';
   setTimeout(() => {
     indicatorText.style.display = 'block';
-    setTimeout(()=> {
+    setTimeout(() => {
       indicatorArrow.src = indicatorArrow.src.replace(/\?.*$/,"")+"?x="+Math.random();
       indicatorArrow.style.display = 'block';
     }, 1000);
