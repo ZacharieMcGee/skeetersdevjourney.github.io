@@ -1,7 +1,11 @@
 /*----------------------------------
-Handling Indicators and Title Anims
+Load Landing Page
 ----------------------------------*/
 
+/*  This section loads the background image, landing page image, 
+    and landing name animated png before hiding the loading screen.
+    This is done to ensure the user will see the landing page as it's
+    meant to be. */
 const body = document.body;
 const loadingScreen = document.querySelector('.loading-overlay');
 const landingText = document.querySelector('.land-txt-container');
@@ -9,6 +13,7 @@ const indicatorText = document.querySelector('.indicator-text');
 const indicatorArrow = document.querySelector('.indicator-arrow');
 const staticIndicators = document.querySelectorAll('.indicator-2');
 
+// Temporarily loads larger images and resolves per image loaded.
 function load(src) {
   return new Promise((resolve, reject) => {
       const image = new Image();
@@ -27,6 +32,8 @@ const landingImgUrl = 'img/anims/name-anim.png';
 const landingName = document.querySelector('.land-img');
 const landingNameUrl = 'img/page-art/landing-img.png';
 
+/*  Loads landing page elements, then hides the background 
+    and starts related animations. */
 load(bgImgUrl)
   .then(() => bgContainer.style.backgroundImage = `url(${bgImgUrl}`)
   .then(() => load(landingImgUrl))
@@ -41,6 +48,7 @@ load(bgImgUrl)
     }, 500);
 });
 
+// displays animated png and animates the 'scroll' indicator.
 function playLandingAnims() {
   landingText.style.display = 'flex';
   setTimeout(() => {
@@ -52,18 +60,22 @@ function playLandingAnims() {
   }, 4000);
 }
 
+// shows/hides the static 'select' indicators on either project section.
 function showIndicators() {
   staticIndicators.forEach(indicator => indicator.classList.add('show-indicator'));
 }
-
 function hideIndicators() {
   staticIndicators.forEach(indicator => indicator.classList.remove('show-indicator'));
 }
 
 /*----------------------------------
-Confirmation Message and Set Site Url
+Confirmation Modal Handler
 ----------------------------------*/
 
+/*  specifically for submitting the contact form;
+    due to the quirks of the submission method used,
+    the modal is toggled by setting a key in the local storage,
+    and then when refreshed will toggle the modal */
 const modal = document.querySelector('#confirm-modal');
 const closeModalBtn = document.querySelector('.close-modal-btn');
 
@@ -82,6 +94,7 @@ closeModalBtn.addEventListener('click', () => {
   window.localStorage.setItem('showConfirmation', 'false');
 });
 
+// will select the correct URL to refresh to (either hosted or github pages)
 const confirmationRedirect = document.querySelector('#redirect');
 confirmationRedirect.value = document.location.origin;
 
@@ -95,8 +108,7 @@ window.scroll({
 });
 
 /*----------------------------------
-Header Position Change + 
-Window Scroll Auto Correct After Delay
+Sticky Header + Window Auto Scroll
 ----------------------------------*/
 
 const header = document.querySelector('#my-header');
@@ -114,6 +126,9 @@ window.addEventListener('resize', () => {
   adjustScreenPosition();
 });
 
+/*  this will auto correct the position of the window
+    to best fit the content of each page. Does not affect 
+    mobile */
 function adjustScreenPosition() {
   clearTimeout(timerID);
   screenHeight = window.innerHeight;
@@ -121,6 +136,7 @@ function adjustScreenPosition() {
   breakLength = screenHeight / 2;
   let isMobile = false;
 
+  // makes the header sticky when the user scrolls onto the about page
   if (scrollDist >= screenHeight + breakLength) {
     header.className = 'sticky-header';
   } else {
@@ -133,12 +149,16 @@ function adjustScreenPosition() {
     isMobile = false;
   }
 
+  /*  timeout only triggers screen auto correct
+      if the user sits in an incorrect position for 
+      a few seconds */
   timerID = setTimeout(() => {
     let p1Limit = screenHeight / 2;
     let p2Limit = (p1Limit * 3) + breakLength;
     let p3Limit = (p1Limit * 5) + (breakLength * 2);
     let p4Limit = (p1Limit * 7) + (breakLength * 3);
 
+    // scroll state for each page
     if (isMobile == false) {
       if (scrollDist <= p1Limit) {
         window.scroll({
@@ -172,6 +192,9 @@ function adjustScreenPosition() {
 
 const resumeAnim = document.querySelector('.resume-anim');
 
+/*  animates the background of the resume button 
+    only when the user scrolls to the about page to 
+    ensure the user knows where the button is */
 function indicateResume() {
   if (scrollDist >= screenHeight + breakLength) {
     setTimeout(() => {
@@ -186,6 +209,7 @@ Navigation Buttons
 const btns = document.querySelectorAll('.nav-btn');
 const btnAnims = document.querySelectorAll('.btn-anim');
 
+// each button has an animated png that plays when selected
 btns[0].addEventListener('click', () => {
   animReset(btnAnims[0]);
   window.scroll({
@@ -208,6 +232,7 @@ btns[2].addEventListener('click', () => {
   });
 })
 
+// ensures that the animated png plays each time a button is pressed
 function animReset(stroke) {
   stroke.src = stroke.src.replace(/\?.*$/,"")+"?x="+Math.random();
   stroke.style.display = 'block';
@@ -228,6 +253,8 @@ const menuBtn = document.querySelector('.fa-bars');
 const xBtn = document.querySelector('.fa-xmark');
 xBtn.style.display = 'none';
 
+/*  The hamburger button opens the menu for mobile devices.
+    It is hidden otherwise. */
 burgerBtn.addEventListener('click', () => {
   if (navBtns.classList.contains('show-nav')) {
     navBtns.classList.remove('show-nav');
@@ -257,22 +284,23 @@ Theme Selector
 const themeBtn = document.querySelector('.btn-theme');
 const themeOverlay = document.querySelector('.theme-overlay');
 const sunBtn = document.querySelector('.fa-sun');
-const monnBtn = document.querySelector('.fa-moon');
+const moonBtn = document.querySelector('.fa-moon');
 
-monnBtn.style.display = 'none';
+moonBtn.style.display = 'none';
 
+// theme button for selecting between light and dark mode 
 themeBtn.addEventListener('click', () => {
   if (themeOverlay.classList.contains('show-theme-overlay')) {
     themeOverlay.classList.remove('show-theme-overlay');
     themeOverlay.classList.add('hide-theme-overlay');
-    monnBtn.style.display = 'none';
+    moonBtn.style.display = 'none';
     sunBtn.style.display = 'block';
 
   } else {
     themeOverlay.classList.remove('hide-theme-overlay');
     themeOverlay.classList.add('show-theme-overlay');
     sunBtn.style.display = 'none';
-    monnBtn.style.display = 'block';
+    moonBtn.style.display = 'block';
   }
 });
 
@@ -280,16 +308,16 @@ themeBtn.addEventListener('click', () => {
 Project List Horizontal Scroll
 ----------------------------------*/
 
-// This is all working but it feels horribly bloated
 const project1List = document.querySelector('.proj-1-list');
 const project2List = document.querySelector('.proj-2-list');
-
 const projects = document.querySelectorAll('.proj');
 
 let focusedProject = '';
 let isWheeling = false;
 let isIndicating = true;
 
+/*  blurs the project lists when scrolling 
+    or clicking outside of the project container */
 window.addEventListener('scroll', (e) => {
   blurListener(e);
 })
@@ -308,9 +336,19 @@ function blurListener(e) {
     }
   } 
 }
+function blurAll () {
+  isWheeling = false;
+  focusedProject = '';
+  projects.forEach(proj => {
+    proj.classList.remove('grow-proj');
+    proj.classList.remove('fade-proj');
+  })
+}
 
 ///////////////////////////////////////////////////
 
+/*  allows the projects (only when focused)
+    to launch the relative site on click or enter press */
 project1List.addEventListener('click', (e) => {
   siteListener(e);  
 });
@@ -330,6 +368,7 @@ project2List.addEventListener('keyup', (e) => {
   }
 });
 
+// launch site based on focusedProject variable
 function siteListener(e) {
   let p = e.target;
   if (p == focusedProject) {
@@ -345,6 +384,8 @@ project1List.addEventListener('touchstart', (e) => {
 project2List.addEventListener('touchstart', (e) => {
   touchListener(e);
 });
+
+// prevents weird double event behavior with touch events
 function touchListener(e) {
   let p = e.target;
   if (p !== focusedProject) {
@@ -373,6 +414,9 @@ project2List.addEventListener('keyup', (e) => {
     scrollThrough(e);
   }
 });
+
+/*  projects that are placed into the focusedProject 
+    variable are emphasized */
 function scrollThrough(e) {
   if (isWheeling == false) {
     projects.forEach(project => {
@@ -395,6 +439,9 @@ project1List.addEventListener('wheel', (e) => {
 project2List.addEventListener('wheel', (e) => {
   allowHorizontalScroll(e);
 });
+
+/*  allows the user to scroll horizontal through 
+    the projects using the wheel. */
 function allowHorizontalScroll(e) {
   let p = e.target.parentNode;
   e.preventDefault();
@@ -412,6 +459,10 @@ function allowHorizontalScroll(e) {
 
 ///////////////////////////////////////////////////
 
+/* if the user is interacting with the projects,
+    the focused project will grow the fill the 
+    majority of the container, the relevant text 
+    will animated, and the indicator will be hidden*/
 function showProj(project) {
   hideIndicators();
   isIndicating = true;
@@ -426,17 +477,11 @@ function showProj(project) {
   });
 }
 
-function blurAll () {
-  isWheeling = false;
-  focusedProject = '';
-  projects.forEach(proj => {
-    proj.classList.remove('grow-proj');
-    proj.classList.remove('fade-proj');
-  })
-}
-
 ///////////////////////////////////////////////////
 
+/*  scrolling through the projects list sets the 
+    focused project via targeting its sibling.
+    If there is no sibling, the list will loop. */
 function showNextProj(e) {
   if (e.deltaY < 0) {
     let nextProj = focusedProject.nextElementSibling;
