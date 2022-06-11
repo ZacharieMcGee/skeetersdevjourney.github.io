@@ -194,6 +194,8 @@ function adjustScreenPosition() {
 //     }
 //   }, 1500);
 
+//////////// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ ////////////
+
 }
 
 const resumeAnim = document.querySelector('.resume-anim');
