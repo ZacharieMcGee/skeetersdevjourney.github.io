@@ -325,7 +325,7 @@ Typography
 ----------------------------------*/
 @font-face {
   font-family: caslon-reg;
-  src: url("/fonts/caslon-antique.regular.ttf");
+  src: url("../fonts/caslon-antique.regular.ttf");
 }
 * {
   font-family: caslon-reg, sans-serif;
@@ -391,7 +391,7 @@ Border Element Layout
 
 .brdr {
   height: 50px;
-  background-image: url("/img/border/brdr.png");
+  background-image: url("../img/border/brdr.png");
   background-size: contain;
 }
 
@@ -892,7 +892,7 @@ About Page Layout
   width: 110px;
   height: 80px;
   opacity: 0.7;
-  background-image: url("/img/header/btns/btn-anim.png");
+  background-image: url("../img/header/btns/btn-anim.png");
   background-position: center;
   background-size: cover;
 }
@@ -1402,32 +1402,32 @@ Project Background Images
 }
 
 .proj-1-list .proj:first-child .proj-img {
-  background-image: url("/img/projects/directory.png");
+  background-image: url("../img/projects/directory.png");
   background-position: top left;
 }
 .proj-1-list .proj:nth-child(2) .proj-img {
-  background-image: url("/img/projects/wordgame.png");
+  background-image: url("../img/projects/wordgame.png");
   background-position: bottom center;
 }
 .proj-1-list .proj:last-child .proj-img {
-  background-image: url("/img/projects/dashboard.png");
+  background-image: url("../img/projects/dashboard.png");
   background-position: top right;
 }
 
 .proj-2-list .proj:first-child .proj-img {
-  background-image: url("/img/projects/gallery.png");
+  background-image: url("../img/projects/gallery.png");
   background-position: top left;
 }
 .proj-2-list .proj:nth-child(2) .proj-img {
-  background-image: url("/img/projects/guide.png");
+  background-image: url("../img/projects/guide.png");
   background-position: top center;
 }
 .proj-2-list .proj:nth-child(3) .proj-img {
-  background-image: url("/img/projects/registration.png");
+  background-image: url("../img/projects/registration.png");
   background-position: top center;
 }
 .proj-2-list .proj:last-child .proj-img {
-  background-image: url("/img/projects/responsive.png");
+  background-image: url("../img/projects/responsive.png");
   background-position: top center;
 }
 
@@ -1459,7 +1459,7 @@ Indicators
   position: absolute;
   width: 20px;
   height: 20px;
-  background-image: url("/img/header/scroll-detail.png");
+  background-image: url("../img/header/scroll-detail.png");
   background-size: contain;
 }
 .indicator-text::before,
@@ -1545,7 +1545,7 @@ Button Components
   width: 77px;
   height: 40px;
   font-size: 0.8em;
-  background-image: url("/img/header/btns/btn-brdr.png");
+  background-image: url("../img/header/btns/btn-brdr.png");
   background-size: cover;
   background-position: center;
 }
@@ -1564,7 +1564,7 @@ Button Components
 .detail-r {
   width: 100px;
   height: 50px;
-  background-image: url("/img/header/btns/btn-details.png");
+  background-image: url("../img/header/btns/btn-details.png");
   background-size: cover;
 }
 
@@ -1679,7 +1679,7 @@ dialog {
   align-items: center;
   flex-direction: column;
   gap: 10px;
-  background-image: url("/img/border/bg.png");
+  background-image: url("../img/border/bg.png");
   background-size: cover;
 }
 

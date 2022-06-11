@@ -24,7 +24,7 @@ function load(src) {
 }
 
 const bgContainer = document.querySelector('#brdr-container');
-const bgImgUrl = '/img/border/bg.png';
+const bgImgUrl = 'img/border/bg.png';
 
 const landingImg = document.querySelector('.land-name');
 const landingImgUrl = 'img/anims/name-anim.png';
