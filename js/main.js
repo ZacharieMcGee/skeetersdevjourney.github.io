@@ -99,15 +99,6 @@ const confirmationRedirect = document.querySelector('#redirect');
 confirmationRedirect.value = document.location.origin;
 
 /*----------------------------------
-Scroll to Landing Page on Refresh
-----------------------------------*/
-
-window.scroll({
-  top: 0,
-  behavior: "smooth"
-});
-
-/*----------------------------------
 Sticky Header + Window Auto Scroll
 ----------------------------------*/
 
@@ -118,22 +109,34 @@ let scrollDist = window.pageYOffset;
 let breakLength = screenHeight / 2;
 let timerID; 
 
+// scroll to top on refresh
+window.scroll({
+  top: 0, 
+  behavior: 'smooth'
+});
+
 window.addEventListener('scroll', () => {
+  adjustScreenSize();
   adjustScreenPosition();
   indicateResume();
 });
 window.addEventListener('resize', () => {
+  adjustScreenSize();
   adjustScreenPosition();
 });
+
+
+function adjustScreenSize() {
+  screenHeight = window.innerHeight;
+  scrollDist = window.pageYOffset;
+  breakLength = screenHeight / 2;
+}
 
 /*  this will auto correct the position of the window
     to best fit the content of each page. Does not affect 
     mobile */
 function adjustScreenPosition() {
   clearTimeout(timerID);
-  screenHeight = window.innerHeight;
-  scrollDist = window.pageYOffset;
-  breakLength = screenHeight / 2;
   let isMobile = false;
 
   // makes the header sticky when the user scrolls onto the about page
@@ -149,45 +152,48 @@ function adjustScreenPosition() {
     isMobile = false;
   }
 
-  /*  timeout only triggers screen auto correct
-      if the user sits in an incorrect position for 
-      a few seconds */
-  timerID = setTimeout(() => {
-    let p1Limit = screenHeight / 2;
-    let p2Limit = (p1Limit * 3) + breakLength;
-    let p3Limit = (p1Limit * 5) + (breakLength * 2);
-    let p4Limit = (p1Limit * 7) + (breakLength * 3);
+//////////// Uncomment Lines 157 - 195 for scroll correct ////////////
 
-    // scroll state for each page
-    if (isMobile == false) {
-      if (scrollDist <= p1Limit) {
-        window.scroll({
-          top: 0,
-          behavior: "smooth"
-        });
-      } else if (scrollDist <= p2Limit) {
-        window.scroll({
-          top: screenHeight + breakLength,
-          behavior: "smooth"
-        });
-      } else if (scrollDist <= p3Limit) {
-        window.scroll({
-          top: (screenHeight * 2) + (breakLength * 2),
-          behavior: "smooth"
-        });
-      } else if (scrollDist <= p4Limit) {
-        window.scroll({
-          top: (screenHeight * 3) + (breakLength * 3),
-          behavior: "smooth"
-        });
-      } else {
-        window.scroll({
-          top: (screenHeight * 4) + (breakLength * 4),
-          behavior: "smooth"
-        });
-      }
-    }
-  }, 1500);
+//   /*  timeout only triggers screen auto correct
+//       if the user sits in an incorrect position for 
+//       a few seconds */
+//   timerID = setTimeout(() => {
+//     let p1Limit = screenHeight / 2;
+//     let p2Limit = (p1Limit * 3) + breakLength;
+//     let p3Limit = (p1Limit * 5) + (breakLength * 2);
+//     let p4Limit = (p1Limit * 7) + (breakLength * 3);
+
+//     // scroll state for each page
+//     if (isMobile == false) {
+//       if (scrollDist <= p1Limit) {
+//         window.scroll({
+//           top: 0,
+//           behavior: "smooth"
+//         });
+//       } else if (scrollDist <= p2Limit) {
+//         window.scroll({
+//           top: screenHeight + breakLength,
+//           behavior: "smooth"
+//         });
+//       } else if (scrollDist <= p3Limit) {
+//         window.scroll({
+//           top: (screenHeight * 2) + (breakLength * 2),
+//           behavior: "smooth"
+//         });
+//       } else if (scrollDist <= p4Limit) {
+//         window.scroll({
+//           top: (screenHeight * 3) + (breakLength * 3),
+//           behavior: "smooth"
+//         });
+//       } else {
+//         window.scroll({
+//           top: (screenHeight * 4) + (breakLength * 4),
+//           behavior: "smooth"
+//         });
+//       }
+//     }
+//   }, 1500);
+
 }
 
 const resumeAnim = document.querySelector('.resume-anim');
@@ -196,7 +202,7 @@ const resumeAnim = document.querySelector('.resume-anim');
     only when the user scrolls to the about page to 
     ensure the user knows where the button is */
 function indicateResume() {
-  if (scrollDist >= screenHeight + breakLength) {
+  if (scrollDist >= (screenHeight + breakLength) - 100) {
     setTimeout(() => {
       resumeAnim.classList.add('show-resume');
     }, 1000);
