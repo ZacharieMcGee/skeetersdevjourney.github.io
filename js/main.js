@@ -2,12 +2,12 @@
 Handling Indicators and Title Anims
 ----------------------------------*/
 
+const body = document.body;
 const loadingScreen = document.querySelector('.loading-overlay');
 const landingText = document.querySelector('.land-txt-container');
 const indicatorText = document.querySelector('.indicator-text');
 const indicatorArrow = document.querySelector('.indicator-arrow');
 const staticIndicators = document.querySelectorAll('.indicator-2');
-let isLoading = true;
 
 function load(src) {
   return new Promise((resolve, reject) => {
@@ -17,12 +17,6 @@ function load(src) {
       image.src = src;
   });
 }
-
-window.addEventListener('scroll', (e) => {
-  if (isLoading == true) {
-    e.preventDefault();
-  }
-});
 
 const bgContainer = document.querySelector('#brdr-container');
 const bgImgUrl = '/img/border/bg.png';
@@ -41,7 +35,7 @@ load(bgImgUrl)
   .then(() => landingName.src = landingNameUrl)
   .then(() => loadingScreen.style.display = 'none')
   .then(() => {
-    isLoading = false;
+    body.style.overflowY = 'visible';
     setTimeout(() => {
       playLandingAnims();
     }, 500);
