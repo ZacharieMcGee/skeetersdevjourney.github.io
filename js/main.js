@@ -365,13 +365,11 @@ project2List.addEventListener('click', (e) => {
   siteListener(e);
 });
 project1List.addEventListener('keyup', (e) => {
-  console.log('hello');
   if (e.key == 'Enter') {
     siteListener(e);
   }
 });
 project2List.addEventListener('keyup', (e) => {
-  console.log('hello');
   if (e.key == 'Enter') {
     siteListener(e);
   }
