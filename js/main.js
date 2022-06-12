@@ -290,8 +290,10 @@ burgerBtn.addEventListener('click', () => {
 Theme Selector
 ----------------------------------*/
 
+const project1List = document.querySelector('.proj-1-list');
+const project2List = document.querySelector('.proj-2-list');
 const themeBtn = document.querySelector('.btn-theme');
-const themeOverlay = document.querySelector('.theme-overlay');
+const themeOverlay1 = document.querySelector('.body-theme');
 const sunBtn = document.querySelector('.fa-sun');
 const moonBtn = document.querySelector('.fa-moon');
 
@@ -299,15 +301,19 @@ moonBtn.style.display = 'none';
 
 // theme button for selecting between light and dark mode 
 themeBtn.addEventListener('click', () => {
-  if (themeOverlay.classList.contains('show-theme-overlay')) {
-    themeOverlay.classList.remove('show-theme-overlay');
-    themeOverlay.classList.add('hide-theme-overlay');
+  if (themeOverlay1.classList.contains('show-theme-overlay')) {
+    project1List.style.mixBlendMode = null;
+    project2List.style.mixBlendMode = null;
+    themeOverlay1.classList.remove('show-theme-overlay');
+    themeOverlay1.classList.add('hide-theme-overlay');
     moonBtn.style.display = 'none';
     sunBtn.style.display = 'block';
 
   } else {
-    themeOverlay.classList.remove('hide-theme-overlay');
-    themeOverlay.classList.add('show-theme-overlay');
+    project1List.style.mixBlendMode = 'luminosity';
+    project2List.style.mixBlendMode = 'luminosity';
+    themeOverlay1.classList.remove('hide-theme-overlay');
+    themeOverlay1.classList.add('show-theme-overlay');
     sunBtn.style.display = 'none';
     moonBtn.style.display = 'block';
   }
@@ -317,8 +323,6 @@ themeBtn.addEventListener('click', () => {
 Project List Horizontal Scroll
 ----------------------------------*/
 
-const project1List = document.querySelector('.proj-1-list');
-const project2List = document.querySelector('.proj-2-list');
 const projects = document.querySelectorAll('.proj');
 
 let focusedProject = '';

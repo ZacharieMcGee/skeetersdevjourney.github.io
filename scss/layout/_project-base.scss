@@ -53,6 +53,7 @@ Base Layout of Project Sections
   border-bottom: 5px solid rgba(0,0,0,.7);
   box-shadow: 0 0 10px 5px rgba(0,0,0,.7);   
   border-radius: 3px;
+  z-index: 40;
   @include flexo(
     flex,
     center,

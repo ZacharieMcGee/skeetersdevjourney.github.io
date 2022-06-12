@@ -4,12 +4,12 @@ Night Theme Overlay
 
 @use "../util" as *;
 
-.theme-overlay {
+.body-theme {
   pointer-events: none;
   position: absolute;
-  z-index: 30;
   width: 100%;
   height: calc((100vh * 5) + ($breakLength * 4));
+  z-index: 60;
   background-color: #fff;
   mix-blend-mode: difference;
 }

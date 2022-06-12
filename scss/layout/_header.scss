@@ -16,8 +16,7 @@ header {
   min-height: 50px;
   top: calc(100vh + $breakLength);
   padding: 10px;
-  z-index: 20;
-  border-radius: 10px;
+  z-index: 50;
 }
 
 .sticky-header {
@@ -33,6 +32,7 @@ header {
     center,
     $gap: 3px
   );
+  z-index: 50;
 }
 
 .show-nav {
@@ -59,6 +59,7 @@ header {
 
 .name-container img {
   height: 25px;
+  z-index: 50;
 }
 
 .full-name {
@@ -110,18 +111,6 @@ header {
 }
 
 @include mq('lg') {
-  .half-name {
-    display: none;
-  }
-  
-  .fade-name {
-    opacity: 0;
-  }
-
-  .full-name {
-    display: block;
-  }
-
   .fade-name {
     opacity: 1;
   }
@@ -139,6 +128,16 @@ header {
 
   .burger {
     display: none;
+  }
+}
+
+@include mq('xl') {
+  .half-name {
+    display: none;
+  }
+
+  .full-name {
+    display: block;
   }
 }
 

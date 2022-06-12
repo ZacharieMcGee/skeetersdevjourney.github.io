@@ -658,8 +658,7 @@ header {
   min-height: 50px;
   top: 150vh;
   padding: 10px;
-  z-index: 20;
-  border-radius: 10px;
+  z-index: 50;
 }
 
 .sticky-header {
@@ -673,6 +672,7 @@ header {
   justify-content: center;
   align-items: center;
   gap: 3px;
+  z-index: 50;
 }
 
 .show-nav {
@@ -697,6 +697,7 @@ header {
 
 .name-container img {
   height: 25px;
+  z-index: 50;
 }
 
 .full-name {
@@ -746,18 +747,6 @@ header {
   }
 }
 @media (min-width: 1024px) {
-  .half-name {
-    display: none;
-  }
-
-  .fade-name {
-    opacity: 0;
-  }
-
-  .full-name {
-    display: block;
-  }
-
   .fade-name {
     opacity: 1;
   }
@@ -775,6 +764,15 @@ header {
 
   .burger {
     display: none;
+  }
+}
+@media (min-width: 1200px) {
+  .half-name {
+    display: none;
+  }
+
+  .full-name {
+    display: block;
   }
 }
 @media screen and (max-width: 768px) and (orientation: landscape) {
@@ -1045,6 +1043,7 @@ Base Layout of Project Sections
   border-bottom: 5px solid rgba(0, 0, 0, 0.7);
   box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.7);
   border-radius: 3px;
+  z-index: 40;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1650,12 +1649,12 @@ Button Components
 /*----------------------------------
 Night Theme Overlay
 ----------------------------------*/
-.theme-overlay {
+.body-theme {
   pointer-events: none;
   position: absolute;
-  z-index: 30;
   width: 100%;
   height: 700vh;
+  z-index: 60;
   background-color: #fff;
   mix-blend-mode: difference;
 }
