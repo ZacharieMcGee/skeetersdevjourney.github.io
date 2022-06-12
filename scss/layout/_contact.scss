@@ -83,7 +83,7 @@ input:-webkit-autofill,
 input:-webkit-autofill:hover, 
 input:-webkit-autofill:focus, 
 input:-webkit-autofill:active  {
-    -webkit-box-shadow: inset 0 0 0 30px ghostwhite !important;
+    -webkit-box-shadow: inset 0 0 0 30px rgb(253, 244, 213) !important;
     -webkit-text-fill-color: $color-primary !important;
 }
 
