@@ -1204,7 +1204,7 @@ Contact Layout
 
 .cont-input,
 .send-btn {
-  background-color: rgba(248, 248, 255, 0.6);
+  background-color: rgba(248, 248, 255, 0.5);
   border: none;
   outline: none;
   font-size: 1.3em;
@@ -1213,7 +1213,7 @@ Contact Layout
 .cont-input:hover, .cont-input:focus,
 .send-btn:hover,
 .send-btn:focus {
-  background-color: ghostwhite;
+  background-color: rgba(248, 248, 255, 0.8);
   transition: background-color 0.3s;
 }
 .cont-input:focus, .cont-input:active,

@@ -58,14 +58,14 @@ Contact Layout
 
 .cont-input,
 .send-btn {
-  background-color: rgba(248,248,255,0.6);
+  background-color: rgba(248,248,255,0.5);
   border: none;
   outline: none;
   font-size: 1.3em;
   padding: .75em;
   &:hover,
   &:focus {
-    background-color: rgba(248,248,255,1);
+    background-color: rgba(248,248,255,.8);
     transition: background-color .3s;
   }
   &:focus,
