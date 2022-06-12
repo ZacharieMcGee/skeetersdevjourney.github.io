@@ -74,8 +74,8 @@ Confirmation Modal Handler
 
 /*  specifically for submitting the contact form;
     due to the quirks of the submission method used,
-    the modal is toggled by setting a key in the local storage,
-    and then when refreshed will toggle the modal */
+    the modal is toggled by setting a key in the local storage
+    which will toggle the modal when auto refreshed */
 const modal = document.querySelector('#confirm-modal');
 const closeModalBtn = document.querySelector('.close-modal-btn');
 
@@ -132,9 +132,10 @@ function adjustScreenSize() {
   breakLength = screenHeight / 2;
 }
 
-/*  this will auto correct the position of the window
-    to best fit the content of each page. Does not affect 
-    mobile */
+/*  Checks for mobile, makes header sticky, and 
+    auto corrects the position of the window
+    to best fit the content of each page. 
+    Does not affect mobile */
 function adjustScreenPosition() {
   clearTimeout(timerID);
   let isMobile = false;
