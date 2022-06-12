@@ -439,34 +439,35 @@ function scrollThrough(e) {
   }
 }
 
-///////////////////////////////////////////////////
+//////////// Uncomment Lines 444 - 468 for horizontal project scroll ////////////
 
-project1List.addEventListener('wheel', (e) => {
-  allowHorizontalScroll(e);
+// project1List.addEventListener('wheel', (e) => {
+//   allowHorizontalScroll(e);
+//   console.log(e.deltaY);
   
-});
-project2List.addEventListener('wheel', (e) => {
-  allowHorizontalScroll(e);
-});
+// });
+// project2List.addEventListener('wheel', (e) => {
+//   allowHorizontalScroll(e);
+// });
 
-/*  allows the user to scroll horizontal through 
-    the projects using the wheel. */
-function allowHorizontalScroll(e) {
-  let p = e.target.parentNode;
-  e.preventDefault();
-  isWheeling = true;
-  if (focusedProject == '' && p.classList == 'proj-1-list') {
-    focusedProject = projects[0];
-    showProj(projects[0]);
-  } else if (focusedProject == '' && p.classList == 'proj-2-list') {
-    focusedProject = projects[3];
-    showProj(projects[3]);
-  } else {
-    showNextProj(e);
-  }
-}
+// /*  allows the user to scroll horizontal through 
+//     the projects using the wheel. */
+// function allowHorizontalScroll(e) {
+//   let p = e.target.parentNode;
+//   e.preventDefault();
+//   isWheeling = true;
+//   if (focusedProject == '' && p.classList == 'proj-1-list') {
+//     focusedProject = projects[0];
+//     showProj(projects[0]);
+//   } else if (focusedProject == '' && p.classList == 'proj-2-list') {
+//     focusedProject = projects[3];
+//     showProj(projects[3]);
+//   } else {
+//     showNextProj(e);
+//   }
+// }
 
-///////////////////////////////////////////////////
+//////////// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ ////////////
 
 /* if the user is interacting with the projects,
     the focused project will grow the fill the 

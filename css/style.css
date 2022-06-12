@@ -1338,7 +1338,7 @@ Project List Interaction/Anims
 }
 
 .grow-proj {
-  flex-grow: 20;
+  flex-grow: 10;
   transition: opacity 0.5s ease-out, flex-grow 0.5s ease-out;
 }
 .grow-proj .site-link {
