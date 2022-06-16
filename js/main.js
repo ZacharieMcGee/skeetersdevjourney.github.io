@@ -152,51 +152,6 @@ function adjustScreenPosition() {
   } else {
     isMobile = false;
   }
-
-//////////// Uncomment Lines 157 - 195 for scroll correct ////////////
-
-//   /*  timeout only triggers screen auto correct
-//       if the user sits in an incorrect position for 
-//       a few seconds */
-//   timerID = setTimeout(() => {
-//     let p1Limit = screenHeight / 2;
-//     let p2Limit = (p1Limit * 3) + breakLength;
-//     let p3Limit = (p1Limit * 5) + (breakLength * 2);
-//     let p4Limit = (p1Limit * 7) + (breakLength * 3);
-
-//     // scroll state for each page
-//     if (isMobile == false) {
-//       if (scrollDist <= p1Limit) {
-//         window.scroll({
-//           top: 0,
-//           behavior: "smooth"
-//         });
-//       } else if (scrollDist <= p2Limit) {
-//         window.scroll({
-//           top: screenHeight + breakLength,
-//           behavior: "smooth"
-//         });
-//       } else if (scrollDist <= p3Limit) {
-//         window.scroll({
-//           top: (screenHeight * 2) + (breakLength * 2),
-//           behavior: "smooth"
-//         });
-//       } else if (scrollDist <= p4Limit) {
-//         window.scroll({
-//           top: (screenHeight * 3) + (breakLength * 3),
-//           behavior: "smooth"
-//         });
-//       } else {
-//         window.scroll({
-//           top: (screenHeight * 4) + (breakLength * 4),
-//           behavior: "smooth"
-//         });
-//       }
-//     }
-//   }, 1500);
-
-//////////// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ ////////////
-
 }
 
 const resumeAnim = document.querySelector('.resume-anim');
@@ -440,36 +395,6 @@ function scrollThrough(e) {
     isWheeling = false;
   }
 }
-
-//////////// Uncomment Lines 444 - 468 for horizontal project scroll ////////////
-
-// project1List.addEventListener('wheel', (e) => {
-//   allowHorizontalScroll(e);
-//   console.log(e.deltaY);
-  
-// });
-// project2List.addEventListener('wheel', (e) => {
-//   allowHorizontalScroll(e);
-// });
-
-// /*  allows the user to scroll horizontal through 
-//     the projects using the wheel. */
-// function allowHorizontalScroll(e) {
-//   let p = e.target.parentNode;
-//   e.preventDefault();
-//   isWheeling = true;
-//   if (focusedProject == '' && p.classList == 'proj-1-list') {
-//     focusedProject = projects[0];
-//     showProj(projects[0]);
-//   } else if (focusedProject == '' && p.classList == 'proj-2-list') {
-//     focusedProject = projects[3];
-//     showProj(projects[3]);
-//   } else {
-//     showNextProj(e);
-//   }
-// }
-
-//////////// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ ////////////
 
 /* if the user is interacting with the projects,
     the focused project will grow the fill the 
