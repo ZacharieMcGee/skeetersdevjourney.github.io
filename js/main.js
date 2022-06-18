@@ -86,6 +86,7 @@ function sentEmail() {
 if (window.localStorage.getItem('showConfirmation') == 'true') {
   modal.style.display = "flex";
   modal.showModal();
+  closeModalBtn.blur();
 }
 
 closeModalBtn.addEventListener('click', () => {

@@ -15,6 +15,7 @@ dialog {
   );
   background-image: url('../img/border/bg.png');
   background-size: cover;
+  border-radius: 10px;
 }
 
 dialog::backdrop {
@@ -31,13 +32,17 @@ dialog::backdrop {
 }
 
 .close-modal-btn {
+  cursor: pointer;
   outline: none;
   border: none;
   background-color: rgba(248,248,255,.6);
+  transition: background-color .2s ease-out;
   padding: .3em .5em;
   border-radius: 10px;
   &:hover,
   &:focus {
+    color: ghostwhite;
     background-color: $color-secondary;
+    transition: background-color .2s ease-out;
   }
 }

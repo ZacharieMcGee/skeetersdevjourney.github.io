@@ -1680,6 +1680,7 @@ dialog {
   gap: 10px;
   background-image: url("../img/border/bg.png");
   background-size: cover;
+  border-radius: 10px;
 }
 
 dialog::backdrop {
@@ -1696,14 +1697,18 @@ dialog::backdrop {
 }
 
 .close-modal-btn {
+  cursor: pointer;
   outline: none;
   border: none;
   background-color: rgba(248, 248, 255, 0.6);
+  transition: background-color 0.2s ease-out;
   padding: 0.3em 0.5em;
   border-radius: 10px;
 }
 .close-modal-btn:hover, .close-modal-btn:focus {
+  color: ghostwhite;
   background-color: #477fa6;
+  transition: background-color 0.2s ease-out;
 }
 
 /*# sourceMappingURL=style.css.map */
