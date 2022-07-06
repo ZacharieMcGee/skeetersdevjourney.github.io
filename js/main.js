@@ -78,9 +78,18 @@ Confirmation Modal Handler
     which will toggle the modal when auto refreshed */
 const modal = document.querySelector('#confirm-modal');
 const closeModalBtn = document.querySelector('.close-modal-btn');
+let blacklist = ["Crytoroprop"];
 
-function sentEmail() {
-  window.localStorage.setItem('showConfirmation', 'true');
+function isValid() {
+  let enteredName = document.querySelector('#formName').value;
+  for (i = 0; i<blacklist.length; i++) {
+    if (enteredName == blacklist[0]) {
+      return false;
+    } else {
+      window.localStorage.setItem('showConfirmation', 'true');
+      return true;
+    }
+  }
 }
 
 if (window.localStorage.getItem('showConfirmation') == 'true') {
