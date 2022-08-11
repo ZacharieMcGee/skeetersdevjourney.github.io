@@ -808,7 +808,7 @@ About Page Layout
 }
 
 .abt-anim {
-  max-width: 70%;
+  max-width: 60%;
 }
 
 .abt-text {
@@ -911,9 +911,6 @@ About Page Layout
 .skill {
   grid-column-end: span 2;
 }
-.skill:nth-child(4) {
-  grid-column-start: 2;
-}
 
 .skill-text {
   letter-spacing: 0.05em;
@@ -929,13 +926,18 @@ About Page Layout
   height: 40px;
 }
 
+@media (min-width: 481px) {
+  .skills-list {
+    grid-template-columns: repeat(7, 70px);
+  }
+
+  .skill:nth-child(4) {
+    grid-column-start: 2;
+  }
+}
 @media (min-width: 768px) {
   .about-anim {
     max-width: initial;
-  }
-
-  .skills-list {
-    grid-template-columns: repeat(6, 70px);
   }
 
   .fa-brands {
@@ -984,15 +986,17 @@ About Page Layout
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    flex-wrap: wrap;
     gap: 20px;
   }
 
+  .skill {
+    min-width: 55px;
+  }
+}
+@media (min-width: 1200px) {
   .skills-list {
     margin: initial;
-  }
-
-  .skill {
-    min-width: 48px;
   }
 }
 /*----------------------------------

@@ -32,7 +32,7 @@ About Page Layout
 }
 
 .abt-anim {
-  max-width: 70%;
+  max-width: 60%;
 }
 
 .abt-text {
@@ -140,9 +140,6 @@ About Page Layout
 
 .skill {
   grid-column-end: span 2;
-  &:nth-child(4) {
-    grid-column-start: 2;
-  }
 }
 
 .skill-text {
@@ -159,14 +156,23 @@ About Page Layout
   height: 40px;
 }
 
+@include mq('sm') {
+
+  .skills-list {
+    grid-template-columns: repeat(7, 70px)
+  }
+
+  .skill {
+    &:nth-child(4) {
+      grid-column-start: 2;
+    }
+  }
+}
+
 @include mq('med') {
 
   .about-anim {
     max-width: initial;
-  }
-
-  .skills-list {
-    grid-template-columns: repeat(6, 70px)
   }
 
   .fa-brands {
@@ -217,15 +223,17 @@ About Page Layout
       flex,
       flex-start,
       center,
+      $wrap: wrap,
       $gap: 20px
     );
   }
+  .skill {
+    min-width: 55px;
+  }
+}
 
+@include mq('xl') {
   .skills-list {
     margin: initial;
-  }
-
-  .skill {
-    min-width: 48px;
   }
 }
