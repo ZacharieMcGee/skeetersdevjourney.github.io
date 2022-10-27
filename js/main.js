@@ -88,7 +88,6 @@ function isValid() {
   for (i = 0; i<blacklist.length; i++) {
     console.log(`${blacklist[i]}`);
     if (enteredName == blacklist[i]) {
-      alert('form denied');
       formIsValid = false;
     } else {
       formIsValid = true;
@@ -107,12 +106,10 @@ function finalCheck() {
 
 function allow() {
   window.localStorage.setItem('showConfirmation', 'true');
-  alert('submitting');
   return true;
 }
 
 function deny() {
-  alert('cancel submit');
   return false;
 }
 
