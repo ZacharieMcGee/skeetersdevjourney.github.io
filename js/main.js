@@ -481,19 +481,19 @@ Project Site Links
 // links will trigger via js
 function launchSite(p) {
   if (p == projects[0]) {
-    window.open('https://skeetersdevjourney.github.io/Project-08-EmployeeDirectory/', '_blank');
+    window.open('https://zachariemcgee.github.io/Project-08-EmployeeDirectory/', '_blank');
   } else if (p == projects[1]) {
-    window.open('https://skeetersdevjourney.github.io/Project-06-GameApp/', '_blank');
+    window.open('https://zachariemcgee.github.io/Project-06-GameApp/', '_blank');
   } else if (p == projects[2]) {
-    window.open('https://skeetersdevjourney.github.io/Project-07-WebAppDashboard/', '_blank');
+    window.open('https://zachariemcgee.github.io/Project-07-WebAppDashboard/', '_blank');
   } else if (p == projects[3]) {
-    window.open('https://skeetersdevjourney.github.io/Project-05-PhotoGallery/', '_blank');
+    window.open('https://zachariemcgee.github.io/Project-05-PhotoGallery/', '_blank');
   } else if (p == projects[4]) {
-    window.open('https://skeetersdevjourney.github.io/Project-04-StyleGuide/', '_blank', '_blank');
+    window.open('https://zachariemcgee.github.io/Project-04-StyleGuide/', '_blank', '_blank');
   } else if (p == projects[5]) {
-    window.open('https://skeetersdevjourney.github.io/Project_03--Online_Registration_Form/', '_blank');
+    window.open('https://zachariemcgee.github.io/Project_03--Online_Registration_Form/', '_blank');
   } else if (p == projects[6]) {
-    window.open('https://skeetersdevjourney.github.io/Project02---Responsive-Layout-Design/', '_blank');
+    window.open('https://zachariemcgee.github.io/Project02---Responsive-Layout-Design/', '_blank');
   } 
 }
 
