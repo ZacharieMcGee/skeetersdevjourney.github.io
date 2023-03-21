@@ -1190,14 +1190,11 @@ Contact Layout
   align-items: center;
   flex-direction: column;
 }
-
-#cont-form input:nth-child(3) {
-  border-radius: 10px 10px 0 0;
+#cont-form input {
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
-
-#cont-form input:nth-child(4) {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+#cont-form input:nth-child(2) {
+  border-radius: 10px 10px 0 0;
 }
 
 #cont-form textarea,
