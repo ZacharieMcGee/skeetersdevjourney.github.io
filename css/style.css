@@ -1405,10 +1405,18 @@ Project Background Images
 }
 
 .proj-1-list .proj:first-child .proj-img {
-  background-image: url("../img/projects/directory.png");
+  background-image: url("../img/projects/flagfitness.png");
   background-position: top left;
 }
 .proj-1-list .proj:nth-child(2) .proj-img {
+  background-image: url("../img/projects/obligavids.png");
+  background-position: top center;
+}
+.proj-1-list .proj:nth-child(3) .proj-img {
+  background-image: url("../img/projects/directory.png");
+  background-position: top center;
+}
+.proj-1-list .proj:nth-child(4) .proj-img {
   background-image: url("../img/projects/wordgame.png");
   background-position: bottom center;
 }
